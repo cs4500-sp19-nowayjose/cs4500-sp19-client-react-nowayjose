@@ -6,10 +6,11 @@ export default class FAQService {
         }
         return this.instance
     }
+   
     findFAQById = id =>
-        fetch(`http://localhost:8080/api/faqs/${id}`)
+        fetch(`https://cs4500-sp19-nowayjose.herokuapp.com/api/faqs/${id}`)
             .then(response => response.json())
     findAllFAQs = () =>
-        fetch("http://localhost:8080/api/faqs")
+        fetch("https://cs4500-sp19-nowayjose.herokuapp.com/api/faqs")
             .then(response => response.json())
 }
