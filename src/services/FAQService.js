@@ -6,5 +6,8 @@ export default class FAQService {
         }
         return this.instance
     }
-   
+    findFAQById = id =>
+        fetch(`http://localhost:8080/api/faqs/${id}`)
+            .then(response => response.json())
+    
 }
