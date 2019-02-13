@@ -9,5 +9,7 @@ export default class FAQService {
     findFAQById = id =>
         fetch(`http://localhost:8080/api/faqs/${id}`)
             .then(response => response.json())
-    
+    findAllFAQs = () =>
+        fetch("http://localhost:8080/api/faqs")
+            .then(response => response.json())
 }
