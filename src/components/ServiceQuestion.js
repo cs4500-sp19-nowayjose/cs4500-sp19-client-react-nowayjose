@@ -27,7 +27,7 @@ class ServiceQuestions extends React.Component {
                         this.state.serviceQuestions
                             .map(serviceQuestion =>
                                 <tr key={serviceQuestion.id}>
-                                    <td>{serviceQuestion.question}</td>
+                                    <td>{serviceQuestion.title}</td>
                                 </tr>
                             )
                     }
