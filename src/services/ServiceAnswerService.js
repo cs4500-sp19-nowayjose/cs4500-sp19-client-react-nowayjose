@@ -1,8 +1,6 @@
 export default class ServiceAnswerService {
     static instance = null
-    static url = process.env.NODE_ENV || process.env.NODE_ENV === 'development' ?
-        'http://localhost:8080/' :
-        'https://cs4500-sp19-nowayjose.herokuapp.com/'
+    static url = 'https://cs4500-sp19-nowayjose.herokuapp.com/'
     static getInstance() {
         if(ServiceAnswerService.instance === null) {
             ServiceAnswerService.instance = new ServiceAnswerService()
