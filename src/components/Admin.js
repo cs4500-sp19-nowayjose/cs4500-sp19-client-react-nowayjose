@@ -3,6 +3,7 @@ import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import FAQs from './FAQs'
 import ServiceQuestion from './ServiceQuestion'
+import ServiceAnswers from './ServiceAnswers'
 
 const Admin = () =>
 <div>
@@ -14,7 +15,7 @@ const Admin = () =>
 
                 <Link to="/admin/service-questions">Service Questions</Link>
                 <br/>
-                <Link to="/admin/service-questions">Service Answers</Link>
+                <Link to="/admin/service-answers">Service Answers</Link>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
@@ -31,9 +32,9 @@ const Admin = () =>
                     component={ServiceQuestion}/>
 
                 <Route
-                    path="/admin/service-questions"
+                    path="/admin/service-answers"
                     exact
-                    component={ServiceQuestion}/>
+                    component={ServiceAnswers}/>
             </div>
         </div>
       </div>
