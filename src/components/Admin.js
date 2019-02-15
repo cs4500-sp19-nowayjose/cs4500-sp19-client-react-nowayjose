@@ -11,6 +11,11 @@ const Admin = () =>
       <div>
         <div className="row">
             <div className="col-3">
+
+                <Link to="/admin/service-questions">Service Questions</Link>
+                <br/>
+                <Link to="/admin/service-questions">Service Answers</Link>
+                <br/>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
             </div>
@@ -19,14 +24,12 @@ const Admin = () =>
                     path="/admin/faqs"
                     exact
                     component={FAQs}/>
-            </div>
-        </div>
-        <div className="row">
-            <div className="col-3">
-                <Link to="/admin/service-questions">Service Questions</Link>
-                <br/>
-            </div>
-            <div className="col-9">
+
+                <Route
+                    path="/admin/service-questions"
+                    exact
+                    component={ServiceQuestion}/>
+
                 <Route
                     path="/admin/service-questions"
                     exact
