@@ -7,9 +7,9 @@ export default class UserService {
         return this.instance
     }
     findUserById = userId =>
-        fetch(`http://localhost:8080/api/users/${userId}`)
+        fetch(`https://cs4500-sp19-nowayjose.herokuapp.com/api/${userId}`)
             .then(response => response.json())
     findAllUsers = () =>
-        fetch("http://localhost:8080/api/users")
+        fetch("https://cs4500-sp19-nowayjose.herokuapp.com/api/users")
             .then(response => response.json())
 }
