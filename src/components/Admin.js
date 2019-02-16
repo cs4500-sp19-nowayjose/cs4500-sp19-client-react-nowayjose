@@ -5,6 +5,7 @@ import Services from './Services'
 import ServiceQuestion from './ServiceQuestion'
 import ServiceAnswers from './ServiceAnswers'
 import FAQs from './FAQs'
+import FAQAnswers from './FaqAnswers'
 import ServiceCategories from "./ServiceCategories";
 
 const Admin = () =>
@@ -25,6 +26,8 @@ const Admin = () =>
                 <Link to="/admin/service-answers">Service Answers</Link>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
+                <br/>
+                <Link to="admin/faq-answers">FAQ Answers</Link>
                 <br/>
             </div>
             <div className="col-9">
@@ -52,6 +55,10 @@ const Admin = () =>
                     path="/admin/faqs"
                     exact
                     component={FAQs}/>
+                <Route
+                    path="/admin/faq-answers"
+                    exact
+                    component={FAQAnswers}/>
             </div>
         </div>
       </div>
