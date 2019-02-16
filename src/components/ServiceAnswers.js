@@ -29,7 +29,7 @@ class ServiceAnswers extends React.Component {
                                 <tr key={serviceAnswer.id}>
                                     <td><Link
                                     to={`/admin/service-answers/${serviceAnswer.id}`}>
-                                    {serviceAnswer.choiceAnswer}</td>
+                                    {serviceAnswer.choiceAnswer}</Link></td>
                                 </tr>
                             )
                     }

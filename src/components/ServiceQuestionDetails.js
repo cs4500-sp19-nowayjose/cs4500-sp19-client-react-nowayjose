@@ -43,7 +43,7 @@ class ServiceQuestionDetails extends React.Component {
                     onChange={(e) => this.selectServiceQuestion(e.target.value)}
                     className="form-control">
                     {
-                        this.state.serviceQuestios
+                        this.state.serviceQuestions
                             .map(serviceQuestion =>
                                 <option
                                     value={serviceQuestion.id}
