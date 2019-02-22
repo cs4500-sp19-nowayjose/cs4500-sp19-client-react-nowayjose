@@ -1,11 +1,15 @@
 import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
-import FAQs from './FAQs'
 import Users from './Users'
+import Services from './Services'
 import ServiceQuestion from './ServiceQuestion'
 import ServiceAnswers from './ServiceAnswers'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import ServiceAnswerDetails from './ServiceAnswerDetails'
+
+import FAQs from './FAQs 
+import ServiceCategories from "./ServiceCategories";
+
 
 const Admin = () =>
 <div>
@@ -14,18 +18,25 @@ const Admin = () =>
       <div>
         <div className="row">
             <div className="col-3">
-
+                <Link to="/admin/users">Users</Link>
+                <br/>
+                <Link to="/admin/services">Services</Link>
+                <br/>
+                <Link to="/admin/services-categories">Service Categories</Link>
+                <br/>
                 <Link to="/admin/service-questions">Service Questions</Link>
                 <br/>
                 <Link to="/admin/service-answers">Service Answers</Link>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
+
                 <Link to="/admin/users">Users</Link>
                 <br/>
                 <Link to="/admin/service-answers/1">Service Answers Details</Link>
                 <br/>
                 <Link to="/admin/service-questions/1">Service Question Details</Link>
+
             </div>
             <div className="col-9">
                 <Route
@@ -33,20 +44,23 @@ const Admin = () =>
                     exact
                     component={Users}/>
                 <Route
-                    path="/admin/faqs"
+                    path="/admin/services"
                     exact
-                    component={FAQs}/>
-
+                    component={Services}/>
+                <Route
+                    path="/admin/service-categories"
+                    exact
+                    component={ServiceCategories}/>
                 <Route
                     path="/admin/service-questions"
                     exact
                     component={ServiceQuestion}/>
-
                 <Route
                     path="/admin/service-answers"
                     exact
                     component={ServiceAnswers}/>
                 <Route
+
                     path="/admin/service-answers/:id"
                     exact
                     component={ServiceAnswerDetails}/>
@@ -54,6 +68,11 @@ const Admin = () =>
                     path="/admin/service-questions/:id"
                     exact
                     component={ServiceQuestionDetails}/>
+
+                    path="/admin/faqs"
+                    exact
+                    component={FAQs}/>
+
             </div>
         </div>
       </div>
