@@ -19,7 +19,7 @@ class FAQs extends React.Component {
         this.handleQuestionChange = this.handleQuestionChange.bind(this)
 
     }
-
+    
     componentDidMount() {
         this.faqService
             .findAllFAQs()
@@ -47,7 +47,36 @@ class FAQs extends React.Component {
             })));
     }
 
-   
+    createFAQ() {
+        var newFAQ = {
+            title: this.state.title,
+            question:this.state.question,
+        };
+
+        this.faqService.createFAQ(newFAQ).then(() => 
+        this.faqService.findAllFAQs()
+        .then(faqs =>
+            this.setState({
+                faqs: faqs
+            })));
+    }
+
+    updateFAQ() {
+        var updatedFaq = {
+            title: this.state.title,
+            question:this.state.question,
+            id: this.state.updateId
+        };
+
+        this.faqService.updateFAQ(updatedFaq).then(() => 
+        this.faqService.findAllFAQs()
+        .then(faqs =>
+            this.setState({
+                faqs: faqs
+            })));
+    }
+
+
 
 
     render() {
