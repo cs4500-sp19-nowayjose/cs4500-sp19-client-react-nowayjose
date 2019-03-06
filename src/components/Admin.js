@@ -4,10 +4,10 @@ import Users from './Users'
 import Services from './Services'
 import ServiceQuestion from './ServiceQuestion'
 import ServiceAnswers from './ServiceAnswers'
+import FAQs from './FAQs'
+import FAQAnswers from './FaqAnswers'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import ServiceAnswerDetails from './ServiceAnswerDetails'
-
-import FAQs from './FAQs 
 import ServiceCategories from "./ServiceCategories";
 
 
@@ -30,7 +30,8 @@ const Admin = () =>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
-
+                <Link to="admin/faq-answers">FAQ Answers</Link>
+                <br/>
                 <Link to="/admin/users">Users</Link>
                 <br/>
                 <Link to="/admin/service-answers/1">Service Answers Details</Link>
@@ -72,7 +73,10 @@ const Admin = () =>
                     path="/admin/faqs"
                     exact
                     component={FAQs}/>
-
+                <Route
+                    path="/admin/faq-answers"
+                    exact
+                    component={FAQAnswers}/>
             </div>
         </div>
       </div>
