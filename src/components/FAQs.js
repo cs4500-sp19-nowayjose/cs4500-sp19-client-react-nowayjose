@@ -19,6 +19,7 @@ class FAQs extends React.Component {
         this.handleQuestionChange = this.handleQuestionChange.bind(this)
 
     }
+
     componentDidMount() {
         this.faqService
             .findAllFAQs()
@@ -28,6 +29,25 @@ class FAQs extends React.Component {
                 })
             )
     }
+
+    editFAQ(faq) {
+        this.setState({
+            title: faq.title,
+            question: faq.question,
+            updateId: faq.id
+        })
+    }
+
+    deleteFAQ(faq) {
+        this.faqService.deleteFAQ(faq).then(() => 
+        this.faqService.findAllFAQs()
+        .then(faqs =>
+            this.setState({
+                faqs: faqs
+            })));
+    }
+
+   
 
 
     render() {
