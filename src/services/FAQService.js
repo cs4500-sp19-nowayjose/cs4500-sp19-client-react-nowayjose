@@ -33,4 +33,17 @@ export default class FAQService {
             }
             });
     }
+
+    updateFAQ(faq) {
+        return fetch('https://cs4500-sp19-nowayjose.herokuapp.com/api/faq/' + faq.id, {
+            method: 'put',
+            body: JSON.stringify(faq),
+            headers: {
+                'content-type': 'application/json',
+            },
+        })
+            .then(function (response) {
+                return response.json();
+            });
+    }
 }
