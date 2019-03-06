@@ -43,6 +43,15 @@ class ServiceAnswers extends React.Component {
                     <tbody>
                     {
                         this.state.serviceAnswers
+
+                            .map(serviceAnswer =>
+                                <tr key={serviceAnswer.id}>
+                                    <td><Link
+                                    to={`/admin/service-answers/${serviceAnswer.id}`}>
+                                    {serviceAnswer.choiceAnswer}</Link></td>
+                                </tr>
+                            )
+
                             .map(serviceAnswer => {
                                 const {
                                     id,
@@ -65,6 +74,7 @@ class ServiceAnswers extends React.Component {
                                     </tr>
                                 );
                             })
+
                     }
                     </tbody>
                 </table>
