@@ -76,7 +76,17 @@ class FAQs extends React.Component {
             })));
     }
 
+    handleTitleChange(event) {
+        this.setState({
+            title: event.target.value
+        })
+    }
 
+    handleQuestionChange(event) {
+        this.setState({
+            question: event.target.value
+        })
+    }
 
 
     render() {
