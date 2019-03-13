@@ -61,7 +61,6 @@ const Admin = () =>
                     exact
                     component={ServiceAnswers}/>
                 <Route
-
                     path="/admin/service-answers/:id"
                     exact
                     component={ServiceAnswerDetails}/>
@@ -69,7 +68,7 @@ const Admin = () =>
                     path="/admin/service-questions/:id"
                     exact
                     component={ServiceQuestionDetails}/>
-
+                <Route
                     path="/admin/faqs"
                     exact
                     component={FAQs}/>

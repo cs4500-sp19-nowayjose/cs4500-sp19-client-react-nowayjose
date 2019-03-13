@@ -27,9 +27,9 @@ class ServiceQuestions extends React.Component {
                         this.state.serviceQuestions
                             .map(serviceQuestion =>
                                 <tr key={serviceQuestion.id}>
-                                    <td><Link
+                                    <td>
                                     to={`/admin/service-questions/${serviceQuestion.id}`}>
-                                    {serviceQuestion.title}</Link></td>
+                                    {serviceQuestion.title}</td>
                                 </tr>
                             )
                     }
