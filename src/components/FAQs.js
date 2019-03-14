@@ -6,11 +6,12 @@ class FAQs extends React.Component {
         this.faqService = FAQService.getInstance()
         this.state = {
             faqs: [],
-            title: 'New title',
-            question: 'New question',
+            title: '',
+            question: '',
             updateId: -1,
             recordsNumber: 10,
             page: 1,
+            filter: {},
         }
 
         this.editFAQ = this.editFAQ.bind(this)
@@ -18,10 +19,12 @@ class FAQs extends React.Component {
         this.createFAQ = this.createFAQ.bind(this)
         this.updateFAQ = this.updateFAQ.bind(this)
         this.getPageNumbers = this.getPageNumbers.bind(this);
+        this.passesFilter = this.passesFilter.bind(this);
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleQuestionChange = this.handleQuestionChange.bind(this)
         this.handlePageChange = this.handlePageChange.bind(this)
         this.handleRecordsNumberChange = this.handleRecordsNumberChange.bind(this)
+        this.handleFilterChange = this.handleFilterChange.bind(this)
 
     }
     
@@ -88,6 +91,13 @@ class FAQs extends React.Component {
         }
         return nums
     }
+  
+    passesFilter(faq) {
+        var pass = true;
+        if(this.state.filter.question != undefined) pass &= faq.question == this.state.filter.question;
+        if(this.state.filter.title != undefined) pass &= faq.title == this.state.filter.title;
+        return pass;
+    }
 
     handleTitleChange(event) {
         this.setState({
@@ -117,7 +127,23 @@ class FAQs extends React.Component {
             page: newPage
         })
     }
+  
+    handleFilterChange(event) {
+        var newFilter = {};
+        if(this.state.filter.question == undefined && this.state.filter.title == undefined) {
+          if(this.state.question != "") newFilter.question = this.state.question;
+          if(this.state.title != "") newFilter.title = this.state.title;
+        }
+        else {
+          this.state.title = "";
+          this.state.question = "";
+        }
 
+        this.setState({
+          filter: newFilter
+        })
+    }
+  
     render() {
         return (
             <div>
@@ -130,8 +156,8 @@ class FAQs extends React.Component {
                             <th>&nbsp;</th>
                         </tr>
                         <tr>
-                            <th> <input type="text" onChange={this.handleTitleChange} value={this.state.title} placeholder="title" /> </th>
-                            <th> <input type="text" onChange={this.handleQuestionChange} value={this.state.question} placeholder="question" /> </th>
+                            <th> <input type="text" onChange={this.handleTitleChange} value={this.state.title} placeholder="Title" /> </th>
+                            <th> <input type="text" onChange={this.handleQuestionChange} value={this.state.question} placeholder="Question" /> </th>
                             <th> <button type="button" onClick={this.updateFAQ} className="btn btn-primary btn-block">Save</button> </th>
                             <th> <button type="button" onClick={this.createFAQ} className="btn btn-primary btn-block">Create</button> </th>
                         </tr>
@@ -142,6 +168,7 @@ class FAQs extends React.Component {
                                 .slice((this.state.page-1)*this.state.recordsNumber,
                                         Math.min(this.state.page*this.state.recordsNumber,
                                                 this.state.faqs.length))
+                                .filter(this.passesFilter)
                                 .map(faq =>
                                     <tr key={faq.id}>
                                         <td>{faq.title}</td>
@@ -172,7 +199,13 @@ class FAQs extends React.Component {
                                 }
                                 <button onClick={this.handlePageChange} disabled={this.state.page == this.state.faqs.length}>Next</button>
                             </td>
-                            <td><button>Search</button></td>
+                            <td>
+                                <button onClick={this.handleFilterChange}>
+                                    {    
+                                        (this.state.filter.question == undefined && this.state.filter.title == undefined) ? 'Search' : 'Clear Search'
+                                    }
+                                </button>
+                            </td>
                         </tr>
                     </tfoot>
                 </table>
