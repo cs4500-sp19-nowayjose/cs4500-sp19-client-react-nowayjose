@@ -94,8 +94,10 @@ class FAQs extends React.Component {
   
     passesFilter(faq) {
         var pass = true;
-        if(this.state.filter.question != undefined) pass &= faq.question == this.state.filter.question;
-        if(this.state.filter.title != undefined) pass &= faq.title == this.state.filter.title;
+        for(var i = 0; i < Object.keys(this.state.filter).length; i++) {
+          var prop = Object.keys(this.state.filter)[i];
+          pass &= faq[prop].toLowerCase().indexOf(this.state.filter[prop].toLowerCase()) >= 0;
+        }
         return pass;
     }
 
@@ -197,7 +199,7 @@ class FAQs extends React.Component {
                                         <button key={num} onClick={this.handlePageChange}>{num}</button>
                                     )
                                 }
-                                <button onClick={this.handlePageChange} disabled={this.state.page == this.state.faqs.length}>Next</button>
+                                <button onClick={this.handlePageChange} disabled={this.state.page == Math.round(this.state.faqs.length/this.state.recordsNumber)}>Next</button>
                             </td>
                             <td>
                                 <button onClick={this.handleFilterChange}>
