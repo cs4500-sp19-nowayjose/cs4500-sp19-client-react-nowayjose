@@ -1,6 +1,5 @@
 
-const USER_API_URL = 'https://cs4500-sp19-nowayjose.herokuapp.com/api/users';
-const API = 'https://cs4500-sp19-nowayjose.herokuapp.com/api/';
+const USER_API_URL = 'https://cs4500-sp19-nowayjose.herokuapp.com/api/users/';
 
 export default class UserService {
     static instance = null;
@@ -11,7 +10,7 @@ export default class UserService {
         return this.instance
     }
     findUserById = userId =>
-        fetch(USER_API_URL + `/${userId}`)
+        fetch(USER_API_URL + `${userId}`)
             .then(response => response.json())
     findAllUsers = () =>
         fetch(USER_API_URL)
@@ -30,7 +29,7 @@ export default class UserService {
     }
 
     updateUser = (userId, user) => {
-        fetch(API + `${userId}`, {
+        fetch(USER_API_URL + `${userId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
