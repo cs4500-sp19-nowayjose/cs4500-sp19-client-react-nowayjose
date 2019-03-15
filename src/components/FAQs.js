@@ -1,5 +1,6 @@
 import React from 'react'
 import FAQService from '../services/FAQService'
+
 class FAQs extends React.Component {
     constructor(props) {
         super(props)
@@ -17,6 +18,7 @@ class FAQs extends React.Component {
         this.updateFAQ = this.updateFAQ.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleQuestionChange = this.handleQuestionChange.bind(this)
+        this.selectFAQ = this.selectFAQ.bind(this)
 
     }
     
@@ -30,7 +32,8 @@ class FAQs extends React.Component {
             )
     }
 
-    editFAQ(faq) {
+    editFAQ(faq, e) {
+        e.stopPropagation();
         this.setState({
             title: faq.title,
             question: faq.question,
@@ -38,7 +41,8 @@ class FAQs extends React.Component {
         })
     }
 
-    deleteFAQ(faq) {
+    deleteFAQ(faq, e) {
+        e.stopPropagation();
         this.faqService.deleteFAQ(faq).then(() => 
         this.faqService.findAllFAQs()
         .then(faqs =>
@@ -88,6 +92,10 @@ class FAQs extends React.Component {
         })
     }
 
+    selectFAQ(id) {
+        this.props.history.push('/admin/faqs/' + id)
+    }
+
 
     render() {
         return (
@@ -111,11 +119,11 @@ class FAQs extends React.Component {
                         {
                             this.state.faqs
                                 .map(faq =>
-                                    <tr key={faq.id}>
+                                    <tr onClick={() => this.selectFAQ(faq.id)}  key={faq.id}>
                                         <td>{faq.title}</td>
-                                        <td>{faq.question}</td>
-                                        <th> <button type="button" onClick={() => this.editFAQ(faq)} class="btn btn-primary btn-block">Edit</button>  </th>
-                                        <th> <button type="button" onClick={() => this.deleteFAQ(faq)} class="btn btn-primary btn-block">Delete</button>    </th>
+                                        <td align="center">{faq.question}</td>
+                                        <th> <button type="button" onClick={(e) => this.editFAQ(faq, e)} class="btn btn-primary btn-block">Edit</button>  </th>
+                                        <th> <button type="button" onClick={(e) => this.deleteFAQ(faq, e)} class="btn btn-primary btn-block">Delete</button>    </th>
                                     </tr>
                                 )
                         }
