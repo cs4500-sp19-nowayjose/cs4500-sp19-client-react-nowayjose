@@ -1,5 +1,6 @@
 import React from 'react'
 import FAQService from '../services/FAQService'
+
 class FAQs extends React.Component {
     constructor(props) {
         super(props)
@@ -20,12 +21,12 @@ class FAQs extends React.Component {
         this.updateFAQ = this.updateFAQ.bind(this)
         this.getPageNumbers = this.getPageNumbers.bind(this);
         this.passesFilter = this.passesFilter.bind(this);
+        this.selectFAQ = this.selectFAQ.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleQuestionChange = this.handleQuestionChange.bind(this)
         this.handlePageChange = this.handlePageChange.bind(this)
         this.handleRecordsNumberChange = this.handleRecordsNumberChange.bind(this)
         this.handleFilterChange = this.handleFilterChange.bind(this)
-
     }
     
     componentDidMount() {
@@ -38,7 +39,8 @@ class FAQs extends React.Component {
             )
     }
 
-    editFAQ(faq) {
+    editFAQ(faq, e) {
+        e.stopPropagation();
         this.setState({
             title: faq.title,
             question: faq.question,
@@ -46,7 +48,8 @@ class FAQs extends React.Component {
         })
     }
 
-    deleteFAQ(faq) {
+    deleteFAQ(faq, e) {
+        e.stopPropagation();
         this.faqService.deleteFAQ(faq).then(() => 
         this.faqService.findAllFAQs()
         .then(faqs =>
@@ -100,6 +103,10 @@ class FAQs extends React.Component {
         }
         return pass;
     }
+    
+    selectFAQ(id) {
+        this.props.history.push('/admin/faqs/' + id)
+    }
 
     handleTitleChange(event) {
         this.setState({
@@ -141,6 +148,7 @@ class FAQs extends React.Component {
           this.state.question = "";
         }
 
+
         this.setState({
           filter: newFilter
         })
@@ -172,11 +180,11 @@ class FAQs extends React.Component {
                                                 this.state.faqs.length))
                                 .filter(this.passesFilter)
                                 .map(faq =>
-                                    <tr key={faq.id}>
+                                    <tr onClick={() => this.selectFAQ(faq.id)}  key={faq.id}>
                                         <td>{faq.title}</td>
-                                        <td>{faq.question}</td>
-                                        <th> <button type="button" onClick={() => this.editFAQ(faq)} className="btn btn-primary btn-block">Edit</button>  </th>
-                                        <th> <button type="button" onClick={() => this.deleteFAQ(faq)} className="btn btn-primary btn-block">Delete</button>    </th>
+                                        <td align="center">{faq.question}</td>
+                                        <th> <button type="button" onClick={(e) => this.editFAQ(faq, e)} class="btn btn-primary btn-block">Edit</button>  </th>
+                                        <th> <button type="button" onClick={(e) => this.deleteFAQ(faq, e)} class="btn btn-primary btn-block">Delete</button>    </th>
                                     </tr>
                                 )
                         }
