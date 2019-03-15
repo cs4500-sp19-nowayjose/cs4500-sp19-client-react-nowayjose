@@ -5,18 +5,29 @@ class ServiceQuestions extends React.Component {
         super(props)
         this.serviceQuestionService = ServiceQuestionService.getInstance()
         this.state = {
-            serviceQuestions: []
+            serviceQuestions: [{
+              id: 1288345,
+              title: "Hi there"
+            }]
         }
     }
     componentDidMount() {
-        this.serviceQuestionService
-            .findAllServiceQuestions()
-            .then(serviceQuestions =>
-                this.setState({
-                    serviceQuestions: serviceQuestions
-                })
-            )
+        // this.serviceQuestionService
+        //     .findAllServiceQuestions()
+        //     .then(serviceQuestions =>
+        //         this.setState({
+        //             serviceQuestions: serviceQuestions
+        //         })
+        //     )
     }
+
+    deleteQuestion(id) {
+      this.serviceQuestionService.delete(id)
+      this.setState(Object.assign(this.state, {
+        serviceQuestions: this.state.serviceQuestions.filter(question => question.id != id)
+      }))
+    }
+
     render() {
         return(
             <div>
@@ -30,7 +41,7 @@ class ServiceQuestions extends React.Component {
                                     <td>
                                     to={`/admin/service-questions/${serviceQuestion.id}`}>
                                     {serviceQuestion.title}</td>
-                                  <span onClick={() => this.serviceQuestionService.delete(serviceQuestion.id)}>X</span>
+                                  <span onClick={() => this.deleteQuestion(serviceQuestion.id)}>X</span>
                                 </tr>
                             )
                     }

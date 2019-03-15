@@ -34,6 +34,13 @@ class ServiceAnswers extends React.Component {
         )
     }
 
+    deleteAnswer(id) {
+      this.serviceAnswerService.delete(id)
+      this.setState(Object.assign(this.state, {
+        serviceAnswers: this.state.serviceAnswers.filter(answer => answer.id != id)
+      }))
+    }
+
     render() {
         return(
             <div>
@@ -70,7 +77,7 @@ class ServiceAnswers extends React.Component {
                                         <td align="center">{trueFalseAnswer}</td>
                                         <td align="center">{maxRangeAnswer}</td>
                                         <td align="center">{minRangeAnswer}</td>
-                                        <span onClick={() => this.serviceAnswerService.delete(id)}>X</span>
+                                        <span onClick={() => this.deleteAnswer(id)}>X</span>
                                     </tr>
                                 );
                             })
