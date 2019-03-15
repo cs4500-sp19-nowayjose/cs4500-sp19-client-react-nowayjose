@@ -5,6 +5,7 @@ import Services from './Services'
 import ServiceQuestion from './ServiceQuestion'
 import ServiceAnswers from './ServiceAnswers'
 import FAQs from './FAQs'
+import FAQDetails from './FAQDetails'
 import FAQAnswers from './FaqAnswers'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import ServiceAnswerDetails from './ServiceAnswerDetails'
@@ -72,6 +73,10 @@ const Admin = () =>
                     path="/admin/faqs"
                     exact
                     component={FAQs}/>
+                <Route
+                    path="/admin/faqs/:id"
+                    exact
+                    component={FAQDetails}/>
                 <Route
                     path="/admin/faq-answers"
                     exact
