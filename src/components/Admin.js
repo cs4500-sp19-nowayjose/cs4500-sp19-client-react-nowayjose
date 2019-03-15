@@ -8,7 +8,7 @@ import FAQs from './FAQs'
 import FAQAnswers from './FaqAnswers'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import ServiceAnswerDetails from './ServiceAnswerDetails'
-import ServiceCategories from "./ServiceCategories";
+import ServiceCategories from './ServiceCategories'
 
 
 const Admin = () =>
