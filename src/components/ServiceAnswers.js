@@ -70,7 +70,7 @@ class ServiceAnswers extends React.Component {
                                         <td align="center">{trueFalseAnswer}</td>
                                         <td align="center">{maxRangeAnswer}</td>
                                         <td align="center">{minRangeAnswer}</td>
-                                        
+                                        <span onClick={() => this.serviceAnswerService.delete(id)}>X</span>
                                     </tr>
                                 );
                             })

@@ -30,6 +30,7 @@ class ServiceQuestions extends React.Component {
                                     <td>
                                     to={`/admin/service-questions/${serviceQuestion.id}`}>
                                     {serviceQuestion.title}</td>
+                                  <span onClick={() => this.serviceQuestionService.delete(serviceQuestion.id)}>X</span>
                                 </tr>
                             )
                     }
