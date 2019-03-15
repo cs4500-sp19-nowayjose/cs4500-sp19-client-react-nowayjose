@@ -10,10 +10,15 @@ class ServiceQuestions extends React.Component {
             resultsPerPage: 10
         }
     }
+    incrPage(incr) {
+      this.setPage(this.state.page + incr)
+    }
     setPage(pageNumber) {
-      this.setState(Object.assign(this.state, {
-        page: pageNumber
-      }))
+      if (pageNumber >= 0 && pageNumber < Math.ceil(this.state.serviceQuestions.length / this.state.resultsPerPage)) {
+        this.setState(Object.assign(this.state, {
+          page: pageNumber
+        }))
+      }
     }
     setResultsPerPage(value) {
       var resultsPerPage = this.state.serviceQuestions.length
@@ -44,7 +49,7 @@ class ServiceQuestions extends React.Component {
                             .slice(this.state.page * this.state.resultsPerPage, (this.state.page + 1) * this.state.resultsPerPage)
                             .map(serviceQuestion =>
                                 <tr key={serviceQuestion.id}>
-                                    <td>
+                                    <td
                                     to={`/admin/service-questions/${serviceQuestion.id}`}>
                                     {serviceQuestion.title}</td>
                                 </tr>
@@ -53,11 +58,13 @@ class ServiceQuestions extends React.Component {
                     </tbody>
                 </table>
                 <div>
+                  <a onClick={() => this.incrPage(-1)}>Prev</a>
                   {
                     [...Array(Math.ceil(this.state.serviceQuestions.length / this.state.resultsPerPage)).keys()].map(pageNumber =>
                       <a onClick={() => this.setPage(pageNumber)}>{pageNumber + 1} </a>
                     )
                   }
+                  <a onClick={() => this.incrPage(1)}>Next</a>
                   <select onChange={(e) => this.setResultsPerPage(e.target.value)}>
                     <option value="10">10</option>
                     <option value="25">25</option>
