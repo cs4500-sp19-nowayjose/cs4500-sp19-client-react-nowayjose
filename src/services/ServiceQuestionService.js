@@ -12,4 +12,13 @@ export default class ServiceQuestionService {
     findAllServiceQuestions = () =>
         fetch("https://cs4500-sp19-nowayjose.herokuapp.com/api/service_question")
             .then(response => response.json())
+    findServiceQuestionByCriteria = (body) =>
+        fetch("https://cs4500-sp19-nowayjose.herokuapp.com/api/service_question/filter", {
+            method: 'GET',
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials: "same-origin"
+        }).then(response => response.json())
 }
