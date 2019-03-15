@@ -14,7 +14,7 @@ export default class ServiceQuestionService {
             .then(response => response.json())
     findServiceQuestionByCriteria = (body) =>
         fetch("https://cs4500-sp19-nowayjose.herokuapp.com/api/service_question/filter", {
-            method: 'GET',
+            method: 'POST',
             body: JSON.stringify(body),
             headers: {
                 "Content-Type": "application/json"

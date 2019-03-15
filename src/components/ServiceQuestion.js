@@ -13,7 +13,6 @@ class ServiceQuestions extends React.Component {
             filter: {
               title: '',
               description: '',
-              serviceQuestionType: '',
             }
         }
     }
@@ -39,11 +38,14 @@ class ServiceQuestions extends React.Component {
     componentDidMount() {
         this.serviceQuestionService
             .findAllServiceQuestions()
-            .then(serviceQuestions =>
-                this.setState(Object.assign(this.state, {
-                    serviceQuestions: serviceQuestions
-                }))
-            )
+            .then(serviceQuestions => {
+              if (serviceQuestions.status === 500) {
+                return;
+              }
+              this.setState(Object.assign(this.state, {
+                  serviceQuestions: serviceQuestions
+              }))
+            })
     }
 
     renderTitleHeader() {
@@ -57,7 +59,7 @@ class ServiceQuestions extends React.Component {
       )
     }
 
-    handleFormChange = (event, type) => {
+    handleFilterChange = (event, type) => {
       const { value } = event.target;
       this.setState(prevState => {
         return {
@@ -69,31 +71,35 @@ class ServiceQuestions extends React.Component {
       });
     }
 
+    handleQuestionTypeChange = (event) => {
+      const { value } = event.target;
+    }
+
     renderFilterHeader() {
       const { filter: { title, description, serviceQuestionType} } = this.state;
       return (
         <tr>
-          <th><input type="text" value={title} onChange={(e) => this.handleFormChange(e, 'title')}/></th>
-          <th><input type="text" value={description} onChange={(e) => this.handleFormChange(e, 'description')}/></th>
-          <th><input type="text" value={serviceQuestionType} onChange={(e) => this.handleFormChange(e, 'serviceQuestionType')}/></th>
+          <th><input type="text" value={title} onChange={(e) => this.handleFilterChange(e, 'title')}/></th>
+          <th><input type="text" value={description} onChange={(e) => this.handleFilterChange(e, 'description')}/></th>
+          <th><input type="text" value={serviceQuestionType} onChange={this.handleQuestionTypeChange}/></th>
 
           <th>
-              <button type="button" class="btn btn-primary">Add</button>
+              <button type="button" className="btn btn-primary">Add</button>
           </th>
           <th>
-              <button type="button" class="btn btn-success">Save</button>
+              <button type="button" className="btn btn-success">Save</button>
           </th>
         </tr>
       )
     }
 
     filterData = async () => {
-      const result = await this.serviceQuestionService().findServiceQuestionByCriteria(this.state.filter);
+      const result = await this.serviceQuestionService.findServiceQuestionByCriteria(this.state.filter);
       this.setState({
-        serviceQuestions: result,
+        serviceQuestions: result.length ? result : [],
         page: 0,
         resultsPerPage: 10,
-        filter: { title: '', description: '', serviceQuestionType: ''},
+        filter: { title: '', description: '' },
       }) 
     }
 
@@ -101,10 +107,10 @@ class ServiceQuestions extends React.Component {
       return (
         <button 
           onClick={this.filterData}  
-          class="btn-lg btn" 
+          className="btn-lg btn" 
           style={{ position: 'fixed', right: 10, color: '#FEC107'}}
         >
-          <i class="fas fa-search fa-2x"></i>
+          <i className="fas fa-search fa-2x"></i>
         </button>
       )
     }
