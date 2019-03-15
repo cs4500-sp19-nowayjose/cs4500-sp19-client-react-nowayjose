@@ -76,7 +76,6 @@ class ServiceAnswers extends React.Component {
                                     minRangeAnswer,
                                     user,
                                 } = serviceAnswer;
-                                console.log(serviceAnswer)
                                 return (
                                     <tr key={id} to={`/admin/service-answers/${id}`}>
                                         <td align="center">{user ? user.id : ""}</td>
