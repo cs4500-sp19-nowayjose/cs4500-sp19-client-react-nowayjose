@@ -17,7 +17,7 @@ export default class UserService {
             .then(response => response.json())
 
     createUser = (user) => {
-        fetch(USER_API_URL, {
+        return fetch(USER_API_URL, {
             body: JSON.stringify(user),
             headers: {
                 'Content-Type' : 'application/json'
@@ -28,22 +28,23 @@ export default class UserService {
         })
     }
 
-    updateUser = (userId, user) => {
-        fetch(USER_API_URL + `${userId}`, {
+    updateUser = (user) => {
+        return fetch(USER_API_URL + user.id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
+        }).then(response => {
+            console.log(response)
+            return response.json();
         });
     }
 
     deleteUser = (userId) => {
-        fetch(USER_API_URL + `${userId}`, {
+        return fetch(USER_API_URL + `${userId}`, {
             method: 'DELETE'
             }
-        ).then(response => {
-                return response;
-            });
+        );
     }
 }
