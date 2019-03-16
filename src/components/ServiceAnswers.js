@@ -5,7 +5,9 @@ class ServiceAnswers extends React.Component {
         super(props)
         this.serviceAnswerService = ServiceAnswerService.getInstance()
         this.state = {
-            serviceAnswers: []
+            serviceAnswers: [],
+            page: 0,
+            resultsPerPage: 10
         }
     }
 
@@ -17,6 +19,26 @@ class ServiceAnswers extends React.Component {
                     serviceAnswers: serviceAnswers
                 })
             )
+    }
+    incrPage(incr) {
+      this.setPage(this.state.page + incr)
+    }
+
+    setPage(pageNumber) {
+      if (pageNumber >= 0 && pageNumber < Math.ceil(this.state.serviceAnswers.length / this.state.resultsPerPage)) {
+        this.setState(Object.assign(this.state, {
+          page: pageNumber
+        }))
+      }
+    }
+    setResultsPerPage(value) {
+      var resultsPerPage = this.state.serviceAnswers.length
+      if (value !== "all") {
+        resultsPerPage = parseInt(value)
+      }
+      this.setState(Object.assign(this.state, {
+        resultsPerPage: resultsPerPage
+      }))
     }
 
     renderTableHeaders() {
@@ -50,15 +72,7 @@ class ServiceAnswers extends React.Component {
                     <tbody>
                     {
                         this.state.serviceAnswers
-
-                            .map(serviceAnswer =>
-                                <tr key={serviceAnswer.id}>
-                                    <td>
-                                    to={`/admin/service-answers/${serviceAnswer.id}`}>
-                                    {serviceAnswer.choiceAnswer}</td>
-                                </tr>
-                            )
-
+                            .slice(this.state.page * this.state.resultsPerPage, (this.state.page + 1) * this.state.resultsPerPage)
                             .map(serviceAnswer => {
                                 const {
                                     id,
@@ -70,7 +84,7 @@ class ServiceAnswers extends React.Component {
                                     user,
                                 } = serviceAnswer;
                                 return (
-                                    <tr key={id}>
+                                    <tr key={id} to={`/admin/service-answers/${id}`}>
                                         <td align="center">{user ? user.id : ""}</td>
                                         <td align="center">{serviceQuestion ? serviceQuestion.id : ""}</td>
                                         <td align="center">{choiceAnswer}</td>
@@ -85,6 +99,22 @@ class ServiceAnswers extends React.Component {
                     }
                     </tbody>
                 </table>
+                <div>
+                  <a onClick={() => this.incrPage(-1)}>Prev</a>
+                  {
+                    [...Array(Math.ceil(this.state.serviceAnswers.length / this.state.resultsPerPage)).keys()].map(pageNumber =>
+                      <a onClick={() => this.setPage(pageNumber)}>{pageNumber + 1} </a>
+                    )
+                  }
+                  <a onClick={() => this.incrPage(1)}>Next</a>
+                  <select onChange={(e) => this.setResultsPerPage(e.target.value)}>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="all">all</option>
+                  </select>
+                </div>
             </div>
         )
     }

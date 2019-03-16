@@ -16,14 +16,16 @@ class FAQDetails extends React.Component {
         this.faqService
             .findAllFAQs()
             .then(faqs => {
-                    this.props.history.push("/admin/faqs/" + faqs[0].id)
-                    this.setState({
-                        faqs: faqs,
-                        faq: faqs[0]
+                    this.faqService.findFAQById(this.props.match.params.id).then(faq => {
+                        this.setState({
+                            faqs: faqs,
+                            faq: faq
+                        })
                     })
                 }
             )
     }
+
     selectFAQ = id =>
         this.faqService
             .findFAQById(id)
@@ -37,7 +39,7 @@ class FAQDetails extends React.Component {
     render() {
         return(
             <div>
-                <h3>Service Answer Details</h3>
+                <h3>FAQ Details</h3>
                 <select
                     value={this.state.faq.id}
                     onChange={(e) => this.selectFAQ(e.target.value)}
@@ -53,11 +55,16 @@ class FAQDetails extends React.Component {
                             )
                     }
                 </select>
-                <label>Service Answer Answer</label><br/>
+                <br/>
                 <input
                     onChange={() => {}}
                     className="form-control"
                     value={this.state.faq.title}/>
+                <br/>
+                <input
+                    onChange={() => {}}
+                    className="form-control"
+                    value={this.state.faq.question}/>
             </div>
         )
     }

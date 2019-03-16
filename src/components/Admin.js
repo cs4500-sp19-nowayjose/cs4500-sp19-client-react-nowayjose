@@ -2,13 +2,15 @@ import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import Users from './Users'
 import Services from './Services'
+import ServiceDetails from './ServiceDetails'
 import ServiceQuestion from './ServiceQuestion'
 import ServiceAnswers from './ServiceAnswers'
 import FAQs from './FAQs'
+import FAQDetails from './FAQDetails'
 import FAQAnswers from './FaqAnswers'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import ServiceAnswerDetails from './ServiceAnswerDetails'
-import ServiceCategories from "./ServiceCategories";
+import ServiceCategories from './ServiceCategories'
 
 
 const Admin = () =>
@@ -22,7 +24,7 @@ const Admin = () =>
                 <br/>
                 <Link to="/admin/services">Services</Link>
                 <br/>
-                <Link to="/admin/services-categories">Service Categories</Link>
+                <Link to="/admin/service-categories">Service Categories</Link>
                 <br/>
                 <Link to="/admin/service-questions">Service Questions</Link>
                 <br/>
@@ -32,12 +34,9 @@ const Admin = () =>
                 <br/>
                 <Link to="admin/faq-answers">FAQ Answers</Link>
                 <br/>
-                <Link to="/admin/users">Users</Link>
-                <br/>
                 <Link to="/admin/service-answers/1">Service Answers Details</Link>
                 <br/>
                 <Link to="/admin/service-questions/1">Service Question Details</Link>
-
             </div>
             <div className="col-9">
                 <Route
@@ -48,6 +47,10 @@ const Admin = () =>
                     path="/admin/services"
                     exact
                     component={Services}/>
+                <Route
+                    path="/admin/services/:id"
+                    exact
+                    component={ServiceDetails}/>
                 <Route
                     path="/admin/service-categories"
                     exact
@@ -72,6 +75,10 @@ const Admin = () =>
                     path="/admin/faqs"
                     exact
                     component={FAQs}/>
+                <Route
+                    path="/admin/faqs/:id"
+                    exact
+                    component={FAQDetails}/>
                 <Route
                     path="/admin/faq-answers"
                     exact
