@@ -5,7 +5,8 @@ class FAQAnswers extends React.Component {
         super(props)
         this.faqAnswerService = FAQAnswerService.getInstance()
         this.state = {
-            faqAnswers: []
+            faqAnswers: [],
+            updateId: -1
         }
     }
     componentDidMount() {
