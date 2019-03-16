@@ -10,7 +10,7 @@ class FAQs extends React.Component {
             title: '',
             question: '',
             updateId: -1,
-            recordsNumber: 10,
+            recordsNumber: 3,
             page: 1,
             filter: {},
         }
@@ -128,8 +128,8 @@ class FAQs extends React.Component {
 
     handlePageChange(event) {
         var newPage = this.state.page;
-        if(event.target.value == "Previous") newPage--;
-        else if(event.target.value == "Next") newPage++;
+        if(event.target.innerHTML == "Previous") newPage = Math.max(newPage - 1, 1);
+        else if(event.target.innerHTML == "Next") newPage = Math.min(newPage + 1, this.state.faqs.length/this.state.recordsNumber);
         else newPage = event.target.innerHTML;
         
         this.setState({
@@ -183,8 +183,8 @@ class FAQs extends React.Component {
                                     <tr onClick={() => this.selectFAQ(faq.id)}  key={faq.id}>
                                         <td>{faq.title}</td>
                                         <td align="center">{faq.question}</td>
-                                        <th> <button type="button" onClick={(e) => this.editFAQ(faq, e)} class="btn btn-primary btn-block">Edit</button>  </th>
-                                        <th> <button type="button" onClick={(e) => this.deleteFAQ(faq, e)} class="btn btn-primary btn-block">Delete</button>    </th>
+                                        <th> <button type="button" onClick={(e) => this.editFAQ(faq, e)} className="btn btn-primary btn-block">Edit</button>  </th>
+                                        <th> <button type="button" onClick={(e) => this.deleteFAQ(faq, e)} className="btn btn-primary btn-block">Delete</button>    </th>
                                     </tr>
                                 )
                         }
@@ -193,6 +193,7 @@ class FAQs extends React.Component {
                         <tr>
                             <td>
                                 <select onChange={this.handleRecordsNumberChange} value={this.state.recordsNumber}>
+                                    <option>3</option>
                                     <option>10</option>
                                     <option>25</option>
                                     <option>50</option>
@@ -201,16 +202,18 @@ class FAQs extends React.Component {
                                 </select>
                             </td>
                             <td>
-                                <button onClick={this.handlePageChange} disabled={this.state.page == 1}>Previous</button>
-                                {
-                                    this.getPageNumbers().map(num =>
-                                        <button key={num} onClick={this.handlePageChange}>{num}</button>
-                                    )
-                                }
-                                <button onClick={this.handlePageChange} disabled={this.state.page == Math.round(this.state.faqs.length/this.state.recordsNumber)}>Next</button>
+                                <ul className="pagination">
+                                    <li className="page-item"><a className="page-link" onClick={this.handlePageChange} disabled={this.state.page == 1}>Previous</a></li>
+                                        {
+                                            this.getPageNumbers().map(num =>
+                                                <li key={num} className="page-item"><a className="page-link" onClick={this.handlePageChange}>{num}</a></li>
+                                            )
+                                        }
+                                    <li className="page-item"><a className="page-link" onClick={this.handlePageChange} disabled={this.state.page == Math.round(this.state.faqs.length/this.state.recordsNumber)}>Next</a></li>
+                                </ul>
                             </td>
                             <td>
-                                <button onClick={this.handleFilterChange}>
+                                <button className="btn btn-secondary btn-block" onClick={this.handleFilterChange}>
                                     {    
                                         (this.state.filter.question == undefined && this.state.filter.title == undefined) ? 'Search' : 'Clear Search'
                                     }
