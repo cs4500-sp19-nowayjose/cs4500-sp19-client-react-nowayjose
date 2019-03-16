@@ -10,7 +10,7 @@ class FAQs extends React.Component {
             title: '',
             question: '',
             updateId: -1,
-            recordsNumber: 3,
+            recordsNumber: 10,
             page: 1,
             filter: {},
         }
@@ -193,7 +193,6 @@ class FAQs extends React.Component {
                         <tr>
                             <td>
                                 <select onChange={this.handleRecordsNumberChange} value={this.state.recordsNumber}>
-                                    <option>3</option>
                                     <option>10</option>
                                     <option>25</option>
                                     <option>50</option>
