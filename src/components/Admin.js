@@ -32,8 +32,6 @@ const Admin = () =>
                 <br/>
                 <Link to="admin/faq-answers">FAQ Answers</Link>
                 <br/>
-                <Link to="/admin/users">Users</Link>
-                <br/>
                 <Link to="/admin/service-answers/1">Service Answers Details</Link>
                 <br/>
                 <Link to="/admin/service-questions/1">Service Question Details</Link>
