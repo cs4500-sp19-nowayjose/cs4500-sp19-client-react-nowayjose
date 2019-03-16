@@ -1,3 +1,5 @@
+
+const CATEGORY_API = 'http://cs4500-sp19-nowayjose.herokuapp.com/api/categories/'
 export default class ServiceCategoryService {
     static instance = null;
     static getInstance() {
@@ -7,14 +9,18 @@ export default class ServiceCategoryService {
         return this.instance
     }
     findServiceCategoryById = categoryId =>
-        fetch(`http://cs4500-sp19-nowayjose.herokuapp.com/api/service-categories/${categoryId}`)
-            .then(response => response.json())
+        fetch(CATEGORY_API + `${categoryId}`)
+            .then(response => {
+
+                response.json()
+            })
     findAllServiceCategories = () =>
-        fetch("http://cs4500-sp19-nowayjose.herokuapp.com/api/service-categories")
-            .then(response => response.json())
+        fetch(CATEGORY_API)
+            .then(response => {
+                return response.json()})
 
     createServiceCategory(serviceCategory) {
-        return fetch('http://cs4500-sp19-nowayjose.herokuapp.com/api/service-categories', {
+        return fetch(CATEGORY_API, {
             method: 'post',
             headers: {
                 'content-type': 'application/json'
@@ -25,7 +31,7 @@ export default class ServiceCategoryService {
     }
 
     deleteServiceCategory(serviceCategory) {
-        return fetch('http://cs4500-sp19-nowayjose.herokuapp.com/api/service-categories/' + serviceCategory.id, {
+        return fetch(CATEGORY_API + serviceCategory.id, {
             method: 'delete',
             headers: {
                 'content-type': 'application/json'
@@ -34,7 +40,7 @@ export default class ServiceCategoryService {
     }
 
     updateServiceCategory(serviceCategory) {
-        return fetch('http://cs4500-sp19-nowayjose.herokuapp.com/api/service-categories/' + serviceCategory.id, {
+        return fetch(CATEGORY_API + serviceCategory.id, {
             method: 'put',
             body: JSON.stringify(serviceCategory),
             headers: {
