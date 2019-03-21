@@ -7,7 +7,7 @@ class FAQAnswers extends React.Component {
         this.state = {
             faqAnswers: [],
             question: 'New question',
-            answer: 'New answer'
+            answer: 'New answer',
         }
     }
     componentDidMount() {

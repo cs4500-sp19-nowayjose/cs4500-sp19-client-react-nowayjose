@@ -10,7 +10,7 @@ import FAQDetails from './FAQDetails'
 import FAQAnswers from './FaqAnswers'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import ServiceAnswerDetails from './ServiceAnswerDetails'
-import ServiceCategories from "./ServiceCategories";
+import ServiceCategories from './ServiceCategories'
 
 
 const Admin = () =>
@@ -24,7 +24,7 @@ const Admin = () =>
                 <br/>
                 <Link to="/admin/services">Services</Link>
                 <br/>
-                <Link to="/admin/services-categories">Service Categories</Link>
+                <Link to="/admin/service-categories">Service Categories</Link>
                 <br/>
                 <Link to="/admin/service-questions">Service Questions</Link>
                 <br/>
@@ -33,8 +33,6 @@ const Admin = () =>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
                 <Link to="/admin/faq-answers">FAQ Answers</Link>
-                <br/>
-                <Link to="/admin/users">Users</Link>
                 <br/>
                 <Link to="/admin/service-answers/1">Service Answers Details</Link>
                 <br/>

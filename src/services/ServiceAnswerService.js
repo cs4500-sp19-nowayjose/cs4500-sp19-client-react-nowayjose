@@ -13,4 +13,7 @@ export default class ServiceAnswerService {
     findAllServiceAnswers = () =>
         fetch(`${ServiceAnswerService.url}api/service_question_answers`)
             .then(response => response.json())
+    delete = id =>
+        fetch(`${ServiceAnswerService.url}api/service_question_answers/${id}`, {method: "DELETE"})
+            .then(response => response.json())
 }

@@ -7,7 +7,10 @@ class ServiceQuestions extends React.Component {
         super(props)
         this.serviceQuestionService = ServiceQuestionService.getInstance()
         this.state = {
-            serviceQuestions: [],
+            serviceQuestions: [{
+              id: 1288345,
+              title: "Hi there"
+            }],
             page: 0,
             resultsPerPage: 10,
             filter: {
@@ -36,16 +39,23 @@ class ServiceQuestions extends React.Component {
       }))
     }
     componentDidMount() {
-        this.serviceQuestionService
-            .findAllServiceQuestions()
-            .then(serviceQuestions => {
-              if (serviceQuestions.status === 500) {
-                return;
-              }
-              this.setState(Object.assign(this.state, {
-                  serviceQuestions: serviceQuestions
-              }))
-            })
+      // this.serviceQuestionService
+      //     .findAllServiceQuestions()
+      //     .then(serviceQuestions => {
+      //       if (serviceQuestions.status === 500) {
+      //         return;
+      //       }
+      //       this.setState(Object.assign(this.state, {
+      //           serviceQuestions: serviceQuestions
+      //       }))
+      //     })
+    }
+
+    deleteQuestion(id) {
+      this.serviceQuestionService.delete(id)
+      this.setState(Object.assign(this.state, {
+        serviceQuestions: this.state.serviceQuestions.filter(question => question.id != id)
+      }))
     }
 
     renderTitleHeader() {
@@ -100,14 +110,14 @@ class ServiceQuestions extends React.Component {
         page: 0,
         resultsPerPage: 10,
         filter: { title: '', description: '' },
-      }) 
+      })
     }
 
     renderFilterButton() {
       return (
-        <button 
-          onClick={this.filterData}  
-          className="btn-lg btn" 
+        <button
+          onClick={this.filterData}
+          className="btn-lg btn"
           style={{ position: 'fixed', right: 10, color: '#FEC107'}}
         >
           <i className="fas fa-search fa-2x"></i>
@@ -130,13 +140,12 @@ class ServiceQuestions extends React.Component {
                             .slice(this.state.page * this.state.resultsPerPage, (this.state.page + 1) * this.state.resultsPerPage)
                             .map(serviceQuestion =>
                                 <tr key={serviceQuestion.id}>
-                                  <td>
-                                    <Link to={`/admin/service-questions/${serviceQuestion.id}`}>
-                                      {serviceQuestion.title}
-                                    </Link>
-                                  </td>
+                                    <td>
+                                    to={`/admin/service-questions/${serviceQuestion.id}`}>
+                                    {serviceQuestion.title}</td>
                                   <td>{serviceQuestion.description}</td>
                                   <td>{serviceQuestion.serviceQuestionType}</td>
+                                  <span onClick={() => this.deleteQuestion(serviceQuestion.id)}>X</span>
                                 </tr>
                             )
                     }
