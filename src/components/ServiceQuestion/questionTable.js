@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function questionTable({ 
   filterState,
@@ -79,8 +80,10 @@ function TableRow({ serviceQuestion, deleteQuestion }) {
   return (
     <tr key={id}>
       <td>
-        to={`/admin/service-questions/${id}`}>
-        {title}</td>
+        <Link to={`/admin/service-questions/${id}`}>
+          {title}
+        </Link>
+      </td>
       <td>{description}</td>
       <td>{serviceQuestionType}</td>
       <span onClick={() => deleteQuestion(id)}>X</span>

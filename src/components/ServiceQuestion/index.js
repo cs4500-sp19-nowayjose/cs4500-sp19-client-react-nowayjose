@@ -1,9 +1,8 @@
 import React from 'react'
 import ServiceQuestionService from '../../services/ServiceQuestionService'
-import { Link } from 'react-router-dom'
-import FilterButton from './filterButton';
-import QuestionTable from './questionTable';
-import PaginationTool from './paginationTool';
+import FilterButton from './filterButton'
+import QuestionTable from './questionTable'
+import PaginationTool from './paginationTool'
 
 class ServiceQuestions extends React.Component {
   serviceQuestionService = ServiceQuestionService.getInstance()
