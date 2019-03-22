@@ -1,5 +1,5 @@
 export default class FAQAnswerService {
-    baseurl = "http://localhost:8080"
+    baseurl = "https://cs4500-sp19-nowayjose.herokuapp.com"
     static instance = null;
     static getInstance() {
         if(FAQAnswerService.instance === null) {
