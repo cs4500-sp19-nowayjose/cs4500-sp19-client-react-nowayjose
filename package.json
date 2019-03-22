@@ -25,5 +25,9 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "heroku-run-build-script": true
+  "heroku-run-build-script": true,
+  "devDependencies": {
+    "jest": "^24.5.0",
+    "react-test-renderer": "^16.8.4"
+  }
 }
