@@ -7,10 +7,7 @@ import PaginationTool from './paginationTool'
 class ServiceQuestions extends React.Component {
   serviceQuestionService = ServiceQuestionService.getInstance()
   state = {
-    serviceQuestions: [{
-      id: 1288345,
-      title: "Hi there"
-    }],
+    serviceQuestions: [],
     page: 0,
     resultsPerPage: 10,
     filter: {
@@ -22,15 +19,13 @@ class ServiceQuestions extends React.Component {
 
   componentDidMount() {
     this.serviceQuestionService
-        .findAllServiceQuestions()
-        .then(serviceQuestions => {
-          if (serviceQuestions.status === 500) {
-            return;
-          }
-          this.setState(Object.assign(this.state, {
-              serviceQuestions: serviceQuestions
-          }))
-        })
+      .findAllServiceQuestions()
+      .then(serviceQuestions => {
+        if (serviceQuestions.status === 500) {
+          return;
+        }
+        this.setState({ serviceQuestions });
+      })
   }
 
 
