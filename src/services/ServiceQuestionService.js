@@ -14,7 +14,11 @@ export default class ServiceQuestionService {
             .then(response => response.json())
     delete = id =>
         fetch(`https://cs4500-sp19-nowayjose.herokuapp.com/api/service_question/${id}`, {method: "DELETE"})
-            .then(response => response.json())
+            .then(response => {
+                if (response.status === 200) return;
+                console.log(response);
+                return;
+            })
     findServiceQuestionByCriteria = (body) =>
         fetch("https://cs4500-sp19-nowayjose.herokuapp.com/api/service_question/filter", {
             method: 'POST',
