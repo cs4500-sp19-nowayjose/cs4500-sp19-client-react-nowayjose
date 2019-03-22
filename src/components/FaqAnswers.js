@@ -30,11 +30,12 @@ class FAQAnswers extends React.Component {
     }
 
     editFAQAns(ans, e) {
-        e.stopPropogation();
+        e.stopPropagation();
         this.setState({
             username: ans.username,
             question: ans.question,
-            answer: ans.answer
+            answer: ans.answer,
+            updateId: ans.id
         })
     }
 
@@ -113,6 +114,7 @@ class FAQAnswers extends React.Component {
                             <th> <input type="text" onChange={this.handleUsernameChange} value={this.state.username} placeholder="username"/></th>
                             <th> <input type="text" onChange={this.handleQuestionChange} value={this.state.question} placeholder="question"/></th>
                             <th> <input type="text" onChange={this.handleAnswerChange} value={this.state.answer} placeholder="answer"/></th>
+                            <th> <button type="button" onClick={this.updateFAQAns} class="btn btn-primary btn-block">Save</button> </th>
                             <th> <button type="button" onClick={this.createFAQAns} class="btn btn-primary btn-block">Create</button> </th>
                         </tr>
                     </thread>
@@ -122,8 +124,10 @@ class FAQAnswers extends React.Component {
                             .map(faqAnswer =>
                                 <tr key={faqAnswer.id}>
                                     <td>{faqAnswer.username}</td>
-                                    <td>{faqAnswer.question}</td>
-                                    <td>{faqAnswer.answer}</td>
+                                    <td align="center">{faqAnswer.question}</td>
+                                    <td align="center">{faqAnswer.answer}</td>
+                                    <th> <button type="button" onClick={(e) => this.editFAQAns(faqAnswer, e)} class="btn btn-primary btn-block">Edit</button> </th>
+                                    <th> <button type="button" onClick={(e) => this.deleteFAQAns(faqAnswer, e)} class="btn btn-primary btn-block">Delete</button> </th>
                                 </tr>
                             )
                     }
