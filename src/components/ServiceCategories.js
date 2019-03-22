@@ -78,6 +78,10 @@ class ServiceCategories extends React.Component {
         })
     }
 
+    selectServiceCategory(id) {
+        this.props.history.push('/admin/service-categories/' + id)
+    }
+
 
     render() {
         return(
@@ -106,7 +110,7 @@ class ServiceCategories extends React.Component {
                     {
                         this.state.serviceCategories
                             .map(serviceCategory =>
-                                <tr key={serviceCategory.id}>
+                                <tr onClick={() => this.selectServiceCategory(serviceCategory.id)} key={serviceCategory.id}>
                                     <td>{serviceCategory.serviceCategoryName}</td>
                                     <th>
                                         <button type="button" onClick={(e) => this.editServiceCategory(serviceCategory, e)}
