@@ -37,7 +37,7 @@ export default class FAQAnswerService {
     }
 
     updateFAQAnswer(faqAnswer) {
-        return fetch(this.baseurl + "/api/faq/" + faqAnswer.id, {
+        return fetch(this.baseurl + "/api/faq-answers/" + faqAnswer.id, {
             method: 'put',
             body: JSON.stringify(faqAnswer),
             headers: {
