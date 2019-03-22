@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Admin from './components/Admin';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+// FIXME import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
   render() {
