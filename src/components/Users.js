@@ -111,7 +111,7 @@ class Users extends React.Component {
                     </tr>
                     <tr>
                             <th><input type="text" onChange={this.renderUsername} value={this.state.username}
-                                       placeholder="username" readOnly={true}/></th>
+                                       placeholder="username"/></th>
                             <th><input type="text" onChange={this.renderFirstName} value={this.state.firstName}
                                        placeholder="firstName"/></th>
                             <th><input type="text" onChange={this.renderLastName} value={this.state.lastName}
