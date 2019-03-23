@@ -1,0 +1,326 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`service question on admin panel rendering test Filtering title works 1`] = `
+<div>
+  <h3>
+    Service Questions
+  </h3>
+  <table
+    className="table"
+  >
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Type
+        </th>
+        <th>
+           
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <input
+            onChange={[Function]}
+            testID="service-question-title-filter"
+            type="text"
+            value=""
+          />
+        </th>
+        <th>
+          <input
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </th>
+        <th>
+          <input
+            disabled={true}
+            type="text"
+          />
+        </th>
+        <th>
+          <button
+            className="btn btn-primary"
+            type="button"
+          >
+            Add
+          </button>
+        </th>
+        <th>
+          <button
+            className="btn btn-success"
+            type="button"
+          >
+            Save
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        testID="service_question_row_1"
+      >
+        <td>
+          <a
+            href="/admin/service-questions/1"
+            onClick={[Function]}
+          >
+            What size houses can you clean (in square feet)?
+          </a>
+        </td>
+        <td>
+          Select the minimum and maximum size of houses that you can clean.
+        </td>
+        <td />
+        <span
+          onClick={[Function]}
+        >
+          X
+        </span>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <span
+      onClick={[Function]}
+    >
+      Prev
+    </span>
+    <span
+      onClick={[Function]}
+    >
+      1
+    </span>
+    <span
+      onClick={[Function]}
+    >
+      Next
+    </span>
+    <select
+      onChange={[Function]}
+    >
+      <option
+        value="10"
+      >
+        10
+      </option>
+      <option
+        value="25"
+      >
+        25
+      </option>
+      <option
+        value="50"
+      >
+        50
+      </option>
+      <option
+        value="100"
+      >
+        100
+      </option>
+      <option
+        value="all"
+      >
+        all
+      </option>
+    </select>
+    <button
+      className="btn-lg btn"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "#FEC107",
+          "position": "fixed",
+          "right": 10,
+        }
+      }
+      testID="search-btn-filter-service-question"
+    >
+      <i
+        className="fas fa-search fa-2x"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`service question on admin panel rendering test Render service questions table 1`] = `
+<div>
+  <h3>
+    Service Questions
+  </h3>
+  <table
+    className="table"
+  >
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Type
+        </th>
+        <th>
+           
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <input
+            onChange={[Function]}
+            testID="service-question-title-filter"
+            type="text"
+            value=""
+          />
+        </th>
+        <th>
+          <input
+            onChange={[Function]}
+            type="text"
+            value=""
+          />
+        </th>
+        <th>
+          <input
+            disabled={true}
+            type="text"
+          />
+        </th>
+        <th>
+          <button
+            className="btn btn-primary"
+            type="button"
+          >
+            Add
+          </button>
+        </th>
+        <th>
+          <button
+            className="btn btn-success"
+            type="button"
+          >
+            Save
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        testID="service_question_row_1"
+      >
+        <td>
+          <a
+            href="/admin/service-questions/1"
+            onClick={[Function]}
+          >
+            What size houses can you clean (in square feet)?
+          </a>
+        </td>
+        <td>
+          Select the minimum and maximum size of houses that you can clean.
+        </td>
+        <td />
+        <span
+          onClick={[Function]}
+        >
+          X
+        </span>
+      </tr>
+      <tr
+        testID="service_question_row_4"
+      >
+        <td>
+          <a
+            href="/admin/service-questions/4"
+            onClick={[Function]}
+          >
+            Do you have any pet?
+          </a>
+        </td>
+        <td>
+          Select how many pet you have
+        </td>
+        <td />
+        <span
+          onClick={[Function]}
+        >
+          X
+        </span>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <span
+      onClick={[Function]}
+    >
+      Prev
+    </span>
+    <span
+      onClick={[Function]}
+    >
+      1
+    </span>
+    <span
+      onClick={[Function]}
+    >
+      Next
+    </span>
+    <select
+      onChange={[Function]}
+    >
+      <option
+        value="10"
+      >
+        10
+      </option>
+      <option
+        value="25"
+      >
+        25
+      </option>
+      <option
+        value="50"
+      >
+        50
+      </option>
+      <option
+        value="100"
+      >
+        100
+      </option>
+      <option
+        value="all"
+      >
+        all
+      </option>
+    </select>
+    <button
+      className="btn-lg btn"
+      onClick={[Function]}
+      style={
+        Object {
+          "color": "#FEC107",
+          "position": "fixed",
+          "right": 10,
+        }
+      }
+      testID="search-btn-filter-service-question"
+    >
+      <i
+        className="fas fa-search fa-2x"
+      />
+    </button>
+  </div>
+</div>
+`;

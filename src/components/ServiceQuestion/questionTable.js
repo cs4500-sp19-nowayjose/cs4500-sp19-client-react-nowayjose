@@ -51,7 +51,7 @@ function TitleHeader() {
 function FilterHeader({ title, description, serviceQuestionType, onFilterChange }) {
   return (
     <tr>
-      <th><input type="text" value={title} onChange={(e) => onFilterChange(e, 'title')}/></th>
+      <th><input testID="service-question-title-filter" type="text" value={title} onChange={(e) => onFilterChange(e, 'title')}/></th>
       <th><input type="text" value={description} onChange={(e) => onFilterChange(e, 'description')}/></th>
       <th><input type="text" value={serviceQuestionType} disabled/></th>
       <th>
@@ -69,7 +69,13 @@ function TableBody({ serviceQuestions, page, resultsPerPage, deleteQuestion }) {
     <tbody>{
       serviceQuestions
         .slice(page * resultsPerPage, (page + 1) * resultsPerPage)
-        .map(serviceQuestion => <TableRow serviceQuestion={serviceQuestion} deleteQuestion={deleteQuestion} />)
+        .map(serviceQuestion => 
+          <TableRow
+            key={`serviceQuestionRow_${serviceQuestion.id}`}
+            serviceQuestion={serviceQuestion}
+            deleteQuestion={deleteQuestion} 
+          />
+        )
     }
     </tbody>
   )
@@ -78,7 +84,7 @@ function TableBody({ serviceQuestions, page, resultsPerPage, deleteQuestion }) {
 function TableRow({ serviceQuestion, deleteQuestion }) {
   const { id,  title, description, serviceQuestionType } = serviceQuestion
   return (
-    <tr key={id}>
+    <tr testID={`service_question_row_${id}`}>
       <td>
         <Link to={`/admin/service-questions/${id}`}>
           {title}
