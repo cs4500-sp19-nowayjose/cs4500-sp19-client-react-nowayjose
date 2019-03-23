@@ -27,7 +27,6 @@
   ],
   "heroku-run-build-script": true,
   "devDependencies": {
-    "jest": "^24.5.0",
     "react-test-renderer": "^16.8.4"
   }
 }
