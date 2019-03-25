@@ -1,5 +1,7 @@
 import React from 'react'
-import ServiceAnswerService from '../services/ServiceAnswerService'
+import ServiceAnswerService from '../../services/ServiceAnswerService'
+import ServiceAnswerDetailsForm from './ServiceAnswerDetailsForm'
+
 class ServiceAnswerDetails extends React.Component {
     constructor(props) {
         super(props)
@@ -35,31 +37,11 @@ class ServiceAnswerDetails extends React.Component {
                 }
             )
     render() {
-        return(
-            <div>
-                <h3>Service Answer Details</h3>
-                <select
-                    value={this.state.serviceAnswer.id}
-                    onChange={(e) => this.selectServiceAnswer(e.target.value)}
-                    className="form-control">
-                    {
-                        this.state.serviceAnswers
-                            .map(serviceAnswer =>
-                                <option
-                                    value={serviceAnswer.id}
-                                    key={serviceAnswer.id}>
-                                    {serviceAnswer.choiceAnswer}
-                                </option>
-                            )
-                    }
-                </select>
-                <label>Service Answer Answer</label><br/>
-                <input
-                    onChange={() => {}}
-                    className="form-control"
-                    value={this.state.serviceAnswer.choiceAnswer}/>
-            </div>
-        )
+      return <ServiceAnswerDetailsForm
+          serviceAnswers={this.state.serviceAnswers}
+          serviceAnswer={this.state.serviceAnswer}
+          selectServiceAnswer={this.selectServiceAnswer} />
+
     }
 }
 
