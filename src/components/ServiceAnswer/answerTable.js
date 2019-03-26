@@ -30,6 +30,7 @@ function TitleHeader() {
           <th>T/F</th>
           <th>Min Range</th>
           <th>Max Range</th>
+          <th>Delete</th>
           </tr>
       </thead>
   )
@@ -57,16 +58,14 @@ function TableRow({ serviceAnswer, deleteAnswer }) {
       user,
   } = serviceAnswer;
   return (
-    <tr key={id}>
-      <td align="center">{user ? user.id : ""}</td>
-      <td align="center">{serviceQuestion ? serviceQuestion.id : ""}</td>
-      <Link to={`/admin/service-answers/${id}`}>
-        <td align="center">{choiceAnswer}</td>
-        <td align="center">{trueFalseAnswer}</td>
-        <td align="center">{maxRangeAnswer}</td>
-        <td align="center">{minRangeAnswer}</td>
-      </Link>
-      <span onClick={() => this.deleteAnswer(id)}>X</span>
+    <tr className="service-answer-row" key={id}>
+      <td className="service-answer-user-id" align="center">{user ? user.id : ""}</td>
+      <td className="service-answer-question-id" align="center">{serviceQuestion ? serviceQuestion.id : ""}</td>
+      <td align="center">{choiceAnswer}</td>
+      <td align="center">{trueFalseAnswer}</td>
+      <td align="center">{maxRangeAnswer}</td>
+      <td align="center">{minRangeAnswer}</td>
+      <td><span onClick={() => this.deleteAnswer(id)}>X</span></td>
     </tr>
   )
 }
