@@ -44,7 +44,7 @@ class ServiceAnswers extends React.Component {
     }))
   }
 
-  deleteQuestion = (id) => {
+  deleteAnswer = (id) => {
     this.serviceQuestionService.delete(id)
     this.setState(Object.assign(this.state, {
       serviceQuestions: this.state.serviceQuestions.filter(question => question.id !== id)
