@@ -26,3 +26,10 @@ test('find faq by id', () => {
             expect(faq.question).toBe("How many employees do you have?");
         })
 });
+
+test('delete faq', () => {
+    return faqService.deleteFAQ({"id": 1})
+        .then(response => {
+            expect(response).toBeUndefined()
+        })
+});
