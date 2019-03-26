@@ -16,16 +16,19 @@ class ServiceQuestions extends React.Component {
     }
   }
 
-
   componentDidMount() {
-    this.serviceQuestionService
-      .findAllServiceQuestions()
-      .then(serviceQuestions => {
-        if (serviceQuestions.status === 500) {
-          return;
-        }
-        this.setState({ serviceQuestions });
-      })
+    if (this.props.isTest) {
+      this.setState({ serviceQuestions: this.props.testData });
+    } else {
+      this.serviceQuestionService
+        .findAllServiceQuestions()
+        .then(serviceQuestions => {
+          if (serviceQuestions.status === 500) {
+            return;
+          }
+          this.setState({ serviceQuestions });
+        })
+    }
   }
 
 

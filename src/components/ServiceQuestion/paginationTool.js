@@ -8,12 +8,13 @@ export default function paginationTool({
 }) {
   return (
     <React.Fragment>
-      <span onClick={() => incrPage(-1)}>Prev</span>
-      <Pagination 
+      <span testID="prev-button" onClick={() => incrPage(-1)}>Prev</span>
+      <Pagination
+        testID="pagination-buttons"
         paginationNumbers={paginationNumbers}
         setPage={setPage}
       />
-      <span onClick={() => incrPage(1)}>Next</span>
+      <span testID="next-button" onClick={() => incrPage(1)}>Next</span>
       <select onChange={setResultsPerPage}>
         <option value="10">10</option>
         <option value="25">25</option>
