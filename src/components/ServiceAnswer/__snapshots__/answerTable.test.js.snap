@@ -24,46 +24,50 @@ exports[`does pagination correctly 1`] = `
       <th>
         Max Range
       </th>
+      <th>
+        Delete
+      </th>
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr
+      className="service-answer-row"
+    >
       <td
         align="center"
+        className="service-answer-user-id"
       >
         1
       </td>
       <td
         align="center"
+        className="service-answer-question-id"
       >
         1
       </td>
-      <a
-        href="/admin/service-answers/1"
-        onClick={[Function]}
+      <td
+        align="center"
+      />
+      <td
+        align="center"
+      />
+      <td
+        align="center"
       >
-        <td
-          align="center"
-        />
-        <td
-          align="center"
-        />
-        <td
-          align="center"
-        >
-          25000
-        </td>
-        <td
-          align="center"
-        >
-          600
-        </td>
-      </a>
-      <span
-        onClick={[Function]}
+        25000
+      </td>
+      <td
+        align="center"
       >
-        X
-      </span>
+        600
+      </td>
+      <td>
+        <span
+          onClick={[Function]}
+        >
+          X
+        </span>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -93,82 +97,87 @@ exports[`renders correctly 1`] = `
       <th>
         Max Range
       </th>
+      <th>
+        Delete
+      </th>
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr
+      className="service-answer-row"
+    >
       <td
         align="center"
+        className="service-answer-user-id"
       >
         1
       </td>
       <td
         align="center"
+        className="service-answer-question-id"
       >
         1
       </td>
-      <a
-        href="/admin/service-answers/1"
-        onClick={[Function]}
+      <td
+        align="center"
+      />
+      <td
+        align="center"
+      />
+      <td
+        align="center"
       >
-        <td
-          align="center"
-        />
-        <td
-          align="center"
-        />
-        <td
-          align="center"
-        >
-          25000
-        </td>
-        <td
-          align="center"
-        >
-          600
-        </td>
-      </a>
-      <span
-        onClick={[Function]}
+        25000
+      </td>
+      <td
+        align="center"
       >
-        X
-      </span>
+        600
+      </td>
+      <td>
+        <span
+          onClick={[Function]}
+        >
+          X
+        </span>
+      </td>
     </tr>
-    <tr>
+    <tr
+      className="service-answer-row"
+    >
       <td
         align="center"
+        className="service-answer-user-id"
       >
         1
       </td>
       <td
         align="center"
+        className="service-answer-question-id"
       >
         4
       </td>
-      <a
-        href="/admin/service-answers/2"
-        onClick={[Function]}
+      <td
+        align="center"
       >
-        <td
-          align="center"
+        0
+      </td>
+      <td
+        align="center"
+      />
+      <td
+        align="center"
+      />
+      <td
+        align="center"
+      />
+      <td>
+        <span
+          onClick={[Function]}
         >
-          0
-        </td>
-        <td
-          align="center"
-        />
-        <td
-          align="center"
-        />
-        <td
-          align="center"
-        />
-      </a>
-      <span
-        onClick={[Function]}
-      >
-        X
-      </span>
+          X
+        </span>
+      </td>
     </tr>
   </tbody>
 </table>
