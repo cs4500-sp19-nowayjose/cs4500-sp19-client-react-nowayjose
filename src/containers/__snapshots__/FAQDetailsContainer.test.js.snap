@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[FAQDetailsContainer renders correctly after selecting different faq] 1`] = `
+<div>
+  <h3>
+    FAQ Details
+  </h3>
+  <select
+    className="selectedFaq"
+    onChange={[Function]}
+    value={1}
+  />
+  <br />
+  <input
+    className="form-control"
+    onChange={[Function]}
+  />
+  <br />
+  <input
+    className="form-control"
+    onChange={[Function]}
+  />
+</div>
+`;
+
+exports[`[FAQDetailsContainer renders correctly after selecting different faq] 2`] = `
+<div>
+  <h3>
+    FAQ Details
+  </h3>
+  <select
+    className="selectedFaq"
+    onChange={[Function]}
+    value={1}
+  />
+  <br />
+  <input
+    className="form-control"
+    onChange={[Function]}
+  />
+  <br />
+  <input
+    className="form-control"
+    onChange={[Function]}
+  />
+</div>
+`;
+
+exports[`[FAQDetailsContainer renders correctly] 1`] = `
+<div>
+  <h3>
+    FAQ Details
+  </h3>
+  <select
+    className="selectedFaq"
+    onChange={[Function]}
+    value={1}
+  />
+  <br />
+  <input
+    className="form-control"
+    onChange={[Function]}
+  />
+  <br />
+  <input
+    className="form-control"
+    onChange={[Function]}
+  />
+</div>
+`;
+
+exports[`[FAQDetailsContainer renders correctly] 2`] = `
+<div>
+  <h3>
+    FAQ Details
+  </h3>
+  <select
+    className="selectedFaq"
+    onChange={[Function]}
+    value={1}
+  />
+  <br />
+  <input
+    className="form-control"
+    onChange={[Function]}
+  />
+  <br />
+  <input
+    className="form-control"
+    onChange={[Function]}
+  />
+</div>
+`;
