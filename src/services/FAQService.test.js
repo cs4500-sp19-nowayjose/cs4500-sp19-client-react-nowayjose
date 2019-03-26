@@ -1,22 +1,29 @@
 import FAQService from './FAQService'
+import setUp from './FAQService.mock.js'
 const faqService = FAQService.getInstance()
+
+beforeAll(function () {
+    setUp()
+})
+
 
 test('there should be 3 faqs', () => {
     return faqService.findAllFAQs()
         .then(faqs => {
+            console.log(faqs);
             expect(faqs).toBeDefined();
             expect(faqs.length).toBe(3);
             expect(faqs[0].id).toBe(1);
-            expect(faqs[2].title).toBe("charlie");
+            expect(faqs[2].title).toBe("question");
         })
 });
 
 test('find faq by id', () => {
-    return faqService.findFAQById(3)
+    return faqService.findFAQById(4)
         .then(faq => {
             expect(faq).toBeDefined();
-            expect(faq.id).toBe(3);
-            expect(faq.title).toBe("charlie");
-            expect(faq.question).toBe("c");
+            expect(faq.id).toBe(4);
+            expect(faq.title).toBe("Fourth question");
+            expect(faq.question).toBe("How many employees do you have?");
         })
 });
