@@ -15,3 +15,16 @@ test('[FAQDetailsContainer renders correctly]', () => {
     expect(tree).toMatchSnapshot()
 })
 
+test('[FAQDetailsContainer renders correctly after selecting different faq]', () => {
+    const testRenderer = TestRenderer.create(
+        <FAQDetailsContainer/>)
+    let tree = testRenderer.toJSON()
+    expect(tree).toMatchSnapshot()
+
+    const testInstance   = testRenderer.root
+    let   selectFaq    = testInstance.findByProps({className: 'selectedFaq'})
+
+    selectFaq.props.onChange({target: {value: '4'}})
+    tree = testRenderer.toJSON()
+    expect(tree).toMatchSnapshot()
+})
