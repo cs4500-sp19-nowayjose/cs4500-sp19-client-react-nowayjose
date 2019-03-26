@@ -17,3 +17,17 @@ it('renders correctly', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 })
+
+it('does pagination correctly', () => {
+  const tree = renderer
+    .create(
+      <Router>
+      <AnswerTable
+        pageState={{ page: 0, resultsPerPage: 1 }}
+        serviceAnswers={serviceAnswers}
+        deleteAnswer={(id) => {}}
+        />
+      </Router>)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+})
