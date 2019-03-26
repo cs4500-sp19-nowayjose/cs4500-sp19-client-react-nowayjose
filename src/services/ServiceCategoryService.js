@@ -1,5 +1,5 @@
 
-const CATEGORY_API = 'http://cs4500-sp19-nowayjose.herokuapp.com/api/categories/'
+const CATEGORY_API = 'https://cs4500-sp19-nowayjose.herokuapp.com/api/categories/'
 export default class ServiceCategoryService {
     static instance = null;
     static getInstance() {

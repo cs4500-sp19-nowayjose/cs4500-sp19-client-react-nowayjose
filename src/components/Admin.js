@@ -1,10 +1,10 @@
 import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
-import Users from './Users'
-import Services from './Services'
+import UsersContainer from './UsersContainer'
+import ServicesContainer from './ServicesContainer'
 import ServiceDetails from './ServiceDetails'
 import ServiceQuestion from './ServiceQuestion'
-import ServiceAnswers from './ServiceAnswers'
+import ServiceAnswer from './ServiceAnswer'
 import FAQs from './FAQs'
 import FAQDetails from './FAQDetails'
 import FAQAnswers from './FaqAnswers'
@@ -32,7 +32,7 @@ const Admin = () =>
                 <br/>
                 <Link to="/admin/faqs">FAQs</Link>
                 <br/>
-                <Link to="admin/faq-answers">FAQ Answers</Link>
+                <Link to="/admin/faq-answers">FAQ Answers</Link>
                 <br/>
                 <Link to="/admin/service-answers/1">Service Answers Details</Link>
                 <br/>
@@ -42,11 +42,11 @@ const Admin = () =>
                 <Route
                     path="/admin/users"
                     exact
-                    component={Users}/>
+                    component={UsersContainer}/>
                 <Route
                     path="/admin/services"
                     exact
-                    component={Services}/>
+                    component={ServicesContainer}/>
                 <Route
                     path="/admin/services/:id"
                     exact
@@ -62,7 +62,7 @@ const Admin = () =>
                 <Route
                     path="/admin/service-answers"
                     exact
-                    component={ServiceAnswers}/>
+                    component={ServiceAnswer}/>
                 <Route
                     path="/admin/service-answers/:id"
                     exact
