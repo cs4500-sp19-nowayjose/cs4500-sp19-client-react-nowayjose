@@ -1,0 +1,24 @@
+[
+  {
+     "id":1,
+     "serviceQuestion": {"id": 1},
+     "choiceAnswer": null,
+     "created_at":"2019-03-22T02:39:41.838Z",
+     "updated_at":"2019-03-22T02:39:41.838Z",
+     "trueFalseAnswer":null,
+     "minRangeAnswer": 600,
+     "maxRangeAnswer": 25000,
+     "user": {"id": 1}
+  },
+  {
+     "id":2,
+     "serviceQuestion": {"id": 4},
+     "choiceAnswer": 0,
+     "created_at":"2019-03-22T02:39:41.838Z",
+     "updated_at":"2019-03-22T02:39:41.838Z",
+     "trueFalseAnswer":null,
+     "minRangeAnswer": null,
+     "maxRangeAnswer": null,
+     "user": {"id": 1}
+  }
+]

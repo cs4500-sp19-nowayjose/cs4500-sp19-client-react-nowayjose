@@ -1,0 +1,20 @@
+[  
+  {  
+     "id":1,
+     "title":"What size houses can you clean (in square feet)?",
+     "description":"Select the minimum and maximum size of houses that you can clean.",
+     "created_at":"2019-03-22T02:39:41.838Z",
+     "updated_at":"2019-03-22T02:39:41.838Z",
+     "service_question_type":"MINMAX",
+     "service_id":902
+  },
+  {  
+     "id":4,
+     "title":"Do you have any pet?",
+     "description":"Select how many pet you have",
+     "created_at":"2019-03-22T02:42:08.298Z",
+     "updated_at":"2019-03-22T02:42:08.298Z",
+     "service_question_type":"MULTIPLECHOICES",
+     "service_id":903
+  }
+]
