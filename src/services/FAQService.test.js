@@ -10,7 +10,6 @@ beforeAll(function () {
 test('there should be 3 faqs', () => {
     return faqService.findAllFAQs()
         .then(faqs => {
-            console.log(faqs);
             expect(faqs).toBeDefined();
             expect(faqs.length).toBe(3);
             expect(faqs[0].id).toBe(1);
