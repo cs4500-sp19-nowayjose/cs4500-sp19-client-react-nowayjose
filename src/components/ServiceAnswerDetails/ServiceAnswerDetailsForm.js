@@ -11,11 +11,12 @@ export default function ServiceAnswerDetailsForm({
           <select
               value={serviceAnswer.id}
               onChange={(e) => selectServiceAnswer(e.target.value)}
-              className="form-control">
+              className="answer-details-select-id form-control">
               {
                   serviceAnswers
                       .map(serviceAnswer =>
                           <option
+                              className="select-other-answer"
                               value={serviceAnswer.id}
                               key={serviceAnswer.id}>
                               {serviceAnswer.choiceAnswer}
@@ -25,9 +26,15 @@ export default function ServiceAnswerDetailsForm({
           </select>
           <label>Service Answer Answer</label><br/>
           <input
+              className="form-control answers-choice-answer"
               onChange={() => {}}
-              className="form-control"
-              value={serviceAnswer.choiceAnswer}/>
+              value={"" + serviceAnswer.choiceAnswer}/>
+          <input
+            className="form-control answers-max-answer"
+            value={"" + serviceAnswer.maxRangeAnswer} />
+          <input
+            className="form-control answers-min-answer"
+            value={"" + serviceAnswer.minRangeAnswer} />
       </div>
   )
 }
