@@ -28,7 +28,7 @@ class ServiceDetails extends React.Component {
                 }
             )
 
-    selectQuote = id =>
+    selectService = id =>
         this.serviceService
             .findServiceById(id)
             .then(service => {
@@ -67,7 +67,7 @@ class ServiceDetails extends React.Component {
                 <h3>Service Details</h3>
                 <select
                     value={this.state.service.id}
-                    onChange={(e) => this.selectQuote(e.target.value)}
+                    onChange={(e) => this.selectService(e.target.value)}
                     className="form-control">
                     {
                         this.state.services

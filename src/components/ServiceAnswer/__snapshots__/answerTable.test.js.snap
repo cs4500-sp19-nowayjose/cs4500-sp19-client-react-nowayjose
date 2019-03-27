@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`does pagination correctly 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        User ID
+      </th>
+      <th>
+        Service Question ID
+      </th>
+      <th>
+        Choice Answer
+      </th>
+      <th>
+        T/F
+      </th>
+      <th>
+        Min Range
+      </th>
+      <th>
+        Max Range
+      </th>
+      <th>
+        Delete
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      className="service-answer-row"
+    >
+      <td
+        align="center"
+        className="service-answer-user-id"
+      >
+        1
+      </td>
+      <td
+        align="center"
+        className="service-answer-question-id"
+      >
+        1
+      </td>
+      <td
+        align="center"
+      />
+      <td
+        align="center"
+      />
+      <td
+        align="center"
+      >
+        25000
+      </td>
+      <td
+        align="center"
+      >
+        600
+      </td>
+      <td>
+        <span
+          onClick={[Function]}
+        >
+          X
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`renders correctly 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        User ID
+      </th>
+      <th>
+        Service Question ID
+      </th>
+      <th>
+        Choice Answer
+      </th>
+      <th>
+        T/F
+      </th>
+      <th>
+        Min Range
+      </th>
+      <th>
+        Max Range
+      </th>
+      <th>
+        Delete
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      className="service-answer-row"
+    >
+      <td
+        align="center"
+        className="service-answer-user-id"
+      >
+        1
+      </td>
+      <td
+        align="center"
+        className="service-answer-question-id"
+      >
+        1
+      </td>
+      <td
+        align="center"
+      />
+      <td
+        align="center"
+      />
+      <td
+        align="center"
+      >
+        25000
+      </td>
+      <td
+        align="center"
+      >
+        600
+      </td>
+      <td>
+        <span
+          onClick={[Function]}
+        >
+          X
+        </span>
+      </td>
+    </tr>
+    <tr
+      className="service-answer-row"
+    >
+      <td
+        align="center"
+        className="service-answer-user-id"
+      >
+        1
+      </td>
+      <td
+        align="center"
+        className="service-answer-question-id"
+      >
+        4
+      </td>
+      <td
+        align="center"
+      >
+        0
+      </td>
+      <td
+        align="center"
+      />
+      <td
+        align="center"
+      />
+      <td
+        align="center"
+      />
+      <td>
+        <span
+          onClick={[Function]}
+        >
+          X
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
