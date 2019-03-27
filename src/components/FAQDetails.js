@@ -5,7 +5,7 @@ const FAQDetails = ({ faqs, faq, selectFAQ }) =>
         <select
             value={faq.id}
             onChange={(e) => selectFAQ(e.target.value)}
-            className="form-control">
+            className="selectedFaq" >
             {
                 faqs
                     .map(faq =>
@@ -20,12 +20,12 @@ const FAQDetails = ({ faqs, faq, selectFAQ }) =>
         <br />
         <input
             onChange={() => { }}
-            className="form-control"
+            className="title form-control"
             value={faq.title} />
         <br />
         <input
             onChange={() => { }}
-            className="form-control"
+            className="question form-control"
             value={faq.question} />
     </div>
 export default FAQDetails
