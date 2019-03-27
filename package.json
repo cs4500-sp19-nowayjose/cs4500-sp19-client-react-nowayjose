@@ -27,10 +27,6 @@
   ],
   "heroku-run-build-script": true,
   "devDependencies": {
-<<<<<<< HEAD
     "react-test-renderer": "^16.8.4"
-=======
-    "react-test-renderer": "^16.8.5"
->>>>>>> a4d86fadbf885b58d6ef7c8f6945ff18832b0065
   }
 }
