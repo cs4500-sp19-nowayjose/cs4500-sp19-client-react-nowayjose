@@ -15,3 +15,19 @@ test('fetch by id', function() {
       expect(response.maxRangeAnswer).toBe(25000)
     })
 })
+    
+test('fetch all questions', function() {
+  return Service.findAllServiceAnswers()
+    .then(response => {
+      expect(response.length).toBe(2)
+      expect(response[0].id).toBe(1)
+      expect(response[1].id).toBe(2)
+    })
+})
+
+test('delete a question', function() {
+  return Service.delete(1)
+    .then(response => {
+      expect(response).toBeUndefined()
+    })
+})
