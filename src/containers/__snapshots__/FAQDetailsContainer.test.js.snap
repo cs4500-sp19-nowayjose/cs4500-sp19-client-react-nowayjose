@@ -12,12 +12,12 @@ exports[`[FAQDetailsContainer renders correctly after selecting different faq] 1
   />
   <br />
   <input
-    className="form-control"
+    className="title form-control"
     onChange={[Function]}
   />
   <br />
   <input
-    className="form-control"
+    className="question form-control"
     onChange={[Function]}
   />
 </div>
@@ -35,12 +35,12 @@ exports[`[FAQDetailsContainer renders correctly after selecting different faq] 2
   />
   <br />
   <input
-    className="form-control"
+    className="title form-control"
     onChange={[Function]}
   />
   <br />
   <input
-    className="form-control"
+    className="question form-control"
     onChange={[Function]}
   />
 </div>
@@ -58,12 +58,12 @@ exports[`[FAQDetailsContainer renders correctly] 1`] = `
   />
   <br />
   <input
-    className="form-control"
+    className="title form-control"
     onChange={[Function]}
   />
   <br />
   <input
-    className="form-control"
+    className="question form-control"
     onChange={[Function]}
   />
 </div>
@@ -81,12 +81,12 @@ exports[`[FAQDetailsContainer renders correctly] 2`] = `
   />
   <br />
   <input
-    className="form-control"
+    className="title form-control"
     onChange={[Function]}
   />
   <br />
   <input
-    className="form-control"
+    className="question form-control"
     onChange={[Function]}
   />
 </div>
