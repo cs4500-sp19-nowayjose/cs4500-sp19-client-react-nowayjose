@@ -1,6 +1,7 @@
 import React from 'react'
 import ServiceCategoryService from '../services/ServiceCategoryService'
-class ServiceCategories extends React.Component {
+import ServiceCategoriesList from './ServiceCategoriesList'
+class ServiceCategoriesContainer extends React.Component {
     constructor(props) {
         super(props)
         this.serviceCategoryService = ServiceCategoryService.getInstance()
@@ -81,51 +82,17 @@ class ServiceCategories extends React.Component {
 
     render() {
         return(
-            <div>
-                <h3>Service Categories</h3>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Name</th>
-                        </tr>
-                        <tr>
-                            <th> <input type="text" onChange={this.handleNameChange} value={this.state.name} placeholder="new category" /> </th>
-                            <th>
-                                <button type="button" onClick={this.updateServiceCategory}
-                                        className="btn btn-primary btn-block">Save
-                                </button>
-                            </th>
-                            <th>
-                                <button type="button" onClick={this.createServiceCategory}
-                                        className="btn btn-primary btn-block">Create
-                                </button>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {
-                        this.state.serviceCategories
-                            .map(serviceCategory =>
-                                <tr key={serviceCategory.id}>
-                                    <td>{serviceCategory.serviceCategoryName}</td>
-                                    <th>
-                                        <button type="button" onClick={(e) => this.editServiceCategory(serviceCategory, e)}
-                                                className="btn btn-primary btn-block">Edit
-                                        </button>
-                                    </th>
-                                    <th>
-                                        <button type="button" onClick={(e) => this.deleteServiceCategory(serviceCategory, e)}
-                                                className="btn btn-primary btn-block">Delete
-                                        </button>
-                                    </th>
-                                </tr>
-                            )
-                    }
-                    </tbody>
-                </table>
-            </div>
+            <ServiceCategoriesList
+                serviceCategories={this.state.serviceCategories}
+                name={this.state.name}
+                handleNameChange={this.handleNameChange}
+                createServiceCategory={this.createServiceCategory}
+                editServiceCategory={this.editServiceCategory}
+                updateServiceCategory={this.updateServiceCategory}
+                deleteServiceCategory={this.deleteServiceCategory}
+            />
         )
     }
 }
 
-export default ServiceCategories
+export default ServiceCategoriesContainer
