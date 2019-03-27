@@ -38,7 +38,7 @@ class FAQDetailsContainer extends React.Component {
                 })
             }
             )
-            
+
     render() {
         return (
             <FAQDetails

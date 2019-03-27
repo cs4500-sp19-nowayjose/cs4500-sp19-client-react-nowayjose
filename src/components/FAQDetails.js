@@ -5,7 +5,7 @@ const FAQDetails = ({ faqs, faq, selectFAQ }) =>
         <select
             value={faq.id}
             onChange={(e) => selectFAQ(e.target.value)}
-            className="form-control">
+            className="selectedFaq" >
             {
                 faqs
                     .map(faq =>
