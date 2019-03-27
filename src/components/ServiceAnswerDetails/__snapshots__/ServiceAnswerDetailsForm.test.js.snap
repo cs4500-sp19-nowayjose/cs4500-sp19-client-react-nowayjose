@@ -6,14 +6,16 @@ exports[`renders correctly 1`] = `
     Service Answer Details
   </h3>
   <select
-    className="form-control"
+    className="answer-details-select-id form-control"
     onChange={[Function]}
     value={1}
   >
     <option
+      className="select-other-answer"
       value={1}
     />
     <option
+      className="select-other-answer"
       value={2}
     >
       0
@@ -24,9 +26,17 @@ exports[`renders correctly 1`] = `
   </label>
   <br />
   <input
-    className="form-control"
+    className="form-control answers-choice-answer"
     onChange={[Function]}
-    value={null}
+    value="null"
+  />
+  <input
+    className="form-control answers-max-answer"
+    value="25000"
+  />
+  <input
+    className="form-control answers-min-answer"
+    value="600"
   />
 </div>
 `;
