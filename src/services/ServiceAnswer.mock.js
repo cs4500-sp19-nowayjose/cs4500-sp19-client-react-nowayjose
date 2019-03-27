@@ -18,8 +18,14 @@ function setUp() {
 
 function handleGet(url) {
   const returnData = {};
+  // mock findServiceAnswerById
+  if (url.search(/\/api\/service_question_answers\/\d+/) !== -1) {
+    const questionId = parseInt(url.slice(url.search(/\/\d+\b/) + 1));
+    returnData.json = function() {
+      return serviceAnswerMockData.filter(({ id }) => id === questionId)[0];
+    }
   // mock findAllServiceAnswers
-  if (url.indexOf('api/service_question_answers') !== -1) {
+  } else if (url.indexOf('api/service_question_answers') !== -1) {
     returnData.json = function() {
       return serviceAnswerMockData
     }
