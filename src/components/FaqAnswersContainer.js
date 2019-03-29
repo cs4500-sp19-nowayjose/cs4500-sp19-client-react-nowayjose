@@ -120,3 +120,5 @@ class FAQAnswersContainer extends React.Component {
         )
     }
 }
+
+export default FAQAnswersContainer

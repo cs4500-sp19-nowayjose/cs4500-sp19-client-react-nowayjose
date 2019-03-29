@@ -12,16 +12,16 @@ const FAQAnswers = props =>
                             <th>&nbsp;</th>
                         </tr>
                         <tr>
-                            <th> <input type="text" onChange={props.handleUsernameChange} value={props.state.username} placeholder="username"/></th>
-                            <th> <input type="text" onChange={props.handleQuestionChange} value={props.state.question} placeholder="question"/></th>
-                            <th> <input type="text" onChange={props.handleAnswerChange} value={props.state.answer} placeholder="answer"/></th>
+                            <th> <input type="text" onChange={props.handleUsernameChange} value={props.username} placeholder="username"/></th>
+                            <th> <input type="text" onChange={props.handleQuestionChange} value={props.question} placeholder="question"/></th>
+                            <th> <input type="text" onChange={props.handleAnswerChange} value={props.answer} placeholder="answer"/></th>
                             <th> <button type="button" onClick={props.updateFAQAns} class="btn btn-primary btn-block">Save</button> </th>
                             <th> <button type="button" onClick={props.createFAQAns} class="btn btn-primary btn-block">Create</button> </th>
                         </tr>
                     </thread>
                     <tbody>
                     {
-                        this.state.faqAnswers
+                        props.faqAnswers
                             .map(faqAnswer =>
                                 <tr key={faqAnswer.id}>
                                     <td>{faqAnswer.username}</td>
