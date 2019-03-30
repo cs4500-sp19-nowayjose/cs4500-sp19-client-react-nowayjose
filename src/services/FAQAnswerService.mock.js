@@ -20,8 +20,9 @@ function setUp() {
 
 function handleGet(url) {
     const returnData = {};
-    if (url.search(/\/api\/faq-answers\/d+/) !== -1) {
-        const aid = parseInt(url.slice(url.search(/\/d+\b/) + 1))
+    if (url.search(/\/api\/faq-answers\/\d+/) !== -1) {
+        const aid = parseInt(url.slice(url.search(/\/\d+\b/) + 1))
+        console.log(aid)
         returnData.json = function() {
             return frequentlyAskedAnswers.filter(({id}) => id === aid)[0]
         }
