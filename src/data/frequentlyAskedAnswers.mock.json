@@ -1,0 +1,20 @@
+[
+    {
+        "id": 12,
+        "answer": "yes",
+        "question": "Have you passed a background check?",
+        "username": "alice"
+    },
+    {
+        "id": 9,
+        "answer": "41",
+        "question": "How old are you?",
+        "username": "alice"
+    },
+    {
+        "id": 2,
+        "answer": "no",
+        "question": "Have you passed a backgruond check?",
+        "username": "bob"
+    }
+]
