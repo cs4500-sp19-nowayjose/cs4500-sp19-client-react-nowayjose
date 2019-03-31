@@ -28,7 +28,7 @@ const FAQAnswers = props =>
                                     <td align="center">{faqAnswer.question}</td>
                                     <td align="center">{faqAnswer.answer}</td>
                                     <th> <button type="button" onClick={(e) => props.editFAQAns(faqAnswer, e)} class="btn btn-primary btn-block">Edit</button> </th>
-                                    <th> <button type="button" onClick={(e) => props.deleteFAQAns(faqAnswer, e)} class="btn btn-primary btn-block">Delete</button> </th>
+                                    <th> <button type="button" onClick={(e) => props.deleteFAQAns(faqAnswer, e)} class="btn btn-primary btn-block delete">Delete</button> </th>
                                 </tr>
                             )
                     }
