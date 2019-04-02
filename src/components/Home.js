@@ -1,5 +1,5 @@
 import React from 'react'
-// import SearchBar from './SearchBar/SearchBar'
+import SearchBar from './SearchBar/SearchBar'
 // import ServiceTabNavigator from './ServiceTabNavigator/ServiceTabNavigator'
 // import ServiceCategoryPills from './ServiceCategoryPills/ServiceCategoryPills'
 // import serviceCategories from '../data/service-categories.mock.json'
@@ -10,7 +10,7 @@ const Home = ({history}) =>
                 <h1>
                     Find professionals near you.
                 </h1>
-                {/*<SearchBar history={history}/>*/}
+                <SearchBar history={history}/>
             </div>
         </div>
 
