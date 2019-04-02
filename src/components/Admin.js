@@ -8,10 +8,10 @@ import ServiceAnswer from './ServiceAnswer'
 import FAQsList from './FAQsList'
 import FAQsContainer from './FAQsContainer'
 import FAQDetailsContainer from '../containers/FAQDetailsContainer'
-import FAQAnswers from './FaqAnswers'
+import FAQAnswersContainer from './FaqAnswersContainer'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import ServiceAnswerDetails from './ServiceAnswerDetails'
-import ServiceCategories from './ServiceCategories'
+import ServiceCategoriesContainer from './ServiceCategoriesContainer'
 
 
 const Admin = () =>
@@ -55,7 +55,7 @@ const Admin = () =>
                 <Route
                     path="/admin/service-categories"
                     exact
-                    component={ServiceCategories}/>
+                    component={ServiceCategoriesContainer}/>
                 <Route
                     path="/admin/service-questions"
                     exact
@@ -83,7 +83,7 @@ const Admin = () =>
                 <Route
                     path="/admin/faq-answers"
                     exact
-                    component={FAQAnswers}/>
+                    component={FAQAnswersContainer}/>
             </div>
         </div>
       </div>

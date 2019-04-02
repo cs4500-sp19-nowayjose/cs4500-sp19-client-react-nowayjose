@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FAQAnswersContainer renders correctly 1`] = `
+<div>
+  <h3>
+    FAQ Answers
+  </h3>
+  <table
+    className="table"
+  >
+    <thread>
+      <tr>
+        <th
+          scope="col"
+        >
+          Username
+        </th>
+        <th
+          scope="col"
+        >
+          Question
+        </th>
+        <th
+          scope="col"
+        >
+          Answer
+        </th>
+        <th>
+           
+        </th>
+      </tr>
+      <tr>
+        <th>
+           
+          <input
+            onChange={[Function]}
+            placeholder="username"
+            type="text"
+            value="Username"
+          />
+        </th>
+        <th>
+           
+          <input
+            onChange={[Function]}
+            placeholder="question"
+            type="text"
+            value="Question"
+          />
+        </th>
+        <th>
+           
+          <input
+            onChange={[Function]}
+            placeholder="answer"
+            type="text"
+            value="New answer"
+          />
+        </th>
+        <th>
+           
+          <button
+            class="btn btn-primary btn-block"
+            onClick={[Function]}
+            type="button"
+          >
+            Save
+          </button>
+           
+        </th>
+        <th>
+           
+          <button
+            class="btn btn-primary btn-block"
+            onClick={[Function]}
+            type="button"
+          >
+            Create
+          </button>
+           
+        </th>
+      </tr>
+    </thread>
+    <tbody />
+  </table>
+</div>
+`;
+
+exports[`FAQAnswersContainer renders correctly 2`] = `
+<div>
+  <h3>
+    FAQ Answers
+  </h3>
+  <table
+    className="table"
+  >
+    <thread>
+      <tr>
+        <th
+          scope="col"
+        >
+          Username
+        </th>
+        <th
+          scope="col"
+        >
+          Question
+        </th>
+        <th
+          scope="col"
+        >
+          Answer
+        </th>
+        <th>
+           
+        </th>
+      </tr>
+      <tr>
+        <th>
+           
+          <input
+            onChange={[Function]}
+            placeholder="username"
+            type="text"
+            value="Username"
+          />
+        </th>
+        <th>
+           
+          <input
+            onChange={[Function]}
+            placeholder="question"
+            type="text"
+            value="Question"
+          />
+        </th>
+        <th>
+           
+          <input
+            onChange={[Function]}
+            placeholder="answer"
+            type="text"
+            value="New answer"
+          />
+        </th>
+        <th>
+           
+          <button
+            class="btn btn-primary btn-block"
+            onClick={[Function]}
+            type="button"
+          >
+            Save
+          </button>
+           
+        </th>
+        <th>
+           
+          <button
+            class="btn btn-primary btn-block"
+            onClick={[Function]}
+            type="button"
+          >
+            Create
+          </button>
+           
+        </th>
+      </tr>
+    </thread>
+    <tbody />
+  </table>
+</div>
+`;
+
+exports[`FAQAnswersContainer renders correctly after deleting a faq answer 1`] = `
+<div>
+  <h3>
+    FAQ Answers
+  </h3>
+  <table
+    className="table"
+  >
+    <thread>
+      <tr>
+        <th
+          scope="col"
+        >
+          Username
+        </th>
+        <th
+          scope="col"
+        >
+          Question
+        </th>
+        <th
+          scope="col"
+        >
+          Answer
+        </th>
+        <th>
+           
+        </th>
+      </tr>
+      <tr>
+        <th>
+           
+          <input
+            onChange={[Function]}
+            placeholder="username"
+            type="text"
+            value="Username"
+          />
+        </th>
+        <th>
+           
+          <input
+            onChange={[Function]}
+            placeholder="question"
+            type="text"
+            value="Question"
+          />
+        </th>
+        <th>
+           
+          <input
+            onChange={[Function]}
+            placeholder="answer"
+            type="text"
+            value="New answer"
+          />
+        </th>
+        <th>
+           
+          <button
+            class="btn btn-primary btn-block"
+            onClick={[Function]}
+            type="button"
+          >
+            Save
+          </button>
+           
+        </th>
+        <th>
+           
+          <button
+            class="btn btn-primary btn-block"
+            onClick={[Function]}
+            type="button"
+          >
+            Create
+          </button>
+           
+        </th>
+      </tr>
+    </thread>
+    <tbody />
+  </table>
+</div>
+`;
