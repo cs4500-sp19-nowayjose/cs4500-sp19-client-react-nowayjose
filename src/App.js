@@ -1,42 +1,34 @@
 import React, { Component } from 'react';
 import './App.css';
 import Admin from './components/Admin';
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import ServiceProviderSearch from './components/ServiceProviderSearch'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import ServiceNavigatorComponent from './containers/ServiceNavigatorContainer';
+import LandingScreen from './components/LandingScreen';
 
 class App extends Component {
+  routes = [
+    { to: '/', text: 'Home', c: LandingScreen },
+    { to: '/home', text: 'Home', c: () => <div></div> },
+    { to: '/services', text: 'Services', c: ServiceNavigatorComponent },
+    { to: '/providers', text: 'Providers', c: ServiceProviderSearch },
+    { to: '/admin', text: 'Admin', c: Admin },
+  ]
+
+
   render() {
     return (
-      <div className="container-fluid">
-        <h1>Service</h1>
-        <Router>
-          <div>
-            <div>
-              <Link to="/admin">Admin</Link>
-              <Route
-                  path="/admin"
-                  exact
-                  component={Admin}/>
-            </div>
-            <div>
-              <Link to="/provider-search">Provider search</Link>
-              <Route
-                  path="/provider-search"
-                  exact
-                  component={ServiceProviderSearch}/>
-            </div>
-            <div>
-              <Link to="/service-categories">service categories</Link>
-              <Route
-                  path="/service-categories"
-                  exact
-                  component={ServiceNavigatorComponent}/>
-            </div>
-            </div>
-        </Router>
-      </div>
+      <Router>
+        <div className="container">
+          <LandingScreen /> {/* landing screen is header */}
+          {
+            this.routes.map(({ to, c }) => (
+              <Route path={to} exact component={c} />
+            ))
+          }
+          </div>
+      </Router>
     );
   }
 }

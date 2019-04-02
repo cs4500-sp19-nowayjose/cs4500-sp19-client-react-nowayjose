@@ -1,4 +1,6 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom';
+
 import ProviderSearchService from '../../services/ProviderSearchService'
 import ProviderResultsList from './providerResultsList'
 
@@ -19,6 +21,7 @@ class ServiceProviderSearch extends React.Component {
   }
 
   render() {
+    console.log("Yo")
     return (
       <div>
         <ProviderResultsList providers={this.state.providers} />
