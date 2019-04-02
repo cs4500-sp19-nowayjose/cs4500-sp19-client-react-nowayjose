@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Admin from './components/Admin';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import ServiceProviderSearch from './components/ServiceProviderSearch'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
@@ -16,6 +17,10 @@ class App extends Component {
                 path="/admin"
                 exact
                 component={Admin}/>
+            <Route
+                path="/provider-search"
+                exact
+                component={ServiceProviderSearch}/>
           </div>
         </Router>
       </div>
