@@ -8,19 +8,14 @@ class ServiceProviderSearch extends React.Component {
     this.providerSearchService = ProviderSearchService.getInstance()
     this.serviceId = props.serviceId
     this.state = {
-      providers: [{
-        id: 1,
-        firstName: "First",
-        lastName: "Last",
-        starRating: 4.2
-      }]
+      providers: []
     }
   }
 
   componentDidMount() {
-    // this.providerSearchService
-    //   .findAllProvidersForServiceId(this.serviceId)
-    //   .then(providers => this.setState({providers: providers}))
+    this.providerSearchService
+      .findAllProvidersForServiceId(this.serviceId)
+      .then(providers => this.setState({providers: providers}))
   }
 
   render() {
