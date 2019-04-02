@@ -18,7 +18,7 @@ class App extends Component {
               <Route
                   path="/admin"
                   exact
-                  component={Admin}/>      
+                  component={Admin}/>
             </div>
             <div>
               <Link to="/provider-search">Provider search</Link>
@@ -34,7 +34,7 @@ class App extends Component {
                   exact
                   component={ServiceNavigatorComponent}/>
             </div>
-          </div>
+            </div>
         </Router>
       </div>
     );
