@@ -14,7 +14,7 @@ class ServiceProviderSearch extends React.Component {
 
   componentDidMount() {
     this.providerSearchService
-      .findAllProvidersForServiceId(this.serviceId)
+      .findAllProvidersForServiceId(this.props.serviceId || '')
       .then(providers => this.setState({providers: providers}))
   }
 
