@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Admin from './components/Admin';
+import ServiceNavigator from './components/ServiceNavigator'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
@@ -16,6 +17,13 @@ class App extends Component {
                 path="/admin"
                 exact
                 component={Admin}/>
+          </div>
+          <div>
+            <Link to="/service-categories">Service Categories</Link>
+            <Route
+              path="/service-categories"
+              exact
+              component={ServiceNavigator}/>
           </div>
         </Router>
       </div>
