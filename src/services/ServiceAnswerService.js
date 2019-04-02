@@ -7,6 +7,9 @@ export default class ServiceAnswerService {
         }
         return this.instance
     }
+    findServiceAnswersForQuestion = id =>
+        fetch(`${ServiceAnswerService.url}api/service_question_answers/by_question/${id}`)
+            .then(response => response.json())
     findServiceAnswerById = id =>
         fetch(`${ServiceAnswerService.url}api/service_question_answers/${id}`)
             .then(response => response.json())

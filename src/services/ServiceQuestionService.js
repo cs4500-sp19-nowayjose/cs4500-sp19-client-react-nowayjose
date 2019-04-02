@@ -6,6 +6,9 @@ export default class ServiceQuestionService {
         }
         return this.instance
     }
+    findServiceQuestionsForService = id =>
+        fetch(`https://cs4500-sp19-nowayjose.herokuapp.com/api/service_question/for_service/${id}`)
+            .then(response => response.json())
     findServiceQuestionById = id =>
         fetch(`https://cs4500-sp19-nowayjose.herokuapp.com/api/service_question/${id}`)
             .then(response => response.json())
