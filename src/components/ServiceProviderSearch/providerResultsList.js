@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 export default function providerResultsList({providers}) {
+  if (!providers || !providers.length) return null;
   return (
     <div> {
       providers.map(provider => (
