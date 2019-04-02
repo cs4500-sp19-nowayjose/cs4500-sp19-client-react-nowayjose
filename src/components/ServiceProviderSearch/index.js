@@ -21,7 +21,6 @@ class ServiceProviderSearch extends React.Component {
   }
 
   render() {
-    console.log("Yo")
     return (
       <div>
         <ProviderResultsList providers={this.state.providers} />
