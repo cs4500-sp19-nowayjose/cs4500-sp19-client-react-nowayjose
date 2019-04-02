@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
 function BooleanFilter({title, description, answer, updateFilter}) {
   return (
@@ -7,7 +6,7 @@ function BooleanFilter({title, description, answer, updateFilter}) {
       <h4>{title}</h4>
       <div>{description}</div>
       <input type="checkbox" value={answer}
-        onChange={(e) => updateFilter(e.target.value)}>
+        onChange={(e) => updateFilter(e.target.checked)} />
     </div>
   )
 }
@@ -18,7 +17,7 @@ function MinMaxFilter({title, description, answer, updateFilter}) {
       <h4>{title}</h4>
       <div>{description}</div>
       <input type="text" value={answer}
-        onChange={(e) => updateFilter(e.target.value)}>
+        onChange={(e) => updateFilter(e.target.value)} />
     </div>
   )
 }
@@ -28,7 +27,7 @@ function MultipleChoiceFilter({title, description, choiceOptions, answer, update
     <div>
       <h4>{title}</h4>
       <div>{description}</div>
-      <select value={answer} onChange={updateFilter}>
+      <select value={answer} onChange={(e) => updateFilter(parseInt(e.target.value))}>
         {
           choiceOptions.map((option, i) => <option value={i}>{option}</option>)
         }
@@ -37,29 +36,29 @@ function MultipleChoiceFilter({title, description, choiceOptions, answer, update
   )
 }
 
-export default function providerFilter({serviceQuestion, answer, updateFilter}) {
-  if (serviceQuestion.questionType === "YESORNO") {
+export default function providerFilter({question, answer, updateFilter}) {
+  if (question.questionType === "YESORNO") {
     return (
       <BooleanFilter
-        title={serviceQuestion.title}
-        description={serviceQuestion.description}
+        title={question.title}
+        description={question.description}
         answer={answer}
         updateFilter={updateFilter} />
     )
-  } else if (serviceQuestion.questionType === "MINMAX") {
+  } else if (question.questionType === "MINMAX") {
     return (
       <MinMaxFilter
-        title={serviceQuestion.title}
-        description={serviceQuestion.description}
+        title={question.title}
+        description={question.description}
         answer={answer}
         updateFilter={updateFilter} />
     )
   } else {
     return (
       <MultipleChoiceFilter
-        title={serviceQuestion.title}
-        description={serviceQuestion.description}
-        choiceOptions={serviceQuestion.choiceOptions}
+        title={question.title}
+        description={question.description}
+        choiceOptions={question.choiceOptions}
         answer={answer}
         updateFilter={updateFilter} />
     )
