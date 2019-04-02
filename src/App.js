@@ -18,7 +18,7 @@ class App extends Component {
                 exact
                 component={Admin}/>
             <Route
-                path="/provider-search"
+                path="/provider-search/:id"
                 exact
                 component={ServiceProviderSearch}/>
           </div>

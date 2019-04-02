@@ -7,7 +7,13 @@ export default class ProviderSearchService {
       }
       return this.instance;
   }
-  findAllProvidersForServiceId = id =>
-    fetch(`${ProviderSearchService.host}/api/provider-search/${id}`)
+  findMatchingProviders = (id, query) =>
+    fetch(`${ProviderSearchService.host}/api/provider-search/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(query)
+    })
       .then(response => response.json());
 }

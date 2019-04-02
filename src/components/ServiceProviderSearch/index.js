@@ -7,7 +7,7 @@ class ServiceProviderSearch extends React.Component {
   constructor(props) {
     super(props)
     this.providerSearchService = ProviderSearchService.getInstance()
-    this.serviceId = props.serviceId
+    this.serviceId = props.match.params.id
     this.state = {
       providers: [],
       serviceQuestions: [
@@ -32,7 +32,6 @@ class ServiceProviderSearch extends React.Component {
         },
       ],
       questionAnswers: {
-        1: false
       }
     }
   }
@@ -41,7 +40,10 @@ class ServiceProviderSearch extends React.Component {
     let answers = {}
     answers[questionId] = answer
     answers = Object.assign(this.state.questionAnswers, answers)
-    console.log(answers)
+    let searchQuery = Object.getOwnPropertyNames(this.state.serviceQuestions).map(qid => {
+      return {questionId: qid, answer: this.state.questionAnswers[qid] || null}
+    })
+    let providers = this.providerSearchService.findMatchingProviders(this.serviceId, searchQuery)
     this.setState({
       questionAnswers: answers
     });
