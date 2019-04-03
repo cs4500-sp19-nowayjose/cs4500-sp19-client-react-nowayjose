@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchBar = ({history}) =>
+const SearchBar = ({ history }) =>
     <div className="input-group input-group-lg">
         <input
             placeholder="Search for providers"

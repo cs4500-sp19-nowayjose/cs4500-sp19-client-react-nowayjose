@@ -1,6 +1,7 @@
 import React from 'react'
 import ProviderSearchService from '../../services/ProviderSearchService'
 import ProviderResultsList from './providerResultsList'
+import SearchBar from '../SearchBar/SearchBar'
 
 class ServiceProviderSearch extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class ServiceProviderSearch extends React.Component {
   render() {
     return (
       <div>
+        <SearchBar history={this.props.history} />
         <ProviderResultsList providers={this.state.providers} />
       </div>
     )
