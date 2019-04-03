@@ -20,4 +20,8 @@ export default class ProviderSearchService {
       body: JSON.stringify(query)
     })
       .then(response => response.json());
+  
+  searchProviders = (zip, title) => 
+    fetch(`${ProviderSearchService.host}/api/service-provider/filter?title=${title}&zip=${zip}`)
+      .then(response => response.json())
 }

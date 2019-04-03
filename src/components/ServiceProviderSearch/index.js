@@ -2,22 +2,30 @@ import React from 'react'
 import ProviderSearchService from '../../services/ProviderSearchService'
 import ServiceQuestionService from '../../services/ServiceQuestionService'
 import ProviderResultsList from './providerResultsList'
+import SearchBar from '../SearchBar/SearchBar'
 import FiltersList from './filtersList'
 
 class ServiceProviderSearch extends React.Component {
-  constructor(props) {
-    super(props)
-    this.providerSearchService = ProviderSearchService.getInstance()
-    this.serviceQuestionService = ServiceQuestionService.getInstance()
-    this.serviceId = props.match.params.id
-    this.state = {
-      providers: [],
-      serviceQuestions: [],
-      questionAnswers: {}
-    }
+  providerSearchService = ProviderSearchService.getInstance()
+  serviceQuestionService = ServiceQuestionService.getInstance()
+  state = {
+    providers: [],
+    providerSearch: '',
+    zipSearch: '',
+    serviceQuestions: [],
+    questionAnswers: {}
   }
 
-  updateFilter(questionId, answer) {
+  componentDidMount() {
+    this.serviceQuestionService
+      .findServiceQuestionsForService(this.serviceId)
+      .then(questions => this.setState({serviceQuestions: questions}))
+    this.providerSearchService
+      .findAllProviders()
+      .then(providers => this.setState({providers: providers}))
+  }
+
+  updateFilter = (questionId, answer) => {
     let answers = {}
     answers[questionId] = answer
     answers = Object.assign(this.state.questionAnswers, answers)
@@ -31,23 +39,31 @@ class ServiceProviderSearch extends React.Component {
       .then(providers => this.setState({providers: providers}))
   }
 
-  componentDidMount() {
-    this.serviceQuestionService
-      .findServiceQuestionsForService(this.serviceId)
-      .then(questions => this.setState({serviceQuestions: questions}))
-    this.providerSearchService
-      .findAllProviders()
-      .then(providers => this.setState({providers: providers}))
+  onSubmit = async (e) => {
+    if (e) e.preventDefault();
+    const data = await this.providerSearchService.searchProviders(this.state.zipSearch, this.state.providerSearch)
+    this.setState({ providerSearch: '', zipSearch: '', providers: data });
+  }
+
+  onChange = (e, target) => {
+    this.setState({ [`${target}Search`]: e.target.value });
   }
 
   render() {
-    console.log(this.state);
+    const { providerSearch, zipSearch } = this.state;
     return (
       <div>
+        <SearchBar
+          onSubmit={this.onSubmit} 
+          onChange={this.onChange}
+          onKeyDown={this.onKeyDown}
+          providerValue={providerSearch}
+          zipValue={zipSearch}
+        />
         <FiltersList
           serviceQuestions={this.state.serviceQuestions}
           questionAnswers={this.state.questionAnswers}
-          updateFilter={this.updateFilter.bind(this)} />
+          updateFilter={this.updateFilter} />
         <ProviderResultsList providers={this.state.providers} />
       </div>
     )

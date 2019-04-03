@@ -2,6 +2,7 @@ import React from 'react'
 import ServiceQuestionFilter from './filter'
 
 export default function providerFilters({serviceQuestions, questionAnswers, updateFilter}) {
+if (!serviceQuestions || !serviceQuestions.length ) return null;
   return (
     <div>
       {

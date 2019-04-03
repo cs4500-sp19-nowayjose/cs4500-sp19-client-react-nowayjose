@@ -1,8 +1,6 @@
 import React from 'react'
 import SearchBar from './SearchBar/SearchBar'
-// import ServiceTabNavigator from './ServiceTabNavigator/ServiceTabNavigator'
-// import ServiceCategoryPills from './ServiceCategoryPills/ServiceCategoryPills'
-// import serviceCategories from '../data/service-categories.mock.json'
+
 const Home = ({history}) =>
     <div>
         <div className="row">

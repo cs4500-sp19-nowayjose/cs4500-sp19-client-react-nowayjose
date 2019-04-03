@@ -37,7 +37,6 @@ function MultipleChoiceFilter({title, description, choiceOptions, answer, update
 }
 
 export default function providerFilter({question, answer, updateFilter}) {
-  console.log(question)
   if (question.serviceQuestionType === "YESORNO") {
     return (
       <BooleanFilter
