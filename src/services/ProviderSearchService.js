@@ -10,4 +10,8 @@ export default class ProviderSearchService {
   findAllProvidersForServiceId = id =>
     fetch(`${ProviderSearchService.host}/api/provider-search/${id}`)
       .then(response => response.json());
+  
+  searchProviders = (zip, title) => 
+    fetch(`${ProviderSearchService.host}/api/service-provider/filter?title=${title}&zip=${zip}`)
+      .then(response => response.json())
 }
