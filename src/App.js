@@ -4,6 +4,7 @@ import '../node_modules/font-awesome/css/font-awesome.min.css'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Admin from './components/Admin'
 import Home from './components/Home'
+import ServiceProviderSearch from './components/ServiceProviderSearch'
 // import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 import ServiceProviderNavigator from './components/ServiceProviderSearch'
 
@@ -47,6 +48,10 @@ class App extends Component {
                   {/*path="/providers"*/}
                   {/*exact*/}
                   {/*component={ServiceProviderNavigator}/>*/}
+              <Route
+                  path="/provider-search/:id"
+                  exact
+                  component={ServiceProviderSearch}/>
             </div>
           </Router>
         </div>

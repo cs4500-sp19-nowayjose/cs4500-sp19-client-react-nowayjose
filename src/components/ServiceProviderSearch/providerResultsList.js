@@ -16,14 +16,13 @@ export default function providerResultsList({providers}) {
           </div>
           <div className="media-body">
             <h4 className="media-heading">
-              <Link to={`/providers/${provider.id}`}>{provider.firstName + " " + provider.lastName}</Link>
+              <Link to={`/providers/${provider.id}`}>{provider.title}</Link>
             </h4>
-            <span>{provider.starRating}</span>
-            <span>{"*".repeat(Math.floor(provider.starRating))}</span>
-            <span>0 reviews</span>
+            <span>{provider.rating}</span>
+            <span>{"*".repeat(Math.floor(provider.rating))}</span>
           </div>
-          <div>0 years in business, 0 hires</div>
-          <div>Pls hire me</div>
+          <div>{`${provider.yearsInBusiness}, ${provider.hires}`}</div>
+          <div>{provider.introduction}</div>
         </div>
       ))
     } </div>
