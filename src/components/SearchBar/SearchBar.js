@@ -1,6 +1,7 @@
 import React from 'react'
 
 const SearchBar = React.memo(({ history, onSubmit, onChange, providerValue, zipValue }) => {
+    if (!onChange) onChange = () => {}
     return (
         <form onSubmit={onSubmit}>
             <div className="input-group input-group-lg">
