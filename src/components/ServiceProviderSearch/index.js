@@ -1,6 +1,6 @@
 import React from 'react'
 import ProviderSearchService from '../../services/ProviderSearchService'
-import ProviderSearchService from '../../services/ServiceAnswerService'
+import ServiceQuestionService from '../../services/ServiceQuestionService'
 import ProviderResultsList from './providerResultsList'
 import FiltersList from './filtersList'
 
@@ -8,7 +8,7 @@ class ServiceProviderSearch extends React.Component {
   constructor(props) {
     super(props)
     this.providerSearchService = ProviderSearchService.getInstance()
-    this.serviceAnswerService = ServiceQuestionService.getInstance()
+    this.serviceQuestionService = ServiceQuestionService.getInstance()
     this.serviceId = props.match.params.id
     this.state = {
       providers: [],
@@ -21,16 +21,14 @@ class ServiceProviderSearch extends React.Component {
     let answers = {}
     answers[questionId] = answer
     answers = Object.assign(this.state.questionAnswers, answers)
-    let searchQuery = Object.getOwnPropertyNames(this.state.questionAnswers).map(qid => {
-      return {questionId: qid, answer: this.state.questionAnswers[qid] || null}
+    this.setState({
+      questionAnswers: answers
     })
-    this.providerSearchService.findMatchingProviders(this.serviceId, searchQuery)
-      .then(providers =>
-        this.setState({
-          questionAnswers: answers,
-          providers: providers
-        });
-      )
+    let searchQuery = {
+      filters: answers
+    }
+    this.providerSearchService.findMatchingProviders(searchQuery)
+      .then(providers => this.setState({providers: providers}))
   }
 
   componentDidMount() {
@@ -38,11 +36,12 @@ class ServiceProviderSearch extends React.Component {
       .findServiceQuestionsForService(this.serviceId)
       .then(questions => this.setState({serviceQuestions: questions}))
     this.providerSearchService
-      .findMatchingProviders(this.serviceId, {})
+      .findAllProviders()
       .then(providers => this.setState({providers: providers}))
   }
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <FiltersList
