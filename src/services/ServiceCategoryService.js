@@ -1,4 +1,3 @@
-
 const CATEGORY_API = 'https://cs4500-sp19-nowayjose.herokuapp.com/api/categories/'
 export default class ServiceCategoryService {
     static instance = null;
@@ -16,8 +15,13 @@ export default class ServiceCategoryService {
             })
     findAllServiceCategories = () =>
         fetch(CATEGORY_API)
-            .then(response => {
-                return response.json()})
+            .then(response => 
+                 response.json())
+
+    findAllServicesForCategory = (id) =>
+                 fetch(CATEGORY_API + id + '/services')
+                     .then(response => 
+                          response.json())
 
     createServiceCategory(serviceCategory) {
         return fetch(CATEGORY_API, {
