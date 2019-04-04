@@ -27,7 +27,7 @@ const FAQsList = props => {
                                             props.faqs.length))
                             .filter(props.passesFilter)
                             .map(faq =>
-                                <tr onClick={() => props.selectFAQ(faq.id)}  key={faq.id}>
+                                <tr className="faq-row" onClick={() => props.selectFAQ(faq.id)}  key={faq.id}>
                                     <td>{faq.title}</td>
                                     <td align="center">{faq.question}</td>
                                     <th> <button type="button" onClick={(e) => props.editFAQ(faq, e)} className="btn btn-primary btn-block">Edit</button>  </th>
