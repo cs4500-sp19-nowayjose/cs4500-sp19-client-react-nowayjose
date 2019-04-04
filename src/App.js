@@ -7,6 +7,7 @@ import Home from './components/Home'
 import ServiceProviderSearch from './components/ServiceProviderSearch'
 // import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 import ServiceProviderNavigator from './components/ServiceProviderSearch'
+import ServiceNavigatorContainer from './containers/ServiceNavigatorContainer'
 
 class App extends Component {
   render() {
@@ -44,6 +45,10 @@ class App extends Component {
                   path="/admin"
                   exact
                   component={Admin}/>
+              <Route
+                  path="/services"
+                  exact
+                  component={ServiceNavigatorContainer}/>
               {/*<Route*/}
                   {/*path="/providers"*/}
                   {/*exact*/}
