@@ -1,0 +1,28 @@
+[
+    {
+        "id": "123", "serviceCategoryName": "Home Improvements",
+        "services": [
+          {"id": "1", "serviceName": "Appliance Installation"},
+          {"id": "2", "serviceName": "Cabinetry"},
+          {"id": "3", "serviceName": "Door Installation"},
+          {"id": "4", "serviceName": "Concrete Removal"},
+          {"id": "5", "serviceName": "Dishwasher Installation"},
+          {"id": "6", "serviceName": "Finish Carpentry"}
+        ]
+    },
+    {
+        "id": "234", "serviceCategoryName": "Wellness",
+        "services": [
+          {"id": "7", "serviceName": "Yoga"},
+          {"id": "8", "serviceName": "Personal Trainer"},
+          {"id": "9", "serviceName": "Therapist"},
+          {"id": "10", "serviceName": "Counselor"},
+          {"id": "11", "serviceName": "Blood test"},
+          {"id": "12", "serviceName": "Boxing"}
+        ]
+    },
+    {
+        "id": "345", "serviceCategoryName": "Legal",
+        "services": []
+    }
+]
