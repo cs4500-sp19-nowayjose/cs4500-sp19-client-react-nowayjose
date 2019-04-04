@@ -10,8 +10,6 @@ function setUp() {
       switch (method.toUpperCase()) {
         case "DELETE":
           return handleDelete(url)
-        case "POST":
-          return handlePost(url, body)
         default:
           return { "default": "default" }
       }
@@ -40,18 +38,6 @@ function handleDelete(url) {
   return new Promise(resolve => resolve());
 }
 
-function handlePost(url, body) {
-  const returnData = {};
-//   const { title, description } = JSON.parse(body);
-//   // mock findServiceQuestionByCriteria
-//   if (url.indexOf('api/service_question/filter') !== -1) {
-//     returnData.json = function() {
-//       return serviceQuestionMockData.filter(q => {
-//         return q.title.indexOf(title || '') !== -1 && q.description.indexOf(description || '') !== -1
-//       })
-//     }
-//   }
-  return new Promise(resolve => resolve(returnData));
-}
+
 
 export default setUp;
