@@ -2,8 +2,9 @@ import React from 'react'
 import SearchBar from './SearchBar/SearchBar'
 import ServiceCategoryNavigator from './ServiceCategoryNavigationTabs/ServiceCategoryNavigator'
 import serviceCategories from '../data/service-categories.mock.json'
+import ServiceCategoryPills from './ServiceCategoryPills/ServiceCategoryPills'
 
-const Home = ({history}) =>
+const Home = ({history, pillServiceCategories}) =>
     <div>
         <div className="row">
             <div className="col-8">
@@ -18,7 +19,7 @@ const Home = ({history}) =>
         <br/>
         <br/>
         <div>
-            {/*<ServiceCategoryPills/>*/}
+            <ServiceCategoryPills serviceCategories={pillServiceCategories}/>
         </div>
         <br/>
         <br/>
