@@ -2,7 +2,7 @@ import React from 'react'
 
 function BooleanFilter({title, description, answer, updateFilter}) {
   return (
-    <div>
+    <div className="provider-filter boolean-filter">
       <h4>{title}</h4>
       <div>{description}</div>
       <input type="checkbox" value={answer}
@@ -13,7 +13,7 @@ function BooleanFilter({title, description, answer, updateFilter}) {
 
 function MinMaxFilter({title, description, answer, updateFilter}) {
   return (
-    <div>
+    <div className="provider-filter range-filter">
       <h4>{title}</h4>
       <div>{description}</div>
       <input type="number" value={answer}
@@ -24,7 +24,7 @@ function MinMaxFilter({title, description, answer, updateFilter}) {
 
 function MultipleChoiceFilter({title, description, choiceOptions, answer, updateFilter}) {
   return (
-    <div>
+    <div className="provider-filter choice-filter">
       <h4>{title}</h4>
       <div>{description}</div>
       <select value={answer} onChange={(e) => updateFilter(parseInt(e.target.value))}>
