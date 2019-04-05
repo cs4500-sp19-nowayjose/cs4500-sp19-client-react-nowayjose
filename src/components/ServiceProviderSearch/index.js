@@ -11,8 +11,8 @@ class ServiceProviderSearch extends React.Component {
   serviceQuestionService = ServiceQuestionService.getInstance()
   state = {
     providers: [],
-    providerSearch: '',
-    zipSearch: '',
+    providerSearch: null,
+    zipSearch: null,
     serviceQuestions: [],
     questionAnswers: {}
   }
@@ -30,6 +30,9 @@ class ServiceProviderSearch extends React.Component {
     let answers = {}
     answers[questionId] = answer
     answers = Object.assign(this.state.questionAnswers, answers)
+    if (answer === null || answer === "") {
+      delete answers[questionId]
+    }
     this.setState({
       questionAnswers: answers
     })
@@ -45,8 +48,8 @@ class ServiceProviderSearch extends React.Component {
     if (e) e.preventDefault();
     this.providerSearchService.findMatchingProviders({
       filters: this.state.questionAnswers,
-      zip: this.state.zipSearch,
-      title: this.state.providerSearch
+      zip: this.state.zipSearch || null,
+      title: this.state.providerSearch || null
     })
       .then(providers => this.setState({providers: providers}))
   }
