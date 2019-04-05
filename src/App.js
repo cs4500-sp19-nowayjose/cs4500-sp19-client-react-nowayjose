@@ -8,8 +8,24 @@ import ServiceProviderSearch from './components/ServiceProviderSearch'
 // import ServiceNavigator from './components/ServiceNavigator/ServiceNavigator'
 import ServiceProviderNavigator from './components/ServiceProviderSearch'
 import ServiceNavigatorContainer from './containers/ServiceNavigatorContainer'
+import serviceCategories from './data/service-categories.mock.json'
+import ServiceCategoryService from './services/ServiceCategoryService'
 
 class App extends Component {
+    constructor(props) {
+        super(props)
+        this.serviceCategoryService = ServiceCategoryService.getInstance()
+        this.state = {
+            pillServiceCategories: serviceCategories
+        }
+    }
+    componentDidMount() {
+        this.serviceCategoryService.findAllServiceCategories()
+            .then(serviceCategories => this.setState({
+                pillServiceCategories: serviceCategories
+            }))
+    }
+
   render() {
     return (
         <div className="container">
@@ -35,7 +51,7 @@ class App extends Component {
               <Route
                   path="/home"
                   exact
-                  component={Home}/>
+                  render={() => <Home pillServiceCategories={this.state.pillServiceCategories}/>}/>
 
               <Route
                   path="/providers"

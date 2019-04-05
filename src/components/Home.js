@@ -1,7 +1,8 @@
 import React from 'react'
 import SearchBar from './SearchBar/SearchBar'
+import ServiceCategoryPills from './ServiceCategoryPills/ServiceCategoryPills'
 
-const Home = ({history}) =>
+const Home = ({history, pillServiceCategories}) =>
     <div>
         <div className="row">
             <div className="col-8">
@@ -16,7 +17,7 @@ const Home = ({history}) =>
         <br/>
         <br/>
         <div>
-            {/*<ServiceCategoryPills/>*/}
+            <ServiceCategoryPills serviceCategories={pillServiceCategories}/>
         </div>
         <br/>
         <br/>
