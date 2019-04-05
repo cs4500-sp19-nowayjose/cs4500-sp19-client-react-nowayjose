@@ -9,7 +9,7 @@ const ServiceCategoryPills = ({serviceCategories}) =>
                     className="nav-item">
                     <a className="nav-link btn-lg text-center"
                        href="/services">
-                        <i className={`fa ${serviceCategory.icon}`}/>
+                        <i className={"fa fa-link"}/>
                         <br/>
                         {serviceCategory.serviceCategoryName}
                     </a>
