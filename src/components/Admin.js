@@ -1,6 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import UsersContainer from './UsersContainer'
+import UserDetails from './UserDetails'
 import ServicesContainer from './ServicesContainer'
 import ServiceDetails from './ServiceDetails'
 import ServiceQuestion from './ServiceQuestion'
@@ -44,6 +45,10 @@ const Admin = () =>
                     path="/admin/users"
                     exact
                     component={UsersContainer}/>
+                <Route
+                    path="/admin/users/:id"
+                    exact
+                    component={UserDetails}/>
                 <Route
                     path="/admin/services"
                     exact
