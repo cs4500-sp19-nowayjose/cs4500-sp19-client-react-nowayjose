@@ -1,7 +1,7 @@
 import React from 'react'
 import ServiceQuestionFilter from './filter'
 
-export default function providerFilters({cn, serviceQuestions, questionAnswers, updateFilter}) {
+export default function providerFilters({serviceQuestions, questionAnswers, updateFilter}) {
   return (
     <div className="col-3">
       {
