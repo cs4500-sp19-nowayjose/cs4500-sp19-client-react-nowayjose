@@ -9,7 +9,7 @@ const ServiceCategoryTabItem = ({services}) =>
                     <img src="https://picsum.photos/300/200" className="card-img-top" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">
-                            <a href="/providers">{service.title}</a>
+                            <a href="/services">{service.serviceName}</a>
                         </h5>
                         {/*<p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*/}
                         {/*<a href="#" className="btn btn-primary">Go somewhere</a>*/}

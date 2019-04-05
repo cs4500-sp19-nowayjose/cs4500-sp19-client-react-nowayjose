@@ -37,6 +37,7 @@ class App extends Component {
                   <Link to="/services"> Services</Link> |
                   <Link to="/providers/123"> Providers</Link> |
                   <Link to="/admin"> Admin</Link>
+                  <Link to="/provider"> Provider</Link>
                 </div>
                 <div className="d-flex flex-row-reverse">
                   <Link to="#"> Sign Up</Link>
@@ -65,10 +66,6 @@ class App extends Component {
                   path="/services"
                   exact
                   component={ServiceNavigatorContainer}/>
-              {/*<Route*/}
-                  {/*path="/providers"*/}
-                  {/*exact*/}
-                  {/*component={ServiceProviderNavigator}/>*/}
               <Route
                   path="/provider-search/:id"
                   exact
