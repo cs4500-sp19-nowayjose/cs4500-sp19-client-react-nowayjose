@@ -61,9 +61,10 @@ class ServiceProviderSearch extends React.Component {
   render() {
     const { providerSearch, zipSearch } = this.state;
     return (
-      <div>
+      <div className="container">
         <div className="row">
           <SearchBar
+            className="col"
             onSubmit={this.onSubmit}
             onChange={this.onChange}
             onKeyDown={this.onKeyDown}
@@ -71,13 +72,17 @@ class ServiceProviderSearch extends React.Component {
             zipValue={zipSearch}
           />
         </div>
-        <div className="row">
-          <FiltersList
-            serviceQuestions={this.state.serviceQuestions}
-            questionAnswers={this.state.questionAnswers}
-            updateFilter={this.updateFilter} />
-          <ProviderResultsList
-            providers={this.state.providers} />
+        <div className='row provider-search-main-section' >
+          <div className="col-sm-3">
+            <FiltersList
+              serviceQuestions={this.state.serviceQuestions}
+              questionAnswers={this.state.questionAnswers}
+              updateFilter={this.updateFilter} />
+          </div>
+          <div className='col-sm-9'>
+            <ProviderResultsList
+              providers={this.state.providers} />
+          </div>
         </div>
       </div>
     )
