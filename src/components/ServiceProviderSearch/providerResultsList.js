@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default function providerResultsList({providers}) {
   if (!providers || !providers.length) return null;
   return (
-    <div> {
+    <div className="col-9"> {
       providers.map(provider => (
         <div className="media">
           <div className="media-left">

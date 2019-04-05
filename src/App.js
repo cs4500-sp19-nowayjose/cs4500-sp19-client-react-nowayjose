@@ -35,7 +35,7 @@ class App extends Component {
                 <div>
                   <Link to="/home">Home</Link> |
                   <Link to="/services"> Services</Link> |
-                  <Link to="/providers"> Providers</Link> |
+                  <Link to="/providers/123"> Providers</Link> |
                   <Link to="/admin"> Admin</Link>
                 </div>
                 <div className="d-flex flex-row-reverse">
@@ -54,7 +54,7 @@ class App extends Component {
                   render={() => <Home pillServiceCategories={this.state.pillServiceCategories}/>}/>
 
               <Route
-                  path="/providers"
+                  path="/providers/:id"
                   exact
                   component={ServiceProviderNavigator}/>
               <Route

@@ -1,10 +1,9 @@
 import React from 'react'
 import ServiceQuestionFilter from './filter'
 
-export default function providerFilters({serviceQuestions, questionAnswers, updateFilter}) {
-if (!serviceQuestions || !serviceQuestions.length ) return null;
+export default function providerFilters({cn, serviceQuestions, questionAnswers, updateFilter}) {
   return (
-    <div>
+    <div className="col-3">
       {
         serviceQuestions.map(question =>
           <ServiceQuestionFilter
