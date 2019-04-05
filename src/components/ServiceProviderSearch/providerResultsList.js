@@ -16,7 +16,7 @@ export default function providerResultsList({providers}) {
   const renderProviders = providers.map(provider => {
     const { yearsInBusiness, hires } = provider;
     return (
-      <div className="row">
+      <div className="row provider-card">
         <div className="col-2">
           <img
             style={{ maxWidth: '100%', maxHeight: '100%' }}
