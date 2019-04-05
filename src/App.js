@@ -38,7 +38,7 @@ class App extends Component {
                   component={Home}/>
 
               <Route
-                  path="/providers"
+                  path="/providers/:id"
                   exact
                   component={ServiceProviderNavigator}/>
               <Route

@@ -1,5 +1,6 @@
 export default class ProviderSearchService {
   static instance = null;
+  // static host = 'http://localhost:8080'
   static host = 'https://cs4500-sp19-nowayjose.herokuapp.com'
   static getInstance() {
       if(ProviderSearchService.instance === null) {
@@ -20,8 +21,4 @@ export default class ProviderSearchService {
       body: JSON.stringify(query)
     })
       .then(response => response.json());
-  
-  searchProviders = (zip, title) => 
-    fetch(`${ProviderSearchService.host}/api/service-provider/filter?title=${title}&zip=${zip}`)
-      .then(response => response.json())
 }

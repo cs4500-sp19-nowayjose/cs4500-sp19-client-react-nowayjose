@@ -6,6 +6,7 @@ import SearchBar from '../SearchBar/SearchBar'
 import FiltersList from './filtersList'
 
 class ServiceProviderSearch extends React.Component {
+  serviceId = this.props.match.params.id
   providerSearchService = ProviderSearchService.getInstance()
   serviceQuestionService = ServiceQuestionService.getInstance()
   state = {
@@ -32,17 +33,22 @@ class ServiceProviderSearch extends React.Component {
     this.setState({
       questionAnswers: answers
     })
-    let searchQuery = {
-      filters: answers
-    }
-    this.providerSearchService.findMatchingProviders(searchQuery)
+    this.providerSearchService.findMatchingProviders({
+      filters: answers,
+      zip: this.state.zipSearch,
+      title: this.state.providerSearch
+    })
       .then(providers => this.setState({providers: providers}))
   }
 
   onSubmit = async (e) => {
     if (e) e.preventDefault();
-    const data = await this.providerSearchService.searchProviders(this.state.zipSearch, this.state.providerSearch)
-    this.setState({ providerSearch: '', zipSearch: '', providers: data });
+    this.providerSearchService.findMatchingProviders({
+      filters: this.state.questionAnswers,
+      zip: this.state.zipSearch,
+      title: this.state.providerSearch
+    })
+      .then(providers => this.setState({providers: providers}))
   }
 
   onChange = (e, target) => {
@@ -53,18 +59,23 @@ class ServiceProviderSearch extends React.Component {
     const { providerSearch, zipSearch } = this.state;
     return (
       <div>
-        <SearchBar
-          onSubmit={this.onSubmit} 
-          onChange={this.onChange}
-          onKeyDown={this.onKeyDown}
-          providerValue={providerSearch}
-          zipValue={zipSearch}
-        />
-        <FiltersList
-          serviceQuestions={this.state.serviceQuestions}
-          questionAnswers={this.state.questionAnswers}
-          updateFilter={this.updateFilter} />
-        <ProviderResultsList providers={this.state.providers} />
+        <div className="row">
+          <SearchBar
+            onSubmit={this.onSubmit}
+            onChange={this.onChange}
+            onKeyDown={this.onKeyDown}
+            providerValue={providerSearch}
+            zipValue={zipSearch}
+          />
+        </div>
+        <div className="row">
+          <FiltersList
+            serviceQuestions={this.state.serviceQuestions}
+            questionAnswers={this.state.questionAnswers}
+            updateFilter={this.updateFilter} />
+          <ProviderResultsList
+            providers={this.state.providers} />
+        </div>
       </div>
     )
   }
