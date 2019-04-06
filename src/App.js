@@ -36,7 +36,7 @@ class App extends Component {
                 <div>
                   <Link to="/home">Home</Link> |
                   <Link to="/services"> Services</Link> |
-                  <Link to="/providers/123"> Providers</Link> |
+                  <Link to="/providers/0"> Providers</Link> |
                   <Link to="/admin"> Admin</Link>
                   <Link to="/provider"> Provider</Link>
                 </div>
