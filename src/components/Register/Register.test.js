@@ -29,3 +29,18 @@ test('render labels correctly', function () {
 
 })
 
+test('render lablels after changing input correctly', function () {
+    const component = renderer.create(
+        <Register
+            handleCreate={(e) => { }}
+            handleChange={(e) => { }}
+        />
+    )
+    const testInstance = component.root;
+    testInstance.findByProps({ className: "first-name form-control" }).props.onChange()
+    expect(testInstance.findByProps({ className: "first-name form-control" })).toBeDefined();
+    expect(testInstance.findByProps({ className: "last-name form-control" })).toBeDefined();
+    expect(testInstance.findByProps({ className: "email form-control" })).toBeDefined();
+    expect(testInstance.findByProps({ className: "password form-control" })).toBeDefined();
+
+})
