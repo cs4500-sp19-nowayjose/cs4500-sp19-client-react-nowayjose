@@ -8,25 +8,25 @@ const Register = ({handleChange, handleCreate}) =>
             <div className="row">
                 <div className="col-6">
                     <label for="first-name">First name</label>
-                    <input id="firstName" className="form-control" onChange={handleChange}/>
+                    <input id="firstName" className="first-name form-control" onChange={handleChange}/>
                 </div>
                 <div className="col-6">
                     <label for="last-name">Last name</label>
-                    <input id="lastName" className="form-control" onChange={handleChange}/>
+                    <input id="lastName" className="last-name form-control" onChange={handleChange}/>
                 </div>
             </div>
             <br/>
             <div className="row">
                 <div className="col-12">
                     <label for="username">Username/Email</label>
-                    <input id="username" className="form-control" onChange={handleChange}/>
+                    <input id="username" className="email form-control" onChange={handleChange}/>
                 </div>
             </div>
             <br/>
             <div className="row">
                 <div className="col-12">
                     <label for="password">Password</label>
-                    <input id="password" className="form-control" onChange={handleChange}/>
+                    <input id="password" className="password form-control" onChange={handleChange}/>
                 </div>
             </div>
             <br/>
