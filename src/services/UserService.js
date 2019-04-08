@@ -29,15 +29,14 @@ export default class UserService {
     }
 
     registerUser = (user) => {
-        console.log(user)
         return fetch(USER_API_URL + 'register', {
             body: JSON.stringify(user),
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type': 'application/json'
             },
             method: 'POST'
         }).then(response => {
-            return response.json();
+            return response;
         })
     }
 

@@ -23,9 +23,20 @@ export default class RegisterContainer extends React.Component {
     }
 
     handleCreate = event => {
-        var user = this.state; 
-        this.userService.registerUser(user).then(resp => {
-            console.log(resp)
+        var newUser = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            username: this.state.username,
+            password: this.state.password
+        };
+
+        this.userService.registerUser(newUser).then(resp => {
+            if (resp.status == 403) {
+                alert('Error: Username already taken')
+            }
+            else {
+                this.props.history.push('/profile')
+            }
         })
     }
 
