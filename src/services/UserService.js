@@ -28,6 +28,18 @@ export default class UserService {
         })
     }
 
+    registerUser = (user) => {
+        return fetch(USER_API_URL + 'register', {
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST'
+        }).then(response => {
+            return response;
+        })
+    }
+
     updateUser = (user) => {
         return fetch(USER_API_URL + user.id, {
             method: 'PUT',
