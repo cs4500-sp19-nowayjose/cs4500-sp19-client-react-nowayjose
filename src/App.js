@@ -39,7 +39,7 @@ class App extends Component {
                   <Link to="/home">Home</Link> |
                   <Link to="/services"> Services</Link> |
                   <Link to="/providers/123"> Providers</Link> |
-                  <Link to="/admin"> Admin</Link>
+                  <Link to="/admin"> Admin</Link> |
                   <Link to="/provider"> Provider</Link>
                 </div>
                 <div className="d-flex flex-row-reverse">
