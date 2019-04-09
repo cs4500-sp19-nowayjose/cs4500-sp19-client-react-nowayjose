@@ -64,7 +64,6 @@ export default class UserService {
             },
             body: JSON.stringify(user)
         }).then(response => {
-            console.log(response)
             return response.json();
         });
     }

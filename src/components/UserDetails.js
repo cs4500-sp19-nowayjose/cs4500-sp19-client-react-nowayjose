@@ -114,12 +114,9 @@ class UserDetails extends React.Component {
                     className="form-control"
                     type="text"
                     value={this.state.user.addZip}/>
-                <label>Email</label><br/>
-                <input
-                    onChange={() => {}}
-                    className="form-control"
-                    type="text"
-                    value={this.state.user.email}/>
+                <br/>
+                <br/>
+                <br/>
             </div>
         )
     }

@@ -69,8 +69,8 @@ const ProfileForm = (props) =>
             <br/>
             <div className="row">
                 <div className="col-12">
-                    <label htmlFor="email">Email</label>
-                    <input id="email" className="form-control" value={props.email} disabled />
+                    <label htmlFor="username">Email</label>
+                    <input id="username" className="form-control" value={props.username} disabled />
                 </div>
             </div>
             <br/>
