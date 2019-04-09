@@ -1,6 +1,7 @@
 import React from 'react'
 import UserService from '../../services/UserService'
 import ProfileForm from './ProfileForm'
+import ProfileNavigate from './ProfileNavigate'
 
 class ProfileContainer extends React.Component {
      constructor(props) {
@@ -18,6 +19,7 @@ class ProfileContainer extends React.Component {
             addState: "",
             addZip: 0,
             email: "",
+            next: false,
         }
        
         this.handleChange = this.handleChange.bind(this)
@@ -68,17 +70,15 @@ class ProfileContainer extends React.Component {
             "email": this.state.email,
         };
       
-        this.userService.updateUser(newUser).then(resp => {
-            if (resp.status == 403) {
-                alert('Error: Unable to update user profile')
-            }
-            else {
-                this.props.history.push('/home')
-            }
-        });
+        this.userService.updateUser(newUser);
+      
+        this.setState({
+            next: true,
+        })
     }
 
     render () {
+      if(!this.state.next)
         return(
             <ProfileForm
                 user={this.state.user}
@@ -97,6 +97,8 @@ class ProfileContainer extends React.Component {
                 handleUpdate = {this.handleUpdate}
             />
         )
+      else
+        return(<ProfileNavigate props={this.props} />)
     }
 }
 
