@@ -40,6 +40,18 @@ export default class UserService {
         })
     }
 
+    loginUser = (user) => {
+        return fetch(USER_API_URL + 'login', {
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'PUT'
+        }).then(response => {
+            return response;
+        })
+    }
+
     updateUser = (user) => {
         return fetch(USER_API_URL + user.id, {
             method: 'PUT',
