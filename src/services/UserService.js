@@ -39,10 +39,6 @@ export default class UserService {
             return response;
         })
     }
-    
-    getCurrentUser = () => {
-      
-    }
 
     loginUser = (user) => {
         return fetch(USER_API_URL + 'login', {
@@ -55,6 +51,10 @@ export default class UserService {
             return response;
         })
     }
+    
+    getProfile = () =>
+        fetch(USER_API_URL + 'profile')
+            .then(response => response.json())
 
     updateUser = (user) => {
         return fetch(USER_API_URL + user.id, {

@@ -25,11 +25,13 @@ class ProfileContainer extends React.Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleUpdate = this.handleUpdate.bind(this)
        
+        console.log(this.userService.getProfile());
     }
     
     componentDidMount() {
+        
         this.userService
-            .findUserById(367)
+            .getProfile()
             .then(currentUser =>
                 this.setState({
                     user: currentUser,
