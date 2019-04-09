@@ -11,6 +11,7 @@ import ServiceProviderNavigator from './components/ServiceProviderSearch'
 import Admin from './components/Admin'
 import RegisterContainer from './containers/RegisterContainer';
 import ProviderContainer from './components/Provider/ProviderContainer'
+import BusinessInfoContainer from './containers/BusinessInfoContainer'
 
 class App extends Component {
     constructor(props) {
@@ -40,7 +41,9 @@ class App extends Component {
                                 <Link to="/admin"> Admin</Link> |
                                 <Link to="/providers/2"> Provider</Link> |
                                 <Link to="/register"> Register</Link> |
-                                <Link to="#"> Log in</Link>
+                                <Link to="#"> Log in</Link> |
+
+                                <Link to="/business"> Business</Link> |
                             </div>
                         </div>
                         <br/>
@@ -71,6 +74,11 @@ class App extends Component {
                             path="/register"
                             exact
                             component={RegisterContainer}/>
+
+                        <Route
+                            path="/business"
+                            exact
+                            component={BusinessInfoContainer}/>
                     </div>
                 </Router>
             </div>
