@@ -39,6 +39,10 @@ export default class UserService {
             return response;
         })
     }
+    
+    getCurrentUser = () => {
+      
+    }
 
     updateUser = (user) => {
         return fetch(USER_API_URL + user.id, {

@@ -57,17 +57,69 @@ class UserDetails extends React.Component {
                 <input
                     onChange={() => {}}
                     className="form-control"
+                    type="text"
                     value={this.state.user.username}/>
                 <label>First Name</label><br/>
                 <input
                     onChange={() => {}}
                     className="form-control"
+                    type="text"
                     value={this.state.user.firstName}/>
                 <label>Last Name</label><br/>
                 <input
                     onChange={() => {}}
                     className="form-control"
+                    type="text"
                     value={this.state.user.lastName}/>
+                <label>DOB Month</label><br/>
+                <input
+                    onChange={() => {}}
+                    className="form-control"
+                    type="number"
+                    value={this.state.user.dobMonth}/>
+                <label>DOB Day</label><br/>
+                <input
+                    onChange={() => {}}
+                    className="form-control"
+                    type="number"
+                    value={this.state.user.dobDay}/>
+                <label>DOB Year</label><br/>
+                <input
+                    onChange={() => {}}
+                    className="form-control"
+                    type="number"
+                    value={this.state.user.dobYear}/>
+                <label>Street</label><br/>
+                <input
+                    onChange={() => {}}
+                    className="form-control"
+                    type="text"
+                    value={this.state.user.addStreet}/>
+                <label>City</label><br/>
+                <input
+                    onChange={() => {}}
+                    className="form-control"
+                    type="text"
+                    value={this.state.user.addCity}/>
+                <label>State</label><br/>
+                <input
+                    onChange={() => {}}
+                    className="form-control"
+                    type="text"
+                    value={this.state.user.addState}/>
+                <label>Zip</label><br/>
+                <input
+                    onChange={() => {}}
+                    type="number"
+                    className="form-control"
+                    type="text"
+                    value={this.state.user.addZip}/>
+                <label>Email</label><br/>
+                <input
+                    onChange={() => {}}
+                    className="form-control"
+                    type="text"
+                    value={this.state.user.email}/>
             </div>
         )
     }

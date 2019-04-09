@@ -3,24 +3,56 @@
     "id": 1,
     "username": "dduck",
     "firstName": "donald",
-    "lastName": "duck"
+    "lastName": "duck",
+    "dobMonth": 1,
+    "dobDay": 1,
+    "dobYear": 1,
+    "addStreet": "A",
+    "addCity": "A",
+    "addState": "AL",
+    "addZip": 1,
+    "email": "@husky.neu.edu"
   },
   {
     "id": 2,
     "username": "ttiger",
     "firstName": "tony",
-    "lastName": "tiger"
+    "lastName": "tiger",
+    "dobMonth": 2,
+    "dobDay": 2,
+    "dobYear": 2,
+    "addStreet": "B",
+    "addCity": "B",
+    "addState": "VT",
+    "addZip": 2,
+    "email": "@husky.neu.edu"
   },
   {
     "id": 3,
     "username": "ysmolyar",
     "firstName": "yonatan",
-    "lastName": "smolyar"
+    "lastName": "smolyar",
+    "dobMonth": 3,
+    "dobDay": 3,
+    "dobYear": 3,
+    "addStreet": "C",
+    "addCity": "C",
+    "addState": "CO",
+    "addZip": 3,
+    "email": "@husky.neu.edu"
   },
   {
     "id": 4,
     "username": "mjordan",
     "firstName": "michael",
-    "lastName": "jordan"
+    "lastName": "jordan",
+    "dobMonth": 4,
+    "dobDay": 4,
+    "dobYear": 4,
+    "addStreet": "D",
+    "addCity": "D",
+    "addState": "DE",
+    "addZip": 4,
+    "email": "@husky.neu.edu"
   }
 ]
