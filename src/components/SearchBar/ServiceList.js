@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ServiceList({ services }) {
   const renderServices = services.map(service => (
-    <option style={{ backgroundColor: 'white' }} value={service.serviceName} id={service.id}></option>
+    <option value={service.serviceName} id={service.id}></option>
   ))
 
   return (

@@ -64,7 +64,7 @@ class ServiceProviderSearch extends React.Component {
       <div className="container">
         <div className="row">
           <SearchBar
-            className="col"
+            className="col-10"
             onSubmit={this.onSubmit}
             onChange={this.onChange}
             onKeyDown={this.onKeyDown}

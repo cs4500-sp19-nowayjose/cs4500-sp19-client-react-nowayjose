@@ -8,9 +8,3 @@
   border-bottom-color: #E5E5E5; 
   padding-bottom: 30px;
 }
-
-#provider-search-list {
-  overflow-y: auto !important; 
-  height: 200px;
-  max-height: 200px;
-}

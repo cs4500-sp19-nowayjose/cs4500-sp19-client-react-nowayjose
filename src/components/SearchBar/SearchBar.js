@@ -67,7 +67,6 @@ class SearchBar extends React.PureComponent {
             <input
               placeholder="What do you need help with?"
               type="search"
-              style={{ width: 100 }}
               onChange={(e) => this.onChange(e, 'searchValue')}
               value={searchValue}
               list="provider-search-list"
