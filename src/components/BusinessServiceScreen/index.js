@@ -1,12 +1,19 @@
 import React from 'react'
 import ServiceSelectSidebar from './serviceSelectSidebar'
+import ServiceQuestionsForm from './serviceQuestionsForm'
+import ServiceQuestionService from '../../services/ServiceQuestionService'
+import serviceAnswerService from '../../services/ServiceAnswerService'
 
 class BusinessServiceScreen extends React.Component {
+  serviceQuestionService = ServiceQuestionService.getInstance()
+  serviceAnswersService = ServiceQuestionService.getInstance()
   state = {
     selectedServices: [],
     possibleServices: [],
     activeServiceId: null,
-    query: ""
+    query: "",
+    selectedServiceQuestions: {},
+    serviceQuestionAnswers: {}
   }
 
   addService(service) {
@@ -19,9 +26,12 @@ class BusinessServiceScreen extends React.Component {
     this.setState(s => {
       var activeId = s.activeServiceId
       if (activeId === id) activeId = null
+      let u = {}
+      u[id] = undefined
       return {
         selectedServices: s.selectedServices.filter(s => s.id !== id),
-        activeServiceId: activeId
+        activeServiceId: activeId,
+        selectedServiceQuestions: Object.assign(s.selectedServiceQuestions, u)
       }
     })
   }
@@ -30,7 +40,14 @@ class BusinessServiceScreen extends React.Component {
     this.setState({
       activeServiceId: id
     })
-    // TODO show questions
+  }
+
+  setAnswer(questionId, answer) {
+    let a = {}
+    a[questionId] = answer
+    this.setState(s => {
+      serviceQuestionAnswers: Object.assign(s.serviceQuestionAnswers, a)
+    })
   }
 
   render() {
@@ -49,7 +66,11 @@ class BusinessServiceScreen extends React.Component {
             selectedServices={this.state.selectedServices} />
         </div>
         <div className="col-9">
-          {`Answers for service ${this.state.activeServiceId}`}
+          <ServiceQuestionsForm
+            submitAnswers={console.log(this.state.serviceQuestionAnswers)}
+            serviceQuestions={this.state.selectedServiceQuestions[this.activeServiceId] || []}
+            answers={this.state.serviceQuestionAnswers}
+            answerQuestion={this.answerQuestion} />
         </div>
       </div>
     )
