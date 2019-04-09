@@ -7,11 +7,13 @@ import ServiceCategoryService from './services/ServiceCategoryService'
 import serviceCategories from './data/service-categories.mock.json'
 import Home from './components/Home'
 import ServiceNavigatorContainer from './containers/ServiceNavigatorContainer'
+import LoginContainer from './containers/LoginContainer'
 import ServiceProviderNavigator from './components/ServiceProviderSearch'
 import Admin from './components/Admin'
 import RegisterContainer from './containers/RegisterContainer';
 import ProviderContainer from './components/Provider/ProviderContainer'
 import BusinessInfoContainer from './containers/BusinessInfoContainer'
+import BusinessServiceScreen from './components/BusinessServiceScreen'
 
 class App extends Component {
     constructor(props) {
@@ -37,13 +39,12 @@ class App extends Component {
                             <div>
                                 <Link to="/home">Home</Link> |
                                 <Link to="/services"> Services</Link> |
-                                <Link exact to="/provider-search/2"> Providers</Link> |
+                                <Link to="/provider-search/2"> Providers</Link> |
                                 <Link to="/admin"> Admin</Link> |
                                 <Link to="/provider"> Provider</Link> |
-                                <Link to="/register"> Register</Link> |
-                                <Link to="#"> Log in</Link> |
-
                                 <Link to="/business"> Business</Link> |
+                                <Link to="/register"> Register</Link> |
+                                <Link to="/login"> Log in</Link> |
                             </div>
                         </div>
                         <br/>
@@ -74,11 +75,19 @@ class App extends Component {
                             path="/register"
                             exact
                             component={RegisterContainer}/>
-
+                        <Route 
+                            path="/login"
+                            exact
+                            component={LoginContainer}/>
                         <Route
                             path="/business"
                             exact
                             component={BusinessInfoContainer}/>
+
+                        <Route
+                            path="/business-service/:providerId"
+                            exact
+                            component={BusinessServiceScreen} />
                     </div>
                 </Router>
             </div>
