@@ -22,3 +22,15 @@ test('render inputs correctly', () => {
     expect(testInstance.findByProps({id: 'username'})).toBeDefined()
     expect(testInstance.findByProps({id: 'password'})).toBeDefined()
 })
+
+test('render inputs correctly after input changes', () => {
+    const renderer = TestRenderer.create(<Login 
+        handleChange={() => {}}
+        handleLogin={() => {}}
+    />)
+
+    const testInstance = renderer.root
+    testInstance.findByProps({id: 'username'}).props.onChange()
+    expect(testInstance.findByProps({id: 'username'})).toBeDefined()
+    expect(testInstance.findByProps({id: 'password'})).toBeDefined()
+})
