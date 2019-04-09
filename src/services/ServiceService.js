@@ -1,7 +1,7 @@
 export default class ServiceService {
     static instance = null;
-    static host = "https://cs4500-sp19-nowayjose.herokuapp.com"
-    // static host = "http://localhost:8080"
+    // static host = "https://cs4500-sp19-nowayjose.herokuapp.com"
+    static host = "http://localhost:8080"
     static getInstance() {
         if(ServiceService.instance === null) {
             ServiceService.instance = new ServiceService()

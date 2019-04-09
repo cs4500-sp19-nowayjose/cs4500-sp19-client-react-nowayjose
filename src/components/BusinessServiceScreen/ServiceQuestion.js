@@ -14,18 +14,19 @@ function BooleanFilter({title, description, answer, setAnswer}) {
 function MinMaxFilter({title, description, answer, setAnswer}) {
   let update = (key, value) => {
     let v = {}
-    v[key] = answer
+    v[key] = parseInt(value)
     setAnswer(Object.assign(answer || {min: 0, max: 0}, v))
   }
+  let a = answer || {min: 0, max: 0}
   return (
     <div className="provider-filter range-filter">
       <h4>{title}</h4>
       <div>{description}</div>
       <label>Min</label>
-      <input type="number" value={answer}
+      <input type="number" value={a["min"]}
         onChange={(e) => update("min", e.target.value)} />
       <label>Max</label>
-      <input type="number" value={answer}
+      <input type="number" value={a["max"]}
         onChange={(e) => update("max", e.target.value)} />
     </div>
   )

@@ -17,9 +17,17 @@ class BusinessServiceScreen extends React.Component {
   }
 
   addService(service) {
-    this.setState(s => ({
-      selectedServices: [service, ...s.selectedServices]
-    }))
+    this.serviceQuestionService.findServiceQuestionsForService(service.id)
+      .then(questions => {
+        this.setState(s => {
+          let q = {}
+          q[service.id] = questions
+          return {
+            selectedServices: [service, ...s.selectedServices],
+            selectedServiceQuestions: Object.assign(s.selectedServiceQuestions, q)
+          }
+        })
+      })
   }
 
   removeService(id) {
@@ -45,9 +53,9 @@ class BusinessServiceScreen extends React.Component {
   setAnswer(questionId, answer) {
     let a = {}
     a[questionId] = answer
-    this.setState(s => {
+    this.setState(s => ({
       serviceQuestionAnswers: Object.assign(s.serviceQuestionAnswers, a)
-    })
+    }))
   }
 
   render() {
@@ -67,10 +75,10 @@ class BusinessServiceScreen extends React.Component {
         </div>
         <div className="col-9">
           <ServiceQuestionsForm
-            submitAnswers={console.log(this.state.serviceQuestionAnswers)}
-            serviceQuestions={this.state.selectedServiceQuestions[this.activeServiceId] || []}
+            submitAnswers={() => console.log(this.state.serviceQuestionAnswers)}
+            serviceQuestions={this.state.selectedServiceQuestions[this.state.activeServiceId] || []}
             answers={this.state.serviceQuestionAnswers}
-            answerQuestion={this.answerQuestion} />
+            answerQuestion={this.setAnswer.bind(this)} />
         </div>
       </div>
     )
