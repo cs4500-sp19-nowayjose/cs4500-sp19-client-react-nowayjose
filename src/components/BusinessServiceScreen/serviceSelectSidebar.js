@@ -11,14 +11,26 @@ class ServiceSelectSidebar extends React.Component {
   }
 
   render() {
+    let chooseButtonClass = isSelected => {
+      if (isSelected) return "btn btn-primary"
+      else return "btn btn-light"
+    }
+    let buttonStyle = {
+      display: "block",
+      width: "90%",
+      margin: "5px auto"
+    }
+    let searchStyle = {
+      width: "100%"
+    }
     return (
       <div className="service-search">
         <h4>Search Services</h4>
-        <input type="text" placeholder="Search services" value={this.props.query} onChange={(e) => this.handleSearchUpdate(e.target.value)}></input>
+        <input style={searchStyle} type="text" placeholder="Search services" value={this.props.query} onChange={(e) => this.handleSearchUpdate(e.target.value)}></input>
         <div className="service-search-results">
           {
             this.props.possibleServices.map(service => (
-              <div onClick={() => this.props.addService(service)}>{service.serviceName}</div>
+              <button style={buttonStyle} className="btn btn-light" onClick={() => this.props.addService(service)}>{service.serviceName}</button>
             ))
           }
         </div>
@@ -27,10 +39,10 @@ class ServiceSelectSidebar extends React.Component {
           {
             // TODO highlight on selection
             this.props.selectedServices.map(service => (
-              <div onClick={() => this.props.selectService(service.id)}>
-                <span>{(() => {console.log(service); return service.serviceName})()}</span>
+              <button style={buttonStyle} className={chooseButtonClass(service.id === this.props.activeServiceId)}>
+                <span onClick={() => this.props.selectService(service.id)}>{service.serviceName}</span>
                 <span onClick={() => this.props.removeService(service.id)}> x</span>
-              </div>
+              </button>
             ))
           }
         </div>
