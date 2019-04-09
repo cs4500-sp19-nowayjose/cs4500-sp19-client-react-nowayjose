@@ -1,7 +1,7 @@
 export default class ServiceAnswerService {
     static instance = null
     static url = 'https://cs4500-sp19-nowayjose.herokuapp.com/'
-    static url = 'http://localhost:8080/'
+    // static url = 'http://localhost:8080/'
     static getInstance() {
         if(ServiceAnswerService.instance === null) {
             ServiceAnswerService.instance = new ServiceAnswerService()

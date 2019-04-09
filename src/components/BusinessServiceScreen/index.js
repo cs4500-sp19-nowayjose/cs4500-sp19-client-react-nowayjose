@@ -25,7 +25,8 @@ class BusinessServiceScreen extends React.Component {
           q[service.id] = questions
           return {
             selectedServices: [service, ...s.selectedServices],
-            selectedServiceQuestions: Object.assign(s.selectedServiceQuestions, q)
+            selectedServiceQuestions: Object.assign(s.selectedServiceQuestions, q),
+            possibleServices: []
           }
         })
       })
