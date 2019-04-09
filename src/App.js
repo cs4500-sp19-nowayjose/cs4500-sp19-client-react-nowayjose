@@ -11,8 +11,8 @@ import ServiceProviderNavigator from './components/ServiceProviderSearch'
 import ServiceNavigatorContainer from './containers/ServiceNavigatorContainer'
 import serviceCategories from './data/service-categories.mock.json'
 import ServiceCategoryService from './services/ServiceCategoryService'
-import Register from './components/Register/Register';
-import RegisterContainer from './containers/RegisterContainer';
+import RegisterContainer from './containers/RegisterContainer'
+import LoginContainer from './containers/LoginContainer'
 
 class App extends Component {
     constructor(props) {
@@ -45,7 +45,7 @@ class App extends Component {
                 <div className="d-flex flex-row-reverse">
                   <Link to="/register"> Register</Link>
                   <div style={{ marginLeft: 10, marginRight: 10 }}/>
-                  <Link to="#"> Log in</Link>
+                  <Link to="/login"> Log in</Link>
                 </div>
               </div>
               <br/>
@@ -73,6 +73,10 @@ class App extends Component {
                   path="/register"
                   exact
                   component={RegisterContainer}/>
+              <Route 
+                  path="/login"
+                  exact
+                  component={LoginContainer}/>
               <Route
                   path="/provider-search/:id"
                   exact
