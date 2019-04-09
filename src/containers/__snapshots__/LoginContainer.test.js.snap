@@ -1,0 +1,357 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[LoginContainer renders correctly after hitting login] 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Welcome back
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          className="form-control"
+          id="username"
+          onChange={[Function]}
+        />
+      </div>
+      <div
+        className="col-12"
+      >
+        <br />
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          className="form-control"
+          id="password"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <label
+          for="password"
+        >
+          <input
+            type="checkbox"
+          />
+            Remember me
+        </label>
+      </div>
+      <div
+        className="col-6"
+      >
+        <a
+          className="float-right"
+          href="#"
+        >
+          Forgot password?
+        </a>
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          id="loginBtn"
+          onClick={[Function]}
+        >
+          Log in
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[LoginContainer renders correctly after hitting login] 2`] = `
+<div
+  className="container"
+>
+  <h1>
+    Welcome back
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          className="form-control"
+          id="username"
+          onChange={[Function]}
+        />
+      </div>
+      <div
+        className="col-12"
+      >
+        <br />
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          className="form-control"
+          id="password"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <label
+          for="password"
+        >
+          <input
+            type="checkbox"
+          />
+            Remember me
+        </label>
+      </div>
+      <div
+        className="col-6"
+      >
+        <a
+          className="float-right"
+          href="#"
+        >
+          Forgot password?
+        </a>
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          id="loginBtn"
+          onClick={[Function]}
+        >
+          Log in
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[LoginContainer renders correctly] 1`] = `
+<div
+  className="container"
+>
+  <h1>
+    Welcome back
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          className="form-control"
+          id="username"
+          onChange={[Function]}
+        />
+      </div>
+      <div
+        className="col-12"
+      >
+        <br />
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          className="form-control"
+          id="password"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <label
+          for="password"
+        >
+          <input
+            type="checkbox"
+          />
+            Remember me
+        </label>
+      </div>
+      <div
+        className="col-6"
+      >
+        <a
+          className="float-right"
+          href="#"
+        >
+          Forgot password?
+        </a>
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          id="loginBtn"
+          onClick={[Function]}
+        >
+          Log in
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[LoginContainer renders correctly] 2`] = `
+<div
+  className="container"
+>
+  <h1>
+    Welcome back
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="username"
+        >
+          Username
+        </label>
+        <input
+          className="form-control"
+          id="username"
+          onChange={[Function]}
+        />
+      </div>
+      <div
+        className="col-12"
+      >
+        <br />
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          className="form-control"
+          id="password"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <label
+          for="password"
+        >
+          <input
+            type="checkbox"
+          />
+            Remember me
+        </label>
+      </div>
+      <div
+        className="col-6"
+      >
+        <a
+          className="float-right"
+          href="#"
+        >
+          Forgot password?
+        </a>
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          id="loginBtn"
+          onClick={[Function]}
+        >
+          Log in
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
