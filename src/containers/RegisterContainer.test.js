@@ -19,7 +19,8 @@ test('[RegisterContainer renders correctly after hitting create]', () => {
     expect(tree).toMatchSnapshot()
 
     const testInstance   = testRenderer.root
-    let   createButton    = testInstance.findAllByProps({className: 'btn btn-primary btn-block'})
+    let   createButton    = testInstance.findByProps({id: 'create'})
+    createButton.props.onClick({})
 
     tree = testRenderer.toJSON()
     expect(tree).toMatchSnapshot()
