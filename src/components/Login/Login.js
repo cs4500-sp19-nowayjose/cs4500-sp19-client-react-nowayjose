@@ -31,7 +31,7 @@ const Login = ({handleChange, handleLogin}) =>
             <br/>
             <div className="row">
                 <div className="col-12">
-                    <button onClick={handleLogin} className="btn btn-primary btn-block">
+                    <button onClick={handleLogin} id="loginBtn" className="btn btn-primary btn-block">
                         Log in
                     </button>
                 </div>
