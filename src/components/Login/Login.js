@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Login = () =>
+const Login = ({handleChange, handleLogin}) =>
     <div className="container">
         <h1>Welcome back</h1>
         <br/>
@@ -8,12 +8,12 @@ const Login = () =>
             <div className="row">
                 <div className="col-12">
                     <label for="username">Username</label>
-                    <input id="username" className="form-control"/>
+                    <input id="username" className="form-control" onChange={handleChange}/>
                 </div>
                 <div className="col-12">
                     <br/>
                     <label for="password">Password</label>
-                    <input id="password" className="form-control"/>
+                    <input id="password" className="form-control" onChange={handleChange}/>
                 </div>
             </div>
             <br/>
@@ -31,9 +31,9 @@ const Login = () =>
             <br/>
             <div className="row">
                 <div className="col-12">
-                    <a href="/profile" className="btn btn-primary btn-block">
+                    <button onClick={handleLogin} className="btn btn-primary btn-block">
                         Log in
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
