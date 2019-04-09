@@ -37,7 +37,6 @@ class ServiceSelectSidebar extends React.Component {
         <div className="selected-services">
           <h4>Selected Services</h4>
           {
-            // TODO highlight on selection
             this.props.selectedServices.map(service => (
               <button style={buttonStyle} className={chooseButtonClass(service.id === this.props.activeServiceId)}>
                 <span onClick={() => this.props.selectService(service.id)}>{service.serviceName}</span>
