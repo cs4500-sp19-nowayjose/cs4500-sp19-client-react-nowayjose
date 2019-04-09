@@ -11,3 +11,14 @@ test('render login button correctly', () => {
     const testInstance = renderer.root
     expect(testInstance.findByProps({id: 'loginBtn'})).toBeDefined()
 })
+
+test('render inputs correctly', () => {
+    const renderer = TestRenderer.create(<Login 
+        handleChange={() => {}}
+        handleLogin={() => {}}
+    />)
+
+    const testInstance = renderer.root
+    expect(testInstance.findByProps({id: 'username'})).toBeDefined()
+    expect(testInstance.findByProps({id: 'password'})).toBeDefined()
+})
