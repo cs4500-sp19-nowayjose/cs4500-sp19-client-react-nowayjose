@@ -12,6 +12,7 @@ import Admin from './components/Admin'
 import RegisterContainer from './containers/RegisterContainer';
 import ProviderContainer from './components/Provider/ProviderContainer'
 import BusinessInfoContainer from './containers/BusinessInfoContainer'
+import BusinessServiceScreen from './components/BusinessServiceScreen'
 
 class App extends Component {
     constructor(props) {
@@ -79,6 +80,11 @@ class App extends Component {
                             path="/business"
                             exact
                             component={BusinessInfoContainer}/>
+
+                        <Route
+                            path="/business-service/:providerId"
+                            exact
+                            component={BusinessServiceScreen} />
                     </div>
                 </Router>
             </div>
