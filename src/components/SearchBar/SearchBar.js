@@ -53,7 +53,7 @@ class SearchBar extends React.PureComponent {
       trigger = true;
     }
 
-    if (!trigger) this.props.history.push(`/providers/${toWhichService[0].id}`)
+    if (!trigger) this.props.history.push(`/provider-search/${toWhichService[0].id}`)
   }
 
   render() {
@@ -67,7 +67,7 @@ class SearchBar extends React.PureComponent {
             <input
               placeholder="What do you need help with?"
               type="search"
-              style={{ width: '100px' }}
+              style={{ width: 100 }}
               onChange={(e) => this.onChange(e, 'searchValue')}
               value={searchValue}
               list="provider-search-list"
