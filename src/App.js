@@ -39,7 +39,7 @@ class App extends Component {
                             <div>
                                 <Link to="/home">Home</Link> |
                                 <Link to="/services"> Services</Link> |
-                                <Link exact to="/provider-search/2"> Providers</Link> |
+                                <Link to="/provider-search/2"> Providers</Link> |
                                 <Link to="/admin"> Admin</Link> |
                                 <Link to="/provider"> Provider</Link> |
                                 <Link to="/business"> Business</Link> |

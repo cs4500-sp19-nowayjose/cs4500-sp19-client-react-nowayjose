@@ -14,11 +14,15 @@ class SearchBar extends React.PureComponent {
   }
 
   componentDidMount() {
-    ServiceService.getInstance()
-      .findAllServices()
-      .then(services => {
-        this.setState({ services })
-      })
+    if (this.props.testData) {
+      this.setState({ services: this.props.testData })
+    } else {
+      ServiceService.getInstance()
+        .findAllServices()
+        .then(services => {
+          this.setState({ services })
+        })
+    }
   }
 
   onChange = (e, field) => {
@@ -62,7 +66,7 @@ class SearchBar extends React.PureComponent {
 
     return (
       <div className={className}>
-        <form onSubmit={this.onSubmit} class="needs-validation" noValidate>
+        <form onSubmit={this.onSubmit} className="needs-validation" noValidate>
           <div className="input-group input-group-lg">
             <input
               placeholder="What do you need help with?"
@@ -70,7 +74,7 @@ class SearchBar extends React.PureComponent {
               onChange={(e) => this.onChange(e, 'searchValue')}
               value={searchValue}
               list="provider-search-list"
-              className={`form-control ${ isSearchError ?'is-invalid' : ''}`}
+              className={`form-control service-name ${ isSearchError ?'is-invalid' : ''}`}
               required
             />
             <span style={{ marginLeft: 0.5 }} />
@@ -80,9 +84,10 @@ class SearchBar extends React.PureComponent {
               type="text"
               onChange={(e) => this.onChange(e, 'zipValue')}
               value={zipValue}
-              className={`form-control ${ isZipError ?'is-invalid' : ''}`}/>
+              className={`form-control zip-code ${ isZipError ?'is-invalid' : ''}`}/>
             <div className="input-group-append">
               <button
+                testID="search-submit-button"
                 onClick={this.onSubmit}
                 className="btn btn-primary"
                 type="submit">
