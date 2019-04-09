@@ -1,0 +1,385 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[RegisterContainer renders correctly after hitting create] 1`] = `
+<div>
+  <h1>
+    Create your account
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <label
+          for="first-name"
+        >
+          First name
+        </label>
+        <input
+          className="first-name form-control"
+          id="firstName"
+          onChange={[Function]}
+        />
+      </div>
+      <div
+        className="col-6"
+      >
+        <label
+          for="last-name"
+        >
+          Last name
+        </label>
+        <input
+          className="last-name form-control"
+          id="lastName"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="username"
+        >
+          Username/Email
+        </label>
+        <input
+          className="email form-control"
+          id="username"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          className="password form-control"
+          id="password"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          onClick={[Function]}
+        >
+          Create Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[RegisterContainer renders correctly after hitting create] 2`] = `
+<div>
+  <h1>
+    Create your account
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <label
+          for="first-name"
+        >
+          First name
+        </label>
+        <input
+          className="first-name form-control"
+          id="firstName"
+          onChange={[Function]}
+        />
+      </div>
+      <div
+        className="col-6"
+      >
+        <label
+          for="last-name"
+        >
+          Last name
+        </label>
+        <input
+          className="last-name form-control"
+          id="lastName"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="username"
+        >
+          Username/Email
+        </label>
+        <input
+          className="email form-control"
+          id="username"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          className="password form-control"
+          id="password"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          onClick={[Function]}
+        >
+          Create Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[RegisterContainer renders correctly] 1`] = `
+<div>
+  <h1>
+    Create your account
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <label
+          for="first-name"
+        >
+          First name
+        </label>
+        <input
+          className="first-name form-control"
+          id="firstName"
+          onChange={[Function]}
+        />
+      </div>
+      <div
+        className="col-6"
+      >
+        <label
+          for="last-name"
+        >
+          Last name
+        </label>
+        <input
+          className="last-name form-control"
+          id="lastName"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="username"
+        >
+          Username/Email
+        </label>
+        <input
+          className="email form-control"
+          id="username"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          className="password form-control"
+          id="password"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          onClick={[Function]}
+        >
+          Create Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`[RegisterContainer renders correctly] 2`] = `
+<div>
+  <h1>
+    Create your account
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <label
+          for="first-name"
+        >
+          First name
+        </label>
+        <input
+          className="first-name form-control"
+          id="firstName"
+          onChange={[Function]}
+        />
+      </div>
+      <div
+        className="col-6"
+      >
+        <label
+          for="last-name"
+        >
+          Last name
+        </label>
+        <input
+          className="last-name form-control"
+          id="lastName"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="username"
+        >
+          Username/Email
+        </label>
+        <input
+          className="email form-control"
+          id="username"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="password"
+        >
+          Password
+        </label>
+        <input
+          className="password form-control"
+          id="password"
+          onChange={[Function]}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <button
+          className="btn btn-primary btn-block"
+          onClick={[Function]}
+        >
+          Create Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
