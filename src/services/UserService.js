@@ -1,5 +1,6 @@
 
-const USER_API_URL = 'https://cs4500-sp19-nowayjose.herokuapp.com/api/users/';
+// const USER_API_URL = 'https://cs4500-sp19-nowayjose.herokuapp.com/api/users/';
+const USER_API_URL = 'http://localhost:8080/api/users/';
 
 export default class UserService {
     static instance = null;

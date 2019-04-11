@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { act } from 'react-dom/test-utils'
 import ServiceCategoryList from './ServiceCategoryList'
 import renderer from 'react-test-renderer'
-import serviceCategories from '../../data/serviceCategories.mock.json'
+import serviceCategories from '../../data/service-categories.mock.json'
 import {BrowserRouter as Router} from 'react-router-dom'
 
 let container;
@@ -24,6 +24,7 @@ it('loads all categories into list', () => {
       <ServiceCategoryList serviceCategories={serviceCategories} />,
     container);
   });
+
   expect(container.querySelector('.list-group')).toBeDefined();
-  expect(container.querySelector('.list-group-item').length).toBe(serviceCategories.length);
+  expect(container.querySelector('.service-categories').length).toBe(serviceCategories.length);
 })

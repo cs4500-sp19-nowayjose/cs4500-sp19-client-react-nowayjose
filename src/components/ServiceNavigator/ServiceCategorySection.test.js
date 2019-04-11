@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { act } from 'react-dom/test-utils'
-import ServiceCategorSection from './ServiceCategorSection'
+import ServiceCategorySection from './ServiceCategorySection'
 import renderer from 'react-test-renderer'
-import serviceCategories from '../../data/serviceCategories.mock.json'
+import serviceCategories from '../../data/service-categories.mock.json'
 import {BrowserRouter as Router} from 'react-router-dom'
 
 let container;

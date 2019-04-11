@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { act } from 'react-dom/test-utils'
 import FAQsList from './FAQsList'
 import renderer from 'react-test-renderer'
-import faqs from '../../data/frequentlyAskedQuestion.mock.json'
+import faqs from '../data/frequentlyAskedQuestion.mock.json'
 import {BrowserRouter as Router} from 'react-router-dom'
 
 let container;
@@ -25,9 +25,9 @@ it('has the correct number of results', () => {
         faqs={faqs}
         title=""
         question=""
-        updateId=-1
-        recordsNumber=10
-        page=1
+        updateId={-1}
+        recordsNumber={10}
+        page={1}
         filter={{}}
 
         editFAQ = {() => {}}
@@ -57,9 +57,9 @@ it('renders correctly', () => {
         faqs={faqs}
         title=""
         question=""
-        updateId=-1
-        recordsNumber=10
-        page=1
+        updateId={-1}
+        recordsNumber={10}
+        page={1}
         filter={{}}
 
         editFAQ = {() => {}}

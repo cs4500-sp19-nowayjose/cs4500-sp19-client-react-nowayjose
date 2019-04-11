@@ -90,6 +90,7 @@ exports[`service question on admin panel rendering test Filtering title works 1`
   <div>
     <span
       onClick={[Function]}
+      testID="prev-button"
     >
       Prev
     </span>
@@ -100,6 +101,7 @@ exports[`service question on admin panel rendering test Filtering title works 1`
     </span>
     <span
       onClick={[Function]}
+      testID="next-button"
     >
       Next
     </span>
@@ -263,6 +265,7 @@ exports[`service question on admin panel rendering test Render service questions
   <div>
     <span
       onClick={[Function]}
+      testID="prev-button"
     >
       Prev
     </span>
@@ -273,6 +276,7 @@ exports[`service question on admin panel rendering test Render service questions
     </span>
     <span
       onClick={[Function]}
+      testID="next-button"
     >
       Next
     </span>

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { act } from 'react-dom/test-utils'
 import ServiceCards from './ServiceCards'
 import renderer from 'react-test-renderer'
-import serviceCategories from '../../data/serviceCategories.mock.json'
+import serviceCategories from '../../data/service-categories.mock.json'
 import {BrowserRouter as Router} from 'react-router-dom'
 
 let container;
