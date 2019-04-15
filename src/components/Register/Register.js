@@ -32,7 +32,7 @@ const Register = ({handleChange, handleCreate}) =>
             <br/>
             <div className="row">
                 <div className="col-12">
-                    <button onClick={handleCreate} className="btn btn-primary btn-block">
+                    <button onClick={handleCreate} id="create" className="btn btn-primary btn-block">
                         Create Account
                     </button>
                 </div>
