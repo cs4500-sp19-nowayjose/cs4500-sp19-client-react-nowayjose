@@ -1,0 +1,324 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pagination toolbar rendering render business form with correct information 1`] = `
+<div
+  className="container"
+  testID="business-info-form"
+>
+  <h1>
+    Business
+  </h1>
+  <br />
+  <div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="business-name"
+        >
+          Business name
+        </label>
+        <input
+          className="form-control"
+          value="hey"
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="year-founded"
+        >
+          Year founded
+        </label>
+        <input
+          className="form-control"
+          testID="year-in-business-field"
+          value={2014}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="employees"
+        >
+          Number of employees
+        </label>
+        <input
+          lassName="form-control"
+          value={5}
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="email"
+        >
+          Email
+        </label>
+        <input
+          className="form-control"
+          value="email@email.com"
+        />
+      </div>
+    </div>
+    <br />
+    <h4>
+      Business address (optional)
+    </h4>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label
+          for="street"
+        >
+          Street
+        </label>
+        <input
+          className="form-control"
+          value="360 Huntington Ave"
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <br />
+        <label
+          for="city"
+        >
+          City
+        </label>
+        <input
+          className="form-control"
+          value="Boston"
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-6"
+      >
+        <br />
+        <label
+          for="state"
+        >
+          State
+        </label>
+        <select
+          className="form-control"
+        >
+          <option
+            selected={true}
+          >
+            MA
+          </option>
+          <option>
+            NH
+          </option>
+          <option>
+            NY
+          </option>
+          <option>
+            CA
+          </option>
+        </select>
+      </div>
+      <div
+        className="col-6"
+      >
+        <br />
+        <label
+          for="zip"
+        >
+          Zip
+        </label>
+        <input
+          className="form-control"
+          value="02115"
+        />
+      </div>
+    </div>
+    <br />
+    <h4>
+      Payment methods accepted
+    </h4>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <ul
+          className="list-group"
+        >
+          <li
+            className="list-group-item"
+          >
+            <label>
+              <input
+                checked={true}
+                testID="Credit Card_choice"
+                type="checkbox"
+              />
+              Credit Card
+            </label>
+          </li>
+          <li
+            className="list-group-item"
+          >
+            <label>
+              <input
+                checked={false}
+                testID="Cash_choice"
+                type="checkbox"
+              />
+              Cash
+            </label>
+          </li>
+          <li
+            className="list-group-item"
+          >
+            <label>
+              <input
+                checked={false}
+                testID="Check_choice"
+                type="checkbox"
+              />
+              Check
+            </label>
+          </li>
+          <li
+            className="list-group-item"
+          >
+            <label>
+              <input
+                checked={false}
+                testID="Venmo_choice"
+                type="checkbox"
+              />
+              Venmo
+            </label>
+          </li>
+          <li
+            className="list-group-item"
+          >
+            <label>
+              <input
+                checked={true}
+                testID="Paypal_choice"
+                type="checkbox"
+              />
+              Paypal
+            </label>
+          </li>
+          <li
+            className="list-group-item"
+          >
+            <label>
+              <input
+                checked={false}
+                testID="Square_choice"
+                type="checkbox"
+              />
+              Square
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <br />
+    <h4>
+      Social media
+    </h4>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <label>
+          Facebook
+        </label>
+        <input
+          className="form-control"
+          placeholder="Enter Facebook URL"
+          value="wow@facebook.com"
+        />
+      </div>
+      <div
+        className="col-12"
+      >
+        <br />
+        <label>
+          Instagram
+        </label>
+        <input
+          className="form-control"
+          placeholder="Enter Instagram URL"
+          value="some@instagram.com"
+        />
+      </div>
+      <div
+        className="col-12"
+      >
+        <br />
+        <label>
+          Twitter
+        </label>
+        <input
+          className="form-control"
+          placeholder="Enter Twitter URL"
+          value="wow@twitter.com"
+        />
+      </div>
+    </div>
+    <br />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <a
+          className="btn btn-success btn-block"
+        >
+          Save
+        </a>
+      </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+</div>
+`;

@@ -6,7 +6,7 @@ export class BusinessScreen extends Component {
   render() {
     return (
       <div>
-        <BusinessForm />
+        <BusinessForm data={{}} />
       </div>
     )
   }
