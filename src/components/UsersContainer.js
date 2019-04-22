@@ -7,13 +7,13 @@ class UsersContainer extends React.Component {
         this.userService = UserService.getInstance()
         this.state = {
             users: [],
-            username: 'Username',
-            password: 'password',
-            firstName: 'First name',
-            lastName: 'Last name',
+            username: '',
+            firstName: '',
+            lastName: '',
             updateUserId: -1,
             recordsNumber: 10,
             page: 1,
+            filter: {},
         }
 
         this.renderUsername = this.renderUsername.bind(this)
@@ -24,7 +24,10 @@ class UsersContainer extends React.Component {
         this.deleteUser = this.deleteUser.bind(this)
         this.updateUser = this.updateUser.bind(this)
         this.getPageNumbers = this.getPageNumbers.bind(this)
-
+        this.passesFilter = this.passesFilter.bind(this);
+        this.handleFilterChange = this.handleFilterChange.bind(this)
+        this.handleRecordsNumberChange = this.handleRecordsNumberChange.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this)
 
     }
 
@@ -125,6 +128,37 @@ class UsersContainer extends React.Component {
             page: newPage
         })
     }
+    handleFilterChange(event) {
+        var newFilter = {};
+        if(this.state.filter.username == undefined &&
+            this.state.filter.firstName == undefined &&
+            this.state.filter.lastName == undefined) {
+            if(this.state.username != "") newFilter.username = this.state.username;
+            if(this.state.firstName != "") newFilter.firstName = this.state.firstName;
+            if(this.state.lastName != "") newFilter.lastName = this.state.lastName;
+
+        }
+        else {
+            this.state.username = "";
+            this.state.firstName = "";
+            this.state.lastName = "";
+
+        }
+
+
+        this.setState({
+            filter: newFilter
+        })
+    }
+    passesFilter(user) {
+        var pass = true;
+        for(var i = 0; i < Object.keys(this.state.filter).length; i++) {
+            var prop = Object.keys(this.state.filter)[i];
+            pass &= user[prop].toLowerCase().indexOf(this.state.filter[prop].toLowerCase()) >= 0;
+        }
+        return pass;
+    }
+
     render() {
         return(
             <UsersList
@@ -134,6 +168,8 @@ class UsersContainer extends React.Component {
                 lastName={this.state.lastName}
                 page={this.state.page}
                 recordsNumber={this.state.recordsNumber}
+                filter={this.state.filter}
+
 
                 renderUsername={this.renderUsername}
                 renderFirstName={this.renderFirstName}
@@ -145,6 +181,8 @@ class UsersContainer extends React.Component {
                 getPageNumbers = {this.getPageNumbers}
                 handlePageChange = {this.handlePageChange}
                 handleRecordsNumberChange = {this.handleRecordsNumberChange}
+                handleFilterChange = {this.handleFilterChange}
+                passesFilter = {this.passesFilter}
             />
         )
     }
