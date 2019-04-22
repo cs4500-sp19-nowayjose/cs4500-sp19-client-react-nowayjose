@@ -8,10 +8,11 @@ class ServiceCategoriesContainer extends React.Component {
         this.serviceCategoryService = ServiceCategoryService.getInstance()
         this.state = {
             serviceCategories: [],
-            name: 'New category',
+            name: '',
             updateId: -1,
             recordsNumber: 10,
-            page: 1
+            page: 1,
+            filter: {}
         }
 
         this.editServiceCategory = this.editServiceCategory.bind(this)
@@ -22,6 +23,8 @@ class ServiceCategoriesContainer extends React.Component {
         this.getPageNumbers = this.getPageNumbers.bind(this)
         this.handleRecordsNumberChange = this.handleRecordsNumberChange.bind(this)
         this.handlePageChange = this.handlePageChange.bind(this)
+        this.passesFilter = this.passesFilter.bind(this);
+        this.handleFilterChange = this.handleFilterChange.bind(this)
 
     }
     componentDidMount() {
@@ -111,6 +114,28 @@ class ServiceCategoriesContainer extends React.Component {
             recordsNumber: event.target.value != "All" ? event.target.value : this.state.users.length
         })
     }
+    handleFilterChange(event) {
+        var newFilter = {};
+        if(this.state.filter.serviceCategoryName == undefined) {
+            if(this.state.name != "") newFilter.serviceCategoryName = this.state.name;
+        }
+        else {
+            this.state.name = "";
+        }
+
+
+        this.setState({
+            filter: newFilter
+        })
+    }
+    passesFilter(category) {
+        var pass = true;
+        for(var i = 0; i < Object.keys(this.state.filter).length; i++) {
+            var prop = Object.keys(this.state.filter)[i];
+            pass &= category[prop].toLowerCase().indexOf(this.state.filter[prop].toLowerCase()) >= 0;
+        }
+        return pass;
+    }
 
 
     render() {
@@ -118,6 +143,10 @@ class ServiceCategoriesContainer extends React.Component {
             <ServiceCategoriesList
                 serviceCategories={this.state.serviceCategories}
                 name={this.state.name}
+                filter={this.state.filter}
+                page={this.state.page}
+                recordsNumber={this.state.recordsNumber}
+
                 handleNameChange={this.handleNameChange}
                 createServiceCategory={this.createServiceCategory}
                 editServiceCategory={this.editServiceCategory}
@@ -126,6 +155,8 @@ class ServiceCategoriesContainer extends React.Component {
                 getPageNumbers = {this.getPageNumbers}
                 handlePageChange = {this.handlePageChange}
                 handleRecordsNumberChange = {this.handleRecordsNumberChange}
+                handleFilterChange = {this.handleFilterChange}
+                passesFilter = {this.passesFilter}
             />
         )
     }
