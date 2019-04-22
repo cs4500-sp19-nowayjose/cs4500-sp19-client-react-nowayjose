@@ -70,13 +70,11 @@ class ServiceDetails extends React.Component {
         })
 
     updateCategory = id => {
-        console.log("id input: " + id)
         this.serviceCategoryService
             .findServiceCategoryById(id)
             .then(category => {
                 if (category === undefined)
                     return;
-                console.log("categoryId: " + category.id)
                 this.setState({
                     category: category.serviceCategoryName,
                     categoryId: category.id,
@@ -87,8 +85,6 @@ class ServiceDetails extends React.Component {
 
 
     updateCategoryRelationship = () => {
-        console.log("updating relationship")
-        console.log("service id:" + this.state.service.id, "category id:" + this.state.categoryId)
         this.serviceCategoryService.addServiceToCategory(this.state.service.id, this.state.categoryId);
     }
 
@@ -106,7 +102,6 @@ class ServiceDetails extends React.Component {
 
     updateService = () => {
         if (this.state.category !== "" || this.state.category !== "None") {
-            console.log("we're adding this service to the category: " + this.state.category);
             this.updateCategoryRelationship();
 
         }

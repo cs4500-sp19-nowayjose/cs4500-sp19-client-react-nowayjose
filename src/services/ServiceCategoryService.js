@@ -63,7 +63,6 @@ export default class ServiceCategoryService {
                 'content-type': 'application/json',
             },
         })
-            .then(response => response.json()
-                .then(responseJson => console.log(responseJson)));
+            .then(response => response.json());
     }
 }
