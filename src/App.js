@@ -14,6 +14,7 @@ import RegisterContainer from './containers/RegisterContainer';
 import ProviderContainer from './components/Provider/ProviderContainer'
 import BusinessInfoContainer from './containers/BusinessInfoContainer'
 import BusinessServiceScreen from './components/BusinessServiceScreen'
+import UMLClassDiagram from './components/UMLClassDiagram/UMLClassDiagram'
 
 class App extends Component {
     constructor(props) {
@@ -37,6 +38,7 @@ class App extends Component {
                     <div>
                         <div className="d-flex justify-content-between">
                             <div>
+                                <Link to="/uml">UML</Link> |
                                 <Link to="/home">Home</Link> |
                                 <Link to="/services"> Services</Link> |
                                 <Link to="/provider-search/2"> Providers</Link> |
@@ -51,6 +53,11 @@ class App extends Component {
                         <br/>
                         <br/>
 
+                        <Route
+                            path="/uml"
+                            exact
+                            render={() => <UMLClassDiagram/>}
+                        />
                         <Route
                             path="/home"
                             exact
