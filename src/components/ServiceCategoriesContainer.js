@@ -1,6 +1,7 @@
 import React from 'react'
 import ServiceCategoryService from '../services/ServiceCategoryService'
 import ServiceCategoriesList from './ServiceCategoriesList'
+import UsersList from "./UsersList";
 class ServiceCategoriesContainer extends React.Component {
     constructor(props) {
         super(props)
@@ -8,14 +9,19 @@ class ServiceCategoriesContainer extends React.Component {
         this.state = {
             serviceCategories: [],
             name: 'New category',
-            updateId: -1
+            updateId: -1,
+            recordsNumber: 10,
+            page: 1
         }
 
-         this.editServiceCategory = this.editServiceCategory.bind(this)
-         this.deleteServiceCategory = this.deleteServiceCategory.bind(this)
-         this.createServiceCategory = this.createServiceCategory.bind(this)
-         this.updateServiceCategory = this.updateServiceCategory.bind(this)
-         this.handleNameChange = this.handleNameChange.bind(this)
+        this.editServiceCategory = this.editServiceCategory.bind(this)
+        this.deleteServiceCategory = this.deleteServiceCategory.bind(this)
+        this.createServiceCategory = this.createServiceCategory.bind(this)
+        this.updateServiceCategory = this.updateServiceCategory.bind(this)
+        this.handleNameChange = this.handleNameChange.bind(this)
+        this.getPageNumbers = this.getPageNumbers.bind(this)
+        this.handleRecordsNumberChange = this.handleRecordsNumberChange.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this)
 
     }
     componentDidMount() {
@@ -79,6 +85,33 @@ class ServiceCategoriesContainer extends React.Component {
         })
     }
 
+    handlePageChange(event) {
+        var newPage = this.state.page;
+        if(event.target.innerHTML == "Previous") newPage = Math.max(newPage - 1, 1);
+        else if(event.target.innerHTML == "Next") newPage = Math.min(newPage + 1,
+            Math.ceil(this.state.serviceCategories.length/this.state.recordsNumber));
+        else newPage = event.target.innerHTML;
+
+        this.setState({
+            page: newPage
+        })
+    }
+
+    getPageNumbers() {
+        var nums = [];
+        for(var i = Math.max(1, this.state.page - 3); i < Math.min(this.state.page + 3,
+            this.state.serviceCategories.length/this.state.recordsNumber + 1); i++) {
+            nums.push(i)
+        }
+        return nums
+    }
+
+    handleRecordsNumberChange(event) {
+        this.setState({
+            recordsNumber: event.target.value != "All" ? event.target.value : this.state.users.length
+        })
+    }
+
 
     render() {
         return(
@@ -90,6 +123,9 @@ class ServiceCategoriesContainer extends React.Component {
                 editServiceCategory={this.editServiceCategory}
                 updateServiceCategory={this.updateServiceCategory}
                 deleteServiceCategory={this.deleteServiceCategory}
+                getPageNumbers = {this.getPageNumbers}
+                handlePageChange = {this.handlePageChange}
+                handleRecordsNumberChange = {this.handleRecordsNumberChange}
             />
         )
     }
