@@ -1,7 +1,7 @@
 import React from 'react'
 import Rating from './Rating'
 import Review from './Review'
-// import FAQ from './FAQ'
+import FAQ from './FAQ'
 
 const Provider = ({provider}) =>
     <div>
@@ -137,6 +137,17 @@ const Provider = ({provider}) =>
                     </ul>
                 </nav>
             </div>
+        </div>
+        <div>
+            <hr/>
+            <a name="faqs"/>
+            <h3>FAQs</h3>
+            {
+                provider.frequentlyAskedAnswers ?
+                    provider.frequentlyAskedAnswers.map(faq =>
+                        <FAQ key={faq.id} faq={faq}/>
+                    ) : ''
+            }
         </div>
     </div>
 
