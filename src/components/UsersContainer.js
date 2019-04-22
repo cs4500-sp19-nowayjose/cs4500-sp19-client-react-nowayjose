@@ -1,6 +1,7 @@
 import React from 'react'
 import UserService from '../services/UserService'
 import UsersList from './UsersList'
+
 class UsersContainer extends React.Component {
     constructor(props) {
         super(props)
@@ -110,7 +111,8 @@ class UsersContainer extends React.Component {
                 renderUser={this.renderUser}
                 createUser={this.createUser}
                 updateUser={this.updateUser}
-                deleteUser={this.deleteUser}/>
+                deleteUser={this.deleteUser}
+                selectUser={this.selectUser}/>
         )
     }
 }
