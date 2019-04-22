@@ -64,7 +64,7 @@ const ServiceCategoriesList = props =>
                             )
                         }
                         <li className="page-item"><a className="page-link" onClick={props.handlePageChange}
-                                                     disabled={props.page === Math.round(props.users.length/props.recordsNumber)}>Next</a></li>
+                                                     disabled={props.page === Math.round(props.serviceCategories.length/props.recordsNumber)}>Next</a></li>
                     </ul>
                 </td>
             </tr>
