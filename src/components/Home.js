@@ -11,7 +11,7 @@ const Home = ({history, pillServiceCategories}) =>
                 <h1>
                     Find professionals near you.
                 </h1>
-                <SearchBar history={history}/>
+                <SearchBar history={history} />
             </div>
         </div>
 
