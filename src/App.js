@@ -44,6 +44,7 @@ class App extends Component {
                                 <Link to="/provider-search/2"> Providers</Link> |
                                 <Link to="/admin"> Admin</Link> |
                                 <Link to="/provider"> Provider</Link> |
+                                <Link to="/provider/2"> Provider</Link> |
                                 <Link to="/business"> Business</Link> |
                                 <Link to="/register"> Register</Link> |
                                 <Link to="/login"> Log in</Link> |
