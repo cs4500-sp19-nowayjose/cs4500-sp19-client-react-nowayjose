@@ -151,5 +151,4 @@ const Provider = ({provider}) =>
         </div>
     </div>
 
-
 export default Provider

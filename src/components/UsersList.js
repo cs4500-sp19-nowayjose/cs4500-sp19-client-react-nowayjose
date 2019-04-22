@@ -13,12 +13,9 @@ const UsersList = props =>
                 <th>&nbsp;</th>
             </tr>
             <tr>
-                <th><input type="text" onChange={props.renderUsername} value={props.username}
-                           placeholder="username"/></th>
-                <th><input type="text" onChange={props.renderFirstName} value={props.firstName}
-                           placeholder="firstName"/></th>
-                <th><input type="text" onChange={props.renderLastName} value={props.lastName}
-                           placeholder="lastName"/></th>
+                <th><input type="text" onChange={props.renderUsername} value={props.username} placeholder={"Username"}/></th>
+                <th><input type="text" onChange={props.renderFirstName} value={props.firstName} placeholder={"First Name"}/></th>
+                <th><input type="text" onChange={props.renderLastName} value={props.lastName} placeholder={"Last Name"}/></th>
                 <th>
                     <button type="button" onClick={props.createUser}
                             className="btn btn-primary btn-block">Create
@@ -34,6 +31,10 @@ const UsersList = props =>
             <tbody>
             {
                 props.users
+                    .slice((props.page-1)*props.recordsNumber,
+                        Math.min(props.page*props.recordsNumber,
+                            props.users.length))
+                    .filter(props.passesFilter)
                     .map(user =>
                         <tr key={user.id}>
                             <td>
@@ -55,6 +56,37 @@ const UsersList = props =>
                     )
             }
             </tbody>
+            <tfoot>
+            <tr>
+                <td>
+                    <select onChange={props.handleRecordsNumberChange} value={props.recordsNumber}>
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                        <option>100</option>
+                        <option>All</option>
+                    </select>
+                </td>
+                <td>
+                    <ul className="pagination">
+                        <li className="page-item"><a className="page-link" onClick={props.handlePageChange} disabled={props.page === 1}>Previous</a></li>
+                        {
+                            props.getPageNumbers().map(num =>
+                                <li key={num} className="page-item"><a className="page-link" onClick={props.handlePageChange}>{num}</a></li>
+                            )
+                        }
+                        <li className="page-item"><a className="page-link" onClick={props.handlePageChange} disabled={props.page === Math.round(props.users.length/props.recordsNumber)}>Next</a></li>
+                    </ul>
+                </td>
+                <td>
+                    <button className="btn btn-secondary btn-block" onClick={props.handleFilterChange}>
+                        {
+                            (props.filter.username === undefined && props.filter.firstName === undefined && props.filter.lastName === undefined) ? 'Search' : 'Clear Search'
+                        }
+                    </button>
+                </td>
+            </tr>
+            </tfoot>
         </table>
     </div>
 
