@@ -34,6 +34,9 @@ const UsersList = props =>
             <tbody>
             {
                 props.users
+                    .slice((props.page-1)*props.recordsNumber,
+                        Math.min(props.page*props.recordsNumber,
+                            props.users.length))
                     .map(user =>
                         <tr key={user.id}>
                             <td>
@@ -54,6 +57,30 @@ const UsersList = props =>
                         </tr>
                     )
             }
+            <tfoot>
+            <tr>
+                <td>
+                    <select onChange={props.handleRecordsNumberChange} value={props.recordsNumber}>
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                        <option>100</option>
+                        <option>All</option>
+                    </select>
+                </td>
+                <td>
+                    <ul className="pagination">
+                        <li className="page-item"><a className="page-link" onClick={props.handlePageChange} disabled={props.page == 1}>Previous</a></li>
+                        {
+                            props.getPageNumbers().map(num =>
+                                <li key={num} className="page-item"><a className="page-link" onClick={props.handlePageChange}>{num}</a></li>
+                            )
+                        }
+                        <li className="page-item"><a className="page-link" onClick={props.handlePageChange} disabled={props.page == Math.round(props.users.length/props.recordsNumber)}>Next</a></li>
+                    </ul>
+                </td>
+            </tr>
+            </tfoot>
             </tbody>
         </table>
     </div>
