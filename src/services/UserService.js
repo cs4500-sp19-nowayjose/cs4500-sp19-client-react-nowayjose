@@ -48,6 +48,7 @@ export default class UserService {
             },
             method: 'PUT'
         }).then(response => {
+            localStorage.setItem("@user", JSON.stringify(user));
             return response;
         })
     }
@@ -71,4 +72,21 @@ export default class UserService {
             }
         );
     }
+
+    getProviderDetail = (user) => 
+        fetch('http://localhost:8080/api/user/service-provider/detail', {
+            method: 'POST',
+            body: user,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+            .then(response => {
+                if (response.status === 403) {
+                    return null;
+                }
+                return response.json();
+            })
+    
+
 }

@@ -30,7 +30,7 @@ class LoginContainer extends React.Component {
         }
 
         this.UserService.loginUser(credentials).then(resp => {
-            if (resp.status == 403) {
+            if (resp.status === 403) {
                 alert('Invalid credentials. Please try again.')
             }
             else {
