@@ -1,11 +1,11 @@
 import React from 'react'
-import UMLClassFieldEditor from './UMLClassFieldEditor'
+import UmlClassFieldEditor from './UmlClassFieldEditor'
 
 const UMLClassField = ({umlClassField}) =>
     <li className="list-group-item padding-right-0px">
         {
             umlClassField.editing ?
-                <UMLClassFieldEditor
+                <UmlClassFieldEditor
                     field={umlClassField}/>
                 : <div>
                     {umlClassField.name}
