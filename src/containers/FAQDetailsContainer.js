@@ -11,8 +11,17 @@ class FAQDetailsContainer extends React.Component {
             faq: {
                 choiceAnswer: '',
                 id: 1
-            }
+            },
+            title: '',
+            question: '',
         }
+        this.selectFAQ = this.selectFAQ.bind(this)
+        this.updateFAQ = this.updateFAQ.bind(this)
+        this.createFAQ = this.createFAQ.bind(this)
+        this.deleteFAQ = this.deleteFAQ.bind(this)
+        this.handleTitleChange = this.handleTitleChange.bind(this)
+        this.handleQuestionChange = this.handleQuestionChange.bind(this)
+
     }
     componentDidMount() {
         this.faqService
