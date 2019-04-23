@@ -53,17 +53,29 @@ class FAQAnswerDetails extends React.Component {
                             )
                     }
                 </select>
-                <label>FAQ Answer Question</label><br/>
+                <label>User</label><br/>
+                <input
+                    onChange={() => {}}
+                    className="form-control"
+                    value={this.state.faqAnswer.username}/>
+                <label>Question</label><br/>
                 <input
                     onChange={() => {}}
                     className="form-control"
                     value={this.state.faqAnswer.question}/>
-                <label>FAQ Answer Answer</label><br/>
+                <label>Answer</label><br/>
                 <input
                     onChange={() => {}}
                     className="form-control"
                     value={this.state.faqAnswer.answer}/>
+                <br/>
+                <button type ="button" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-danger">Cancel</button>
+
             </div>
         )
     }
 }
+
+export default FAQAnswerDetails

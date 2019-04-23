@@ -14,6 +14,7 @@ import ServiceQuestionDetails from './ServiceQuestionDetails'
 import ServiceAnswerDetails from './ServiceAnswerDetails'
 import ServiceCategoriesContainer from './ServiceCategoriesContainer'
 import UserDetailsContainer from "../containers/UserDetailsContainer";
+import FAQAnswersDetails from './FAQAnswersDetails2'
 
 
 const Admin = () =>
@@ -40,6 +41,8 @@ const Admin = () =>
                 <Link to="/admin/service-answers/1">Service Answers Details</Link>
                 <br/>
                 <Link to="/admin/service-questions/1">Service Question Details</Link>
+                <br/>
+                <Link to="/admin/faq-answers/1">Faq Answers Details</Link>
             </div>
             <div className="col-9">
                 <Route
@@ -90,6 +93,10 @@ const Admin = () =>
                     path="/admin/faq-answers"
                     exact
                     component={FAQAnswersContainer}/>
+                <Route
+                    path="/admin/faq-answers/:id"
+                    exact
+                    component={FAQAnswersDetails}/>
             </div>
         </div>
       </div>
