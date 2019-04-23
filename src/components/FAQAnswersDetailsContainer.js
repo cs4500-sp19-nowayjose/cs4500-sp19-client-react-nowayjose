@@ -15,6 +15,9 @@ class FAQAnswersDetailsContainer extends React.Component {
         }
         this.handleAnswerChange = this.handleAnswerChange.bind(this)
         this.changeFaqAnswer = this.changeFaqAnswer.bind(this)
+        this.update = this.update.bind(this)
+        this.delete = this.delete.bind(this)
+        this.cancel = this.cancel.bind(this)
     }
 
     componentDidMount() {
@@ -54,6 +57,38 @@ class FAQAnswersDetailsContainer extends React.Component {
             })
     }
 
+    update(event) {
+        var updatedFaqAns = {
+            username: this.state.username,
+            question: this.state.question,
+            answer: this.state.answer,
+            id: this.state.id
+        }
+
+        this.faqAnswerService.updateFAQAnswer(updatedFaqAns).then(() => 
+        this.faqAnswerService.findAllFAQAnswers()
+        .then(faqAnswers =>
+            this.setState({
+                faqAnswers: faqAnswers
+            })));
+    }
+
+    delete() {
+        var ans = {
+            id: this.state.id
+        }
+        this.faqAnswerService.deleteFAQAnswer(ans).then(() => 
+        this.faqAnswerService.findAllFAQAnswers()
+        .then(faqAnswers =>
+            this.setState({
+                faqAnswers: faqAnswers
+            })));
+    }
+
+    cancel(event) {
+        this.props.history.push('/admin/faq-answers')
+    }
+
     render() {
         return (
             <FAQAnswersDetails
@@ -63,7 +98,10 @@ class FAQAnswersDetailsContainer extends React.Component {
                 faqAnswers={this.state.faqAnswers}
                 id={this.state.id}
                 handleAnswerChange={this.handleAnswerChange}
-                changeFaqAnswer={this.changeFaqAnswer} />
+                changeFaqAnswer={this.changeFaqAnswer}
+                update={this.update}
+                delete={this.delete}
+                cancel={this.cancel} />
         )
     }
 }
