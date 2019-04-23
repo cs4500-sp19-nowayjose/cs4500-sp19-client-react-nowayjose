@@ -21,6 +21,7 @@ class FAQDetailsContainer extends React.Component {
         this.deleteFAQ = this.deleteFAQ.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleQuestionChange = this.handleQuestionChange.bind(this)
+        this.cancel = this.cancel.bind(this)
 
     }
     componentDidMount() {
@@ -68,18 +69,22 @@ class FAQDetailsContainer extends React.Component {
         var newFaq = this.state.faq
         newFaq.id = null
         this.faqService.createFAQ(newFaq).then(faq => {
-            this.selectFAQ(faq.id)
+            this.props.history.push('/admin/faqs/')
         })
     }
 
     deleteFAQ() {
         this.faqService.deleteFAQ(this.state.faq).then(a => {
-            window.location.reload();
+            this.props.history.push('/admin/faqs/')
         })
     }
 
     updateFAQ() {
         this.faqService.updateFAQ(this.state.faq)
+    }
+
+    cancel() {
+        this.props.history.push('/admin/faqs/')
     }
 
     render() {
@@ -93,6 +98,7 @@ class FAQDetailsContainer extends React.Component {
                 remove={this.deleteFAQ}
                 handleTitleChange={this.handleTitleChange}
                 handleQuestionChange={this.handleQuestionChange}
+                cancel={this.cancel}
             />
         )
     }
