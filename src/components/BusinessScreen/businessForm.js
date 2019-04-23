@@ -9,20 +9,21 @@ const paymentOptions = [
   'Square',
 ]
 
-const Business = ({ data, onChange, onSave }) => {
+const Business = ({ data, onChangeValue, onSave, onChangePaymentMethod }) => {
   const { 
-    businessName,
-    yearInBusiness = 0,
+    title,
+    yearsInBusiness = 0,
     employees,
     email,
     street,
     city,
-    zip,
-    payments = [],
-    instagramUrl,
-    facebookUrl,
-    twitterUrl
+    zipCode,
+    paymentMethod = "",
+    instagramLink,
+    facebookLink,
+    twitterLink
   } = data;
+
   return (
     <div className="container" testID="business-info-form">
       <h1>Business</h1>
@@ -30,51 +31,52 @@ const Business = ({ data, onChange, onSave }) => {
       <div>
         <div className="row">
           <div className="col-12">
-            <label for="business-name">Business name</label>
-            <input className="form-control" value={businessName} />
+            <label htmlFor="business-name">Business name</label>
+            <input onChange={(e) => onChangeValue('title', e)} className="form-control" value={title} />
           </div>
         </div>
         <br/>
         <div className="row">
           <div className="col-12">
-            <label for="year-founded">Year founded</label>
-            <input className="form-control" testID="year-in-business-field" value={2019 - yearInBusiness}/>
+            <label htmlFor="year-founded">Year founded</label>
+            <input onChange={(e) => onChangeValue('yearsInBusiness', e)} 
+              className="form-control" testID="year-in-business-field" value={yearsInBusiness}/>
           </div>
         </div>
         <br/>
         <div className="row">
           <div className="col-12">
-            <label for="employees">Number of employees</label>
-            <input lassName="form-control" value={employees}/>
+            <label htmlFor="employees">Number of employees</label>
+            <input onChange={(e) => onChangeValue('employees', e)} className="form-control" value={employees}/>
             </div>
           </div>
           <br/>
           <div className="row">
             <div className="col-12">
-              <label for="email">Email</label>
-              <input className="form-control" value={email}/>
+              <label htmlFor="email">Email</label>
+              <input onChange={(e) => onChangeValue('email', e)} className="form-control" value={email}/>
             </div>
           </div>
           <br/>
           <h4>Business address (optional)</h4>
             <div className="row">
               <div className="col-12">
-                <label for="street">Street</label>
-                <input className="form-control" value={street} />
+                <label htmlFor="street">Street</label>
+                <input onChange={(e) => onChangeValue('street', e)} className="form-control" value={street} />
               </div>
             </div>
           <div className="row">
             <div className="col-12">
               <br/>
-              <label for="city">City</label>
-              <input className="form-control" value={city} />
+              <label htmlFor="city">City</label>
+              <input onChange={(e) => onChangeValue('city', e)} className="form-control" value={city} />
             </div>
           </div>
           <div className="row">
             <div className="col-6">
               <br/>
-              <label for="state">State</label>
-              <select className="form-control">
+              <label htmlFor="state">State</label>
+              <select className="form-control" onChange={(e) => onChangeValue('state', e)}>
                 <option selected>MA</option>
                 <option>NH</option>
                 <option>NY</option>
@@ -84,7 +86,7 @@ const Business = ({ data, onChange, onSave }) => {
             <div className="col-6">
               <br/>
               <label for="zip">Zip</label>
-              <input className="form-control" value={zip} />
+              <input onChange={(e) => onChangeValue('zipCode', e)} className="form-control" value={zipCode} />
             </div>
             </div>
             <br/>
@@ -99,9 +101,10 @@ const Business = ({ data, onChange, onSave }) => {
                               key={`${payment}_choice`} >
                           <label>
                             <input 
+                              onChange={(e) => onChangePaymentMethod(e, payment)}
                               testID={`${payment}_choice`} 
                               type="checkbox" 
-                              checked={payments.includes(payment)}
+                              checked={(paymentMethod || "").toLowerCase().includes(payment.toLowerCase())}
                             />
                             {payment}
                           </label>
@@ -118,36 +121,39 @@ const Business = ({ data, onChange, onSave }) => {
               <div className="col-12">
                 <label>Facebook</label>
                 <input
+                  onChange={(e) => onChangeValue('facebookLink', e)}
                   placeholder="Enter Facebook URL"
                   className="form-control"
-                  value={facebookUrl}
+                  value={facebookLink}
                   />
               </div>
               <div className="col-12">
                 <br/>
                 <label>Instagram</label>
                 <input
+                  onChange={(e) => onChangeValue('instagramLink', e)}
                   placeholder="Enter Instagram URL"
                   className="form-control"
-                  value={instagramUrl}
+                  value={instagramLink}
                 />
               </div>
               <div className="col-12">
                 <br/>
                 <label>Twitter</label>
                 <input
+                  onChange={(e) => onChangeValue('twitterLink', e)}
                   placeholder="Enter Twitter URL"
                   className="form-control"
-                  value={twitterUrl}
+                  value={twitterLink}
                 />
               </div>
             </div>
             <br/>
             <div className="row">
             <div className="col-12">
-              <a className="btn btn-success btn-block">
+              <button className="btn btn-success btn-block" onClick={onSave}>
                 Save
-             </a>
+             </button>
           </div>
         </div>
         <br/>
