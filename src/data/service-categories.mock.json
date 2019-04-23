@@ -23,6 +23,11 @@
     },
     {
         "id": "345", "serviceCategoryName": "Legal",
-        "services": []
+        "services": [
+          {"id": "13", "serviceName": "Elder"},
+          {"id": "14", "serviceName": "Financial"},
+          {"id": "15", "serviceName": "Medical"},
+          {"id": "16", "serviceName": "Career"}
+        ]
     }
 ]
