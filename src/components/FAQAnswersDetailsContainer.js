@@ -20,8 +20,9 @@ class FAQAnswersDetailsContainer extends React.Component {
     componentDidMount() {
         this.faqAnswerService
             .findAllFAQAnswers()
-            .then(faqAnswers =>
-                this.faqAnswerService.findFAQAnswerById(this.props.match.param.id)
+            .then(faqAnswers => {
+                console.log(this.props)
+                this.faqAnswerService.findFAQAnswerById(this.props.match.params.id)
                     .then(faq => {
                         this.setState({
                             faqAnswers: faqAnswers,
@@ -30,7 +31,8 @@ class FAQAnswersDetailsContainer extends React.Component {
                             question: faq.question,
                             answer: faq.answer
                         })
-                    }))
+                    })
+            })
     }
 
     handleAnswerChange(event) {
@@ -40,7 +42,7 @@ class FAQAnswersDetailsContainer extends React.Component {
     }
 
     changeFaqAnswer(e) {
-        newId = e.target.value
+        var newId = e.target.value
         this.faqAnswerService.findFAQAnswerById(newId)
             .then(faq => {
                 this.setState({
@@ -49,19 +51,21 @@ class FAQAnswersDetailsContainer extends React.Component {
                     question: faq.question,
                     answer: faq.answer
                 })
-            }) 
+            })
     }
 
     render() {
-        return(
+        return (
             <FAQAnswersDetails
                 answer={this.state.answer}
                 username={this.state.username}
                 question={this.state.question}
                 faqAnswers={this.state.faqAnswers}
                 id={this.state.id}
-                handleAnswerChange={this.handleAnswerChange} 
-                changeFaqAnswer={this.changeFaqAnswer}/>
+                handleAnswerChange={this.handleAnswerChange}
+                changeFaqAnswer={this.changeFaqAnswer} />
         )
     }
 }
+
+export default FAQAnswersDetailsContainer
