@@ -64,7 +64,23 @@ class FAQDetailsContainer extends React.Component {
         })
     }
 
+    createFAQ() {
+        var newFaq = this.state.faq
+        newFaq.id = null
+        this.faqService.createFAQ(newFaq).then(faq => {
+            this.selectFAQ(faq.id)
+        })
+    }
 
+    deleteFAQ() {
+        this.faqService.deleteFAQ(this.state.faq).then(a => {
+            window.location.reload();
+        })
+    }
+
+    updateFAQ() {
+        this.faqService.updateFAQ(this.state.faq)
+    }
 
     render() {
         return (
