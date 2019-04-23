@@ -41,8 +41,6 @@ const Admin = () =>
                 <Link to="/admin/service-answers/1">Service Answers Details</Link>
                 <br/>
                 <Link to="/admin/service-questions/1">Service Question Details</Link>
-                <br/>
-                <Link to="/admin/faq-answers/1">Faq Answers Details</Link>
             </div>
             <div className="col-9">
                 <Route
