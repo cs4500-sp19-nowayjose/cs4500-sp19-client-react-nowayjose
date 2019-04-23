@@ -74,7 +74,7 @@ export default class UserService {
     }
 
     getProviderDetail = (user) => 
-        fetch('http://localhost:8080/api/user/service-provider/detail', {
+        fetch('https://cs4500-sp19-nowayjose.herokuapp.com/api/user/service-provider/detail', {
             method: 'POST',
             body: user,
             headers: {
@@ -88,5 +88,22 @@ export default class UserService {
                 return response.json();
             })
     
+    updateProviderInfo = (info) => {
+        const username = JSON.parse(localStorage.getItem("@user")).username;
+        return fetch(`https://cs4500-sp19-nowayjose.herokuapp.com/api/user/service-provider/detail/${username}`, {
+            method: 'PUT',
+            body: JSON.stringify(info),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+            .then(response => {
+                if (response.status === 403) {
+                    console.log('error');
+                    return null;
+                }
+                return response.json();
+            })
+    }
 
 }
