@@ -1,5 +1,5 @@
 import React from 'react'
-const FAQDetails = ({ faqs, faq, selectFAQ, create, update, remove, handleTitleChange, handleQuestionChange}) =>
+const FAQDetails = ({ faqs, faq, selectFAQ, create, update, remove, handleTitleChange, handleQuestionChange, cancel }) =>
     <div>
         <div>
             <h3>FAQ Details</h3>
@@ -19,19 +19,22 @@ const FAQDetails = ({ faqs, faq, selectFAQ, create, update, remove, handleTitleC
                 }
             </select>
             <br />
-            <input type="text" onChange={handleTitleChange} value={faq.title} placeholder={faq.title}/>
+            <input type="text" onChange={handleTitleChange} value={faq.title} placeholder={faq.title} />
             <br />
             <input type="text" onChange={handleQuestionChange} value={faq.question} placeholder={faq.question} />
         </div>
 
         <div>
-            <button onClick={(e) => create()}>
+            <button onClick={(e) => cancel()} class="btn btn-primary">
+                Cancel
+                </button>
+            <button onClick={(e) => create()} class="btn btn-primary">
                 Create
                 </button>
-            <button onClick={(e) => remove()}>
+            <button onClick={(e) => remove()} class="btn btn-primary">
                 Delete
                 </button>
-            <button onClick={(e) => update()}>
+            <button onClick={(e) => update()} class="btn btn-primary">
                 Update
                 </button>
         </div>
