@@ -65,3 +65,22 @@ test('render faq details correctly', function() {
     expect(testInstance.findByProps({ className: "faq-row"})).toBeDefined();
   })
 
+  test('render faq details correctly redirects to FAQS after deleting question', function() {
+    const component = renderer.create(
+      <FAQDetails
+        selectFAQ={() => {}}
+        faq={{  
+            "answers": [],
+            "id": 6,
+            "question": "Did you pass a background check?",
+            "title": "First question"
+        }}
+        faqs={frequentlyAskedQuestionData}
+
+      />
+    )
+    const testInstance = component.root;
+    let   deleteFAQ    = testInstance.findByProps({className: 'delete'})
+    deleteFAQ.props.onChange()
+    expect(testInstance.findByProps({ className: "faq-row"})).toBeDefined();
+  })
