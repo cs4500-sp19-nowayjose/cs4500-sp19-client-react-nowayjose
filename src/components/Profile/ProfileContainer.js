@@ -28,19 +28,18 @@ class ProfileContainer extends React.Component {
     
     componentDidMount() {
         this.userService
-            .getProfile()
-            .then(user => {
+            .findAllUsers()
+            .then(users => {
+										var user = users[0];
+										console.log(user);
                     this.setState({
                         user: user,
                         firstName: user.firstName,
                         lastName: user.lastName,
                       
-                        // Setting DOB fields using lowercase versions
-                        // Still trying to figure out why this is an issue
-                        // These fields don't update
-                        dobMonth: user.dobmonth,
-                        dobDay: user.dobday,
-                        dobYear: user.dobyear,
+                        dobMonth: user.dob.getMonth(),
+                        dobDay: user.dob.getDay(),
+                        dobYear: user.dob.getYear(),
                         
                         addStreet: user.addStreet,
                         addCity: user.addCity,
@@ -53,9 +52,9 @@ class ProfileContainer extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({
-            [event.target.id]: event.target.value
-        })
+				this.setState({
+						[event.target.id]: event.target.value
+				})
     }
   
     handleUpdate(event) {
@@ -66,9 +65,7 @@ class ProfileContainer extends React.Component {
             "username": this.state.user.username,
             "firstName": this.state.firstName,
             "lastName": this.state.lastName,
-            "dobMonth": this.state.dobMonth,
-            "dobDay": this.state.dobDay,
-            "dobYear": this.state.dobYear,
+            "dob": new Date(this.state.dobYear, this.state.dobMonth, this.state.dobDay),
             "addStreet": this.state.addStreet,
             "addCity": this.state.addCity,
             "addState": this.state.addState,
