@@ -85,6 +85,26 @@ test('render faq details correctly', function() {
     expect(testInstance.findByProps({ className: "faq-row"})).toBeDefined();
   })
 
+  test('render faq details correctly redirects to FAQS after cancel', function() {
+    const component = renderer.create(
+      <FAQDetails
+        selectFAQ={() => {}}
+        faq={{  
+            "answers": [],
+            "id": 6,
+            "question": "Did you pass a background check?",
+            "title": "First question"
+        }}
+        faqs={frequentlyAskedQuestionData}
+
+      />
+    )
+    const testInstance = component.root;
+    let   cancel    = testInstance.findByProps({className: 'cancel'})
+    cancel.props.onChange()
+    expect(testInstance.findByProps({ className: "faq-row"})).toBeDefined();
+  })
+
   test('render faq details correctly redirects to FAQS after updating question', function() {
     const component = renderer.create(
       <FAQDetails
