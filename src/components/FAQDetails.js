@@ -19,11 +19,11 @@ const FAQDetails = ({ faqs, faq, selectFAQ, create, update, remove, handleTitleC
                 }
             </select>
             <br />
-            <input type="text" onChange={handleTitleChange} value={faq.title} placeholder={faq.title} />
+            <input type="text" className="form-control" onChange={handleTitleChange} value={faq.title} placeholder={faq.title} />
             <br />
-            <input type="text" onChange={handleQuestionChange} value={faq.question} placeholder={faq.question} />
+            <input type="text" className="form-control" onChange={handleQuestionChange} value={faq.question} placeholder={faq.question} />
         </div>
-
+        <br />
         <div>
             <button onClick={(e) => cancel()} class="btn btn-primary">
                 Cancel
