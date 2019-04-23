@@ -25,7 +25,7 @@ export default function providerResultsList({providers}) {
           />
         </div>
         <div className="col-7">
-          <Link to={`/providers/${provider.id}`}>{provider.title}</Link>
+          <Link to={`/provider/${provider.id}`}>{provider.title}</Link>
           <div>
             {provider.rating}
             <span style={{ marginLeft: 5, marginRight: 5 }} />
@@ -43,14 +43,16 @@ export default function providerResultsList({providers}) {
             $75
           </div>
           <div className="float-right" style={{ position: 'absolute', bottom: 0, right: 0}}>
-            <button className="btn-primary btn-lg btn">
-              View Profile
-            </button>
+            <Link to={`/provider/${provider.id}`}>
+              <button className="btn-primary btn-lg btn">
+                View Profile
+              </button>
+            </Link>
           </div>
         </div>
       </div>
     )
   })
 
-  return renderProviders; 
+  return renderProviders;
 }
