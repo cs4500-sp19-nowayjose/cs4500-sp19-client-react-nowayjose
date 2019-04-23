@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders properly 1`] = `
+<div
+  className="service-search"
+>
+  <h4>
+    Search Services
+  </h4>
+  <input
+    onChange={[Function]}
+    placeholder="Search services"
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+    type="text"
+    value="a"
+  />
+  <div
+    className="service-search-results"
+  >
+    <button
+      className="btn btn-light"
+      onClick={[Function]}
+      style={
+        Object {
+          "display": "block",
+          "margin": "5px auto",
+          "width": "90%",
+        }
+      }
+    >
+      The Service Squad
+    </button>
+    <button
+      className="btn btn-light"
+      onClick={[Function]}
+      style={
+        Object {
+          "display": "block",
+          "margin": "5px auto",
+          "width": "90%",
+        }
+      }
+    >
+      The Second Service
+    </button>
+    <button
+      className="btn btn-light"
+      onClick={[Function]}
+      style={
+        Object {
+          "display": "block",
+          "margin": "5px auto",
+          "width": "90%",
+        }
+      }
+    >
+      Services R Us
+    </button>
+  </div>
+  <div
+    className="selected-services"
+  >
+    <h4>
+      Selected Services
+    </h4>
+    <button
+      className="btn btn-light"
+      style={
+        Object {
+          "display": "block",
+          "margin": "5px auto",
+          "width": "90%",
+        }
+      }
+    >
+      <span
+        className="select-service-button"
+        onClick={[Function]}
+      >
+        The Service Squad
+      </span>
+      <span
+        onClick={[Function]}
+      >
+         x
+      </span>
+    </button>
+    <button
+      className="btn btn-light"
+      style={
+        Object {
+          "display": "block",
+          "margin": "5px auto",
+          "width": "90%",
+        }
+      }
+    >
+      <span
+        className="select-service-button"
+        onClick={[Function]}
+      >
+        The Second Service
+      </span>
+      <span
+        onClick={[Function]}
+      >
+         x
+      </span>
+    </button>
+    <button
+      className="btn btn-light"
+      style={
+        Object {
+          "display": "block",
+          "margin": "5px auto",
+          "width": "90%",
+        }
+      }
+    >
+      <span
+        className="select-service-button"
+        onClick={[Function]}
+      >
+        Services R Us
+      </span>
+      <span
+        onClick={[Function]}
+      >
+         x
+      </span>
+    </button>
+  </div>
+</div>
+`;

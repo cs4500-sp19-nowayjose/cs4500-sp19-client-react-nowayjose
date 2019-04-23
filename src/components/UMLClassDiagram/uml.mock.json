@@ -1,0 +1,37 @@
+{
+  "classes": [
+    {
+      "name": "Employee",
+      "fields": [
+        {
+          "name": "firstName",
+          "type": "String"
+        },
+        {
+          "name": "lastName",
+          "type": "String",
+          "editing": true
+        },
+        {
+          "name": "dob",
+          "type": "Date",
+          "default": "2009-01-02"
+        },
+        {
+          "name": "projects",
+          "type": "List<Project>",
+          "reference": "Project"
+        }
+      ]
+    },
+    {
+      "name": "Project",
+      "fields": [
+        {
+          "name": "Name",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

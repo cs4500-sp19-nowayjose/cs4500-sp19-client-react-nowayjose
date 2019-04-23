@@ -23,7 +23,7 @@ const FAQAnswers = props =>
                     {
                         props.faqAnswers
                             .map(faqAnswer =>
-                                <tr key={faqAnswer.id}>
+                                <tr onClick={() => props.selectFAQAns(faqAnswer.id)}key={faqAnswer.id}>
                                     <td>{faqAnswer.username}</td>
                                     <td align="center">{faqAnswer.question}</td>
                                     <td align="center">{faqAnswer.answer}</td>

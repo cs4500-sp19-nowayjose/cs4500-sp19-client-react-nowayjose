@@ -1,132 +1,168 @@
 import React from 'react'
 
-const Business = () =>
-    <div className="container">
-        <h1>Business</h1>
+const paymentOptions = [
+  'Credit Card',
+  'Cash',
+  'Check',
+  'Venmo',
+  'Paypal',
+  'Square',
+]
+
+const Business = ({ data, onChangeValue, onSave, onChangePaymentMethod }) => {
+  const { 
+    title,
+    yearsInBusiness = 0,
+    employees,
+    email,
+    street,
+    city,
+    zipCode,
+    paymentMethod = "",
+    instagramLink,
+    facebookLink,
+    twitterLink
+  } = data;
+
+  return (
+    <div className="container" testID="business-info-form">
+      <h1>Business</h1>
+      <br/>
+      <div>
+        <div className="row">
+          <div className="col-12">
+            <label htmlFor="business-name">Business name</label>
+            <input onChange={(e) => onChangeValue('title', e)} className="form-control" value={title} />
+          </div>
+        </div>
         <br/>
-        <div>
-            <div className="row">
-                <div className="col-12">
-                    <label for="first-name">Business name</label>
-                    <input id="first-name" className="form-control"/>
-                </div>
+        <div className="row">
+          <div className="col-12">
+            <label htmlFor="year-founded">Year founded</label>
+            <input onChange={(e) => onChangeValue('yearsInBusiness', e)} 
+              className="form-control" testID="year-in-business-field" value={yearsInBusiness}/>
+          </div>
+        </div>
+        <br/>
+        <div className="row">
+          <div className="col-12">
+            <label htmlFor="employees">Number of employees</label>
+            <input onChange={(e) => onChangeValue('employees', e)} className="form-control" value={employees}/>
             </div>
-            <br/>
-            <div className="row">
-                <div className="col-12">
-                    <label for="first-name">Year founded</label>
-                    <input id="first-name" className="form-control"/>
-                </div>
+          </div>
+          <br/>
+          <div className="row">
+            <div className="col-12">
+              <label htmlFor="email">Email</label>
+              <input onChange={(e) => onChangeValue('email', e)} className="form-control" value={email}/>
             </div>
-            <br/>
+          </div>
+          <br/>
+          <h4>Business address (optional)</h4>
             <div className="row">
-                <div className="col-12">
-                    <label for="first-name">Number of employees</label>
-                    <input id="first-name" className="form-control"/>
-                </div>
+              <div className="col-12">
+                <label htmlFor="street">Street</label>
+                <input onChange={(e) => onChangeValue('street', e)} className="form-control" value={street} />
+              </div>
             </div>
-            <br/>
-            <div className="row">
-                <div className="col-12">
-                    <label for="email">Email</label>
-                    <input id="email" className="form-control"/>
-                </div>
+          <div className="row">
+            <div className="col-12">
+              <br/>
+              <label htmlFor="city">City</label>
+              <input onChange={(e) => onChangeValue('city', e)} className="form-control" value={city} />
             </div>
-            <br/>
-            <h4>Business address (optional)</h4>
-            <div className="row">
-                <div className="col-12">
-                    <label for="first-name">Street</label>
-                    <input id="first-name" className="form-control"/>
-                </div>
+          </div>
+          <div className="row">
+            <div className="col-6">
+              <br/>
+              <label htmlFor="state">State</label>
+              <select className="form-control" onChange={(e) => onChangeValue('state', e)}>
+                <option selected>MA</option>
+                <option>NH</option>
+                <option>NY</option>
+                <option>CA</option>
+              </select>
             </div>
-            <div className="row">
-                <div className="col-12">
-                    <br/>
-                    <label for="first-name">City</label>
-                    <input id="first-name" className="form-control"/>
-                </div>
+            <div className="col-6">
+              <br/>
+              <label for="zip">Zip</label>
+              <input onChange={(e) => onChangeValue('zipCode', e)} className="form-control" value={zipCode} />
             </div>
-            <div className="row">
-                <div className="col-6">
-                    <br/>
-                    <label for="first-name">State</label>
-                    <select className="form-control">
-                        <option>MA</option>
-                        <option>NH</option>
-                        <option>NY</option>
-                        <option>CA</option>
-                    </select>
-                </div>
-                <div className="col-6">
-                    <br/>
-                    <label for="first-name">Zip</label>
-                    <input id="first-name" className="form-control"/>
-                </div>
             </div>
             <br/>
             <h4>Payment methods accepted</h4>
             <div className="row">
-                <div className="col-12">
-                    <ul className="list-group">
-                        <li className="list-group-item">
-                            <label><input type="checkbox"/> Credit card</label>
+              <div className="col-12">
+                <ul className="list-group">
+                  {
+                    paymentOptions.map(payment => {
+                      return (
+                        <li className="list-group-item" 
+                              key={`${payment}_choice`} >
+                          <label>
+                            <input 
+                              onChange={(e) => onChangePaymentMethod(e, payment)}
+                              testID={`${payment}_choice`} 
+                              type="checkbox" 
+                              checked={(paymentMethod || "").toLowerCase().includes(payment.toLowerCase())}
+                            />
+                            {payment}
+                          </label>
                         </li>
-                        <li className="list-group-item">
-                            <label><input type="checkbox"/> Cash</label>
-                        </li>
-                        <li className="list-group-item">
-                            <label><input type="checkbox"/> Check</label>
-                        </li>
-                        <li className="list-group-item">
-                            <label><input type="checkbox"/> Venmo</label>
-                        </li>
-                        <li className="list-group-item">
-                            <label><input type="checkbox"/> Paypal</label>
-                        </li>
-                        <li className="list-group-item">
-                            <label><input type="checkbox"/> Square</label>
-                        </li>
-                    </ul>
-                </div>
+                      )
+                    })
+                  }
+                </ul>
+              </div>
             </div>
             <br/>
             <h4>Social media</h4>
             <div className="row">
-                <div className="col-12">
-                    <label>Facebook</label>
-                    <input
-                        placeholder="Enter Facebook URL"
-                        className="form-control"/>
-                </div>
-                <div className="col-12">
-                    <br/>
-                    <label>Instagram</label>
-                    <input
-                        placeholder="Enter Instagram URL"
-                        className="form-control"/>
-                </div>
-                <div className="col-12">
-                    <br/>
-                    <label>Twitter</label>
-                    <input
-                        placeholder="Enter Twitter URL"
-                        className="form-control"/>
-                </div>
+              <div className="col-12">
+                <label>Facebook</label>
+                <input
+                  onChange={(e) => onChangeValue('facebookLink', e)}
+                  placeholder="Enter Facebook URL"
+                  className="form-control"
+                  value={facebookLink}
+                  />
+              </div>
+              <div className="col-12">
+                <br/>
+                <label>Instagram</label>
+                <input
+                  onChange={(e) => onChangeValue('instagramLink', e)}
+                  placeholder="Enter Instagram URL"
+                  className="form-control"
+                  value={instagramLink}
+                />
+              </div>
+              <div className="col-12">
+                <br/>
+                <label>Twitter</label>
+                <input
+                  onChange={(e) => onChangeValue('twitterLink', e)}
+                  placeholder="Enter Twitter URL"
+                  className="form-control"
+                  value={twitterLink}
+                />
+              </div>
             </div>
             <br/>
             <div className="row">
-                <div className="col-12">
-                    <a className="btn btn-success btn-block">
-                        Save
-                    </a>
-                </div>
-            </div>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            <div className="col-12">
+              <button className="btn btn-success btn-block" onClick={onSave}>
+                Save
+             </button>
+          </div>
         </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      </div>
     </div>
+  )
+}
 
 export default Business
