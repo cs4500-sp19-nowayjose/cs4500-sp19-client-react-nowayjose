@@ -14,7 +14,7 @@ export class BusinessScreen extends Component {
   fetchProviderInfo = async () => {
     const user = localStorage.getItem("@user");
     const info = await UserService.getInstance().getProviderDetail(user);
-    if (!info) {
+    if (!info || !user) {
       alert('No permission to view this page');
       this.props.history.goBack();
       return;
@@ -36,6 +36,8 @@ export class BusinessScreen extends Component {
     const info = JSON.parse(JSON.stringify(this.state));
     if (this.state.yearsInBusiness > 2019) {
       info.yearsInBusiness = this.state.original.yearsInBusiness;
+    } else {
+      info.yearsInBusiness = 2019 - this.state.yearsInBusiness;
     }
 
     if (this.state.email && !this.state.email.includes('@')) {
