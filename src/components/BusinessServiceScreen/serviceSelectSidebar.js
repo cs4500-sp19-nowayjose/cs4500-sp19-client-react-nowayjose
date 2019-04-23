@@ -39,7 +39,7 @@ class ServiceSelectSidebar extends React.Component {
           {
             this.props.selectedServices.map(service => (
               <button style={buttonStyle} className={chooseButtonClass(service.id === this.props.activeServiceId)}>
-                <span onClick={() => this.props.selectService(service.id)}>{service.serviceName}</span>
+                <span className="select-service-button" onClick={() => this.props.selectService(service.id)}>{service.serviceName}</span>
                 <span onClick={() => this.props.removeService(service.id)}> x</span>
               </button>
             ))

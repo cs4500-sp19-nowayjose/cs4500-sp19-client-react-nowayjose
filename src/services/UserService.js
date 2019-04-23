@@ -52,6 +52,7 @@ export default class UserService {
             },
             method: 'PUT'
         }).then(response => {
+            localStorage.setItem("@user", JSON.stringify(user));
             return response;
         })
     }
@@ -75,4 +76,38 @@ export default class UserService {
             }
         );
     }
+
+    getProviderDetail = (user) => 
+        fetch('https://cs4500-sp19-nowayjose.herokuapp.com/api/user/service-provider/detail', {
+            method: 'POST',
+            body: user,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+            .then(response => {
+                if (response.status === 403) {
+                    return null;
+                }
+                return response.json();
+            })
+    
+    updateProviderInfo = (info) => {
+        const username = JSON.parse(localStorage.getItem("@user")).username;
+        return fetch(`https://cs4500-sp19-nowayjose.herokuapp.com/api/user/service-provider/detail/${username}`, {
+            method: 'PUT',
+            body: JSON.stringify(info),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+            .then(response => {
+                if (response.status === 403) {
+                    console.log('error');
+                    return null;
+                }
+                return response.json();
+            })
+    }
+
 }

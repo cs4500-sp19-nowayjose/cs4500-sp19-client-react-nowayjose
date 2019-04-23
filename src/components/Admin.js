@@ -13,6 +13,8 @@ import FAQAnswersContainer from './FaqAnswersContainer'
 import ServiceQuestionDetails from './ServiceQuestionDetails'
 import ServiceAnswerDetails from './ServiceAnswerDetails'
 import ServiceCategoriesContainer from './ServiceCategoriesContainer'
+import UserDetailsContainer from "../containers/UserDetailsContainer";
+import FAQAnswersDetailsContainer from './FAQAnswersDetailsContainer'
 
 
 const Admin = () =>
@@ -48,7 +50,7 @@ const Admin = () =>
                 <Route
                     path="/admin/users/:id"
                     exact
-                    component={UserDetails}/>
+                    component={UserDetailsContainer}/>
                 <Route
                     path="/admin/services"
                     exact
@@ -89,6 +91,10 @@ const Admin = () =>
                     path="/admin/faq-answers"
                     exact
                     component={FAQAnswersContainer}/>
+                <Route
+                    path="/admin/faq-answers/:id"
+                    exact
+                    component={FAQAnswersDetailsContainer}/>
             </div>
         </div>
       </div>
