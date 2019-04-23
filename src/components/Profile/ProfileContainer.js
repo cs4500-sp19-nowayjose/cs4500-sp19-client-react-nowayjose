@@ -27,19 +27,19 @@ class ProfileContainer extends React.Component {
     }
     
     componentDidMount() {
+				var cred = this.userService.getProfile();
         this.userService
-            .findAllUsers()
-            .then(users => {
-										var user = users[0];
+						.findUserByCredentials(cred)
+            .then(user => {
 										console.log(user);
                     this.setState({
                         user: user,
                         firstName: user.firstName,
                         lastName: user.lastName,
                       
-                        dobMonth: user.dob.getMonth(),
-                        dobDay: user.dob.getDay(),
-                        dobYear: user.dob.getYear(),
+//                        dobMonth: user.dob.getMonth(),
+//                        dobDay: user.dob.getDay(),
+//                        dobYear: user.dob.getYear(),
                         
                         addStreet: user.addStreet,
                         addCity: user.addCity,

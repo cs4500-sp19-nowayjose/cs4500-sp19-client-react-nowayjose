@@ -15,6 +15,9 @@ export default class UserService {
     findAllUsers = () =>
         fetch(USER_API_URL)
             .then(response => response.json())
+		findUserByCredentials = user =>
+				fetch(USER_API_URL + `cred/${user.username}/${user.password}`)
+						.then(response => response.json())
 
     createUser = (user) => {
         return fetch(USER_API_URL, {
@@ -53,9 +56,11 @@ export default class UserService {
         })
     }
     
-    getProfile = () =>
-        fetch(USER_API_URL + 'profile')
-            .then(response => response.json())
+    getProfile = () => {
+			var result = JSON.parse(localStorage.getItem("@user"));
+			console.log(result);
+			return result;
+		}
 
     updateUser = (user) => {
         return fetch(USER_API_URL + user.id, {
