@@ -39,12 +39,35 @@ class FAQDetailsContainer extends React.Component {
             }
             )
 
+    handleTitleChange(event) {
+        var faq = this.state.faq
+        faq.title = event.target.value
+        this.setState({
+            faq: faq
+        })
+    }
+
+    handleQuestionChange(event) {
+        var faq = this.state.faq
+        faq.question = event.target.value
+        this.setState({
+            faq: faq
+        })
+    }
+
+
+
     render() {
         return (
             <FAQDetails
                 faqs={this.state.faqs}
                 faq={this.state.faq}
                 selectFAQ={this.selectFAQ}
+                create={this.createFAQ}
+                update={this.updateFAQ}
+                remove={this.deleteFAQ}
+                handleTitleChange={this.handleTitleChange}
+                handleQuestionChange={this.handleQuestionChange}
             />
         )
     }
