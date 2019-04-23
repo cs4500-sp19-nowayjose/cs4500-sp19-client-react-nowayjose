@@ -9,7 +9,7 @@ const FAQAnswers = props =>
             className="form-control">
             {
                 props.faqAnswers.map(faqAnswer =>
-                    <option>
+                    <option
                         value={faqAnswer.id}
                         key={faqAnswer.id}>
                             {faqAnswer.id}
