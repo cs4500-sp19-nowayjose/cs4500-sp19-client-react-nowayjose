@@ -32,9 +32,9 @@ const FAQAnswers = props =>
             className="form-control" 
             value={props.answer}/>
         <br/>
-        <button type="button" class="btn btn-primary">Update</button>
-        <button type="button" class="btn btn-danger">Delete</button>
-        <button type="button" class="btn btn-danger">Cancel</button>
+        <button type="button" class="btn btn-primary" onClick={props.update}>Update</button>
+        <button type="button" class="btn btn-danger" onClick={props.delete}>Delete</button>
+        <button type="button" class="btn btn-danger" onClick={props.cancel}>Cancel</button>
     </div>
 
 export default FAQAnswers
