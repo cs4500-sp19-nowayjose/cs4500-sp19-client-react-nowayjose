@@ -17,6 +17,7 @@ class FAQAnswersContainer extends React.Component {
         this.deleteFAQAns = this.deleteFAQAns.bind(this)
         this.createFAQAns = this.createFAQAns.bind(this)
         this.updateFAQAns = this.updateFAQAns.bind(this)
+        this.selectFAQAns = this.selectFAQAns.bind(this)
         this.handleAnswerChange = this.handleAnswerChange.bind(this)
         this.handleQuestionChange = this.handleQuestionChange.bind(this)
         this.handleUsernameChange = this.handleUsernameChange.bind(this)
@@ -83,6 +84,11 @@ class FAQAnswersContainer extends React.Component {
             })));
     }
 
+    selectFAQAns(id) {
+        console.log(id)
+        this.props.history.push('/admin/faq-answers/' + id)
+    }
+
     handleUsernameChange(event) {
         this.setState({
             username: event.target.value
@@ -116,6 +122,7 @@ class FAQAnswersContainer extends React.Component {
                 deleteFAQAns={this.deleteFAQAns}
                 updateFAQAns={this.updateFAQAns}
                 editFAQAns={this.editFAQAns}
+                selectFAQAns={this.selectFAQAns}
             />
         )
     }
