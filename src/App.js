@@ -39,7 +39,7 @@ class App extends Component {
                         <div className="d-flex justify-content-between">
                             <div>
                                 <Link to="/uml">UML</Link> |
-                                <Link to="/home">Home</Link> |
+                                <Link to="/home"> Home</Link> |
                                 <Link to="/services"> Services</Link> |
                                 <Link to="/provider-search/2"> Providers</Link> |
                                 <Link to="/admin"> Admin</Link> |
