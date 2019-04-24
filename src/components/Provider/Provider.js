@@ -2,10 +2,19 @@ import React from 'react'
 import Rating from './Rating'
 import Review from './Review'
 import FAQ from './FAQ'
+import SearchBar from '../SearchBar/SearchBar'
 
 const Provider = ({provider}) =>
     <div>
         <div>
+            <div className="row">
+                <div className="col-8">
+                    <SearchBar/>
+                </div>
+            </div>
+            <br/>
+            <br/>
+
             <ul className="nav nav-pills">
                 <li className="nav-item">
                     <a className="nav-link" href="#about">About</a>
