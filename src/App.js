@@ -42,7 +42,7 @@ class App extends Component {
                                 <Link to="/uml">UML</Link> |
                                 <Link to="/home"> Home</Link> |
                                 <Link to="/services"> Services</Link> |
-                                <Link to="/provider-search/2"> Providers</Link> |
+                                <Link to="/provider-search"> Providers</Link> |
                                 <Link to="/admin"> Admin</Link> |
                                 <Link to="/profile"> Profile</Link> |
                                 <Link to="/provider/2"> Provider</Link> |
@@ -73,6 +73,10 @@ class App extends Component {
                             exact
                             component={ServiceProviderNavigator}/>
                         <Route
+                            path="/provider-search"
+                            exact
+                            component={ServiceProviderNavigator}/>
+                        <Route
                             path="/admin"
                             exact
                             component={Admin}/>
@@ -88,7 +92,7 @@ class App extends Component {
                             path="/register"
                             exact
                             component={RegisterContainer}/>
-                        <Route 
+                        <Route
                             path="/login"
                             exact
                             component={LoginContainer}/>
