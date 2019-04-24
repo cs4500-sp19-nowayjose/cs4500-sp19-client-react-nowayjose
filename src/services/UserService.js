@@ -58,7 +58,6 @@ export default class UserService {
     
     getProfile = () => {
 			var result = JSON.parse(localStorage.getItem("@user"));
-			console.log(result);
 			return result;
 		}
 

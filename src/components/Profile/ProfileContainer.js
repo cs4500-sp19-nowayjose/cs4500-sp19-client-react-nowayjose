@@ -27,26 +27,34 @@ class ProfileContainer extends React.Component {
     }
     
     componentDidMount() {
-				var cred = this.userService.getProfile();
+				var cred = this.userService.getProfile();	
         this.userService
 						.findUserByCredentials(cred)
             .then(user => {
-										console.log(user);
                     this.setState({
                         user: user,
                         firstName: user.firstName,
                         lastName: user.lastName,
                       
-//                        dobMonth: user.dob.getMonth(),
-//                        dobDay: user.dob.getDay(),
-//                        dobYear: user.dob.getYear(),
-                        
                         addStreet: user.addStreet,
                         addCity: user.addCity,
                         addState: user.addState,
                         addZip: user.addZip,
                         username: user.username,
                     });
+										if(user.dob == null)
+											 this.setState({
+											 		dobMonth: 1,
+											 		dobDay: 1,
+												 	dobYear: 2001,
+											 });
+										else
+											 this.setState({
+											 		dobMonth: user.dob.split("-")[1],
+													dobDay: user.dob.split("-")[2],
+													dobYear: user.dob.split("-")[0],
+											 });
+											
                 }
             )
     }
@@ -57,23 +65,19 @@ class ProfileContainer extends React.Component {
 				})
     }
   
-    handleUpdate(event) {
-        console.log(this.state);
-      
+    handleUpdate(event) {      
         var newUser = {
             "id": this.state.user.id,
             "username": this.state.user.username,
             "firstName": this.state.firstName,
             "lastName": this.state.lastName,
-            "dob": new Date(this.state.dobYear, this.state.dobMonth, this.state.dobDay),
+            "dob": new Date(this.state.dobYear, this.state.dobMonth - 1, this.state.dobDay),
             "addStreet": this.state.addStreet,
             "addCity": this.state.addCity,
             "addState": this.state.addState,
             "addZip": this.state.addZip,
         };
-      
-        console.log(newUser);
-      
+            
         this.userService.updateUser(newUser);
       
         this.setState({
