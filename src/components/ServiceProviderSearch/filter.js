@@ -29,7 +29,7 @@ function MultipleChoiceFilter({title, description, choiceOptions, answer, update
       <div>{description}</div>
       <select value={answer} onChange={(e) => updateFilter(parseInt(e.target.value))}>
         {
-          choiceOptions.map((option, i) => <option value={i}>{option}</option>)
+          choiceOptions.map(o => <option value={o.id}>{o.text}</option>)
         }
       </select>
     </div>
@@ -58,7 +58,7 @@ export default function providerFilter({question, answer, updateFilter}) {
       <MultipleChoiceFilter
         title={question.title}
         description={question.description}
-        choiceOptions={question.choiceOptions}
+        choiceOptions={question.serviceQuestionChoiceOptions}
         answer={answer}
         updateFilter={updateFilter} />
     )
