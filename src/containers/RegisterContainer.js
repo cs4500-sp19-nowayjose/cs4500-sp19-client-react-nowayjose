@@ -27,7 +27,12 @@ export default class RegisterContainer extends React.Component {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             username: this.state.username,
-            password: this.state.password
+            password: this.state.password,
+            dob: new Date(),
+            addStreet: "",
+            addCity: "",
+            addState: "AL",
+            addZip: 0,
         };
 
         this.userService.registerUser(newUser).then(resp => {
