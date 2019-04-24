@@ -39,6 +39,7 @@ export default class UserService {
             },
             method: 'POST'
         }).then(response => {
+            localStorage.setItem("@user", JSON.stringify(user));
             return response;
         })
     }
