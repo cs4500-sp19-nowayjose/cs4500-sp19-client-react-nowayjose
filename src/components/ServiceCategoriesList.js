@@ -9,7 +9,7 @@ const ServiceCategoriesList = props =>
                 <th scope="col">Name</th>
             </tr>
             <tr>
-                <th> <input type="text" onChange={props.handleNameChange} value={props.name} placeholder="new category" /> </th>
+                <th> <input type="text" onChange={props.handleNameChange} value={props.name} placeholder="New Category" /> </th>
                 <th>
                     <button type="button" onClick={props.updateServiceCategory}
                             className="btn btn-primary btn-block">Save
@@ -25,6 +25,10 @@ const ServiceCategoriesList = props =>
             <tbody>
             {
                 props.serviceCategories
+                    .slice((props.page-1)*props.recordsNumber,
+                        Math.min(props.page*props.recordsNumber,
+                            props.serviceCategories.length))
+                    .filter(props.passesFilter)
                     .map(serviceCategory =>
                         <tr key={serviceCategory.id}>
                             <td>{serviceCategory.serviceCategoryName}</td>
@@ -66,6 +70,13 @@ const ServiceCategoriesList = props =>
                         <li className="page-item"><a className="page-link" onClick={props.handlePageChange}
                                                      disabled={props.page === Math.round(props.serviceCategories.length/props.recordsNumber)}>Next</a></li>
                     </ul>
+                </td>
+                <td>
+                    <button className="btn btn-secondary btn-block" onClick={props.handleFilterChange}>
+                        {
+                            (props.filter.name === undefined) ? 'Search' : 'Clear Search'
+                        }
+                    </button>
                 </td>
             </tr>
             </tfoot>
