@@ -11,7 +11,7 @@ export default class ServiceCategoryService {
         fetch(CATEGORY_API + `${categoryId}`)
             .then(response => {
 
-                response.json()
+                return response.json()
             })
     findAllServiceCategories = () =>
         fetch(CATEGORY_API)
@@ -54,5 +54,15 @@ export default class ServiceCategoryService {
             .then(function (response) {
                 return response.json();
             });
+    }
+
+    addServiceToCategory(serviceId, categoryId) {
+        return fetch(CATEGORY_API + categoryId + '/services/' + serviceId, {
+            method: 'post',
+            headers: {
+                'content-type': 'application/json',
+            },
+        })
+            .then(response => response.json());
     }
 }
