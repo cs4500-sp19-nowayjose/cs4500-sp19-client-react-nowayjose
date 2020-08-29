@@ -10,6 +10,7 @@ const FAQAnswers = props =>
             {
                 props.faqAnswers.map(faqAnswer =>
                     <option
+                        class="selectedFaq"
                         value={faqAnswer.id}
                         key={faqAnswer.id}>
                             {faqAnswer.id}
